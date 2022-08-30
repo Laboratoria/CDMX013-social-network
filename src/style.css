@@ -59,6 +59,11 @@ main {
   font-size: 1em;
   box-shadow: 5px 5px 5px #56122c;
 }
+/*HOVER PARA BOTONES DE REGISTER AN LOGIN */
+.button:hover{
+  background-color: rgb(251, 154, 174);
+  color: #B63766;
+}
 
 .welcome-footer{
   background-image: linear-gradient(rgba(122,195,243,10%), rgba(109,179,226,90%)) ;

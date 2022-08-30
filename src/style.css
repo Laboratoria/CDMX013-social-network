@@ -1,0 +1,76 @@
+body{
+    background-image: url('./img/principal-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#root {
+    justify-content: center;
+    padding-top: 125px;
+    display: flex;
+}
+
+
+.buttons-container img{
+  width: 165px;
+  height: 65px;
+}
+.welcome-text{
+  font-family: 'Poppins',sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+  text-align: center;
+  color: #FFFDFD;
+  font-weight: 700;
+  margin: 0;
+}
+
+.buttons-container{
+  display: flex;
+  flex-direction:column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 258px;
+  height: 265px;  
+  background-image: linear-gradient(rgba(251, 154, 174, 35%), rgba(255, 255, 255, 20%));
+  /*background: rgba(251, 154, 174, 20%);*/
+  box-shadow: 0px 4px 25px -1px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(3px);
+  border: 3px solid rgba(255, 255, 255, 65%);
+  border-radius: 15px;
+  gap: 20px;
+
+}
+
+.button{
+  background-color: #B63766;
+  color: white;
+  width: 132px;
+  height: 29px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1em;
+  box-shadow: 5px 5px 5px #56122c;
+}
+/*HOVER PARA BOTONES DE REGISTER AN LOGIN */
+.button:hover{
+  background-color: rgb(251, 154, 174);
+  color: #B63766;
+}
+
+.welcome-footer{
+  background-image: linear-gradient(rgba(122,195,243,10%), rgba(109,179,226,90%)) ;
+  height: 184px;
+  width: 320px;
+  
+}
+

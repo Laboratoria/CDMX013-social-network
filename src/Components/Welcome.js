@@ -1,7 +1,7 @@
 export function welcome() {
   // Buttons Container
-  const divContainer = document.createElement('div');
-  const buttonsContainer = document.querySelector('main').appendChild(divContainer);
+
+  const buttonsContainer = document.createElement('div');
   buttonsContainer.setAttribute('class', 'buttons-container');
 
   // Logo
@@ -25,7 +25,7 @@ export function welcome() {
   // Register
   const registerBtn = document.createElement('button');
   registerBtn.setAttribute('class', 'button');
-  registerBtn.setAttribute('name', 'register');
+  registerBtn.setAttribute('id', 'register');
   registerBtn.innerHTML = 'Register';
   buttonsContainer.appendChild(registerBtn);
 
@@ -33,4 +33,6 @@ export function welcome() {
   const divFooter = document.createElement('div');
   divFooter.setAttribute('class', 'welcome-footer');
   document.querySelector('footer').appendChild(divFooter);
+
+  return buttonsContainer;
 }

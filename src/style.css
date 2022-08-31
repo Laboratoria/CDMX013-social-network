@@ -9,6 +9,13 @@ body{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+   
+}
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 #root {
@@ -27,7 +34,7 @@ body{
   font-size: 20px;
   line-height: 27px;
   text-align: center;
-  color: #FFFDFD;
+  color: rgba(0, 0, 0, 60%);
   font-weight: 700;
   margin: 0;
 }
@@ -40,11 +47,11 @@ body{
   align-items: center;
   width: 258px;
   height: 265px;  
-  background-image: linear-gradient(rgba(251, 154, 174, 35%), rgba(255, 255, 255, 20%));
+  background-color: rgba(255, 255, 255, 60%);
   /*background: rgba(251, 154, 174, 20%);*/
   box-shadow: 0px 4px 25px -1px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(3px);
-  border: 3px solid rgba(255, 255, 255, 65%);
+  
+  border: 3px solid #B63766;
   border-radius: 15px;
   gap: 20px;
 
@@ -52,7 +59,7 @@ body{
 
 .button{
   background-color: #B63766;
-  color: white;
+  color: #fafafa;
   width: 132px;
   height: 29px;
   border: none;
@@ -63,8 +70,9 @@ body{
 }
 /*HOVER PARA BOTONES DE REGISTER AN LOGIN */
 .button:hover{
-  background-color: rgb(251, 154, 174);
-  color: #B63766;
+  background-color: #A4DAFF;
+  color: #445E84;
+  box-shadow: 4px 4px 4px #445E84;
 }
 
 .welcome-footer{

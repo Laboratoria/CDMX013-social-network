@@ -1,6 +1,6 @@
 export function welcome() {
   // Buttons Container
-
+  const mainContainer = document.createElement('main');
   const buttonsContainer = document.createElement('div');
   buttonsContainer.setAttribute('class', 'buttons-container');
 
@@ -29,10 +29,13 @@ export function welcome() {
   registerBtn.innerHTML = 'Register';
   buttonsContainer.appendChild(registerBtn);
 
+  // Insert buttonsContainer to mainContainer
+  mainContainer.appendChild(buttonsContainer);
+
   // Footer Div
   const divFooter = document.createElement('div');
   divFooter.setAttribute('class', 'welcome-footer');
-  document.querySelector('footer').appendChild(divFooter);
+  mainContainer.appendChild(divFooter);
 
-  return buttonsContainer;
+  return mainContainer;
 }

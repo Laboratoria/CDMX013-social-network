@@ -3,6 +3,10 @@ export function welcome() {
   const mainContainer = document.createElement('main');
   const buttonsContainer = document.createElement('div');
   buttonsContainer.setAttribute('class', 'buttons-container');
+  // Welcome IMG
+  const welcomeImg = document.createElement('img');
+  welcomeImg.setAttribute('class', 'first-img');
+  welcomeImg.src = './img/welcome-img.jpg';
 
   // Logo
   const logo = document.createElement('img');
@@ -12,8 +16,7 @@ export function welcome() {
   // Text
   const text = document.createElement('p');
   text.setAttribute('class', 'welcome-text');
-  text.innerHTML = 'Join us and share your healthy life style';
-  buttonsContainer.appendChild(text);
+  text.innerHTML = 'By Signing up you agree to the Terms of use';
 
   // Login
   const loginBtn = document.createElement('button');
@@ -29,13 +32,12 @@ export function welcome() {
   registerBtn.innerHTML = 'Register';
   buttonsContainer.appendChild(registerBtn);
 
-  // Insert buttonsContainer to mainContainer
-  mainContainer.appendChild(buttonsContainer);
-
   // Footer Div
   const divFooter = document.createElement('div');
   divFooter.setAttribute('class', 'welcome-footer');
-  mainContainer.appendChild(divFooter);
+  divFooter.appendChild(text);
+  // Insert to main
+  mainContainer.append(welcomeImg, buttonsContainer, divFooter);
 
   return mainContainer;
 }

@@ -1,4 +1,6 @@
 export function welcome() {
+  //Container for main and footer
+  const fatherOfAll = document.createElement('div');
   // Buttons Container
   const mainContainer = document.createElement('main');
   const buttonsContainer = document.createElement('div');
@@ -34,11 +36,14 @@ export function welcome() {
   buttonsContainer.appendChild(registerBtn);
 
   // Footer Div
+  const footerContainer = document.createElement('footer');
   const divFooter = document.createElement('div');
   divFooter.setAttribute('class', 'welcome-footer');
   divFooter.appendChild(text);
+  footerContainer.appendChild(divFooter);
   // Insert to main
-  mainContainer.append(welcomeImg, buttonsContainer, divFooter);
+  mainContainer.append(welcomeImg, buttonsContainer);
+  fatherOfAll.append(mainContainer, footerContainer);
 
-  return mainContainer;
+  return fatherOfAll;
 }

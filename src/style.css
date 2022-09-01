@@ -1,5 +1,5 @@
 body{
-   background-color: #fafafa;
+   background-color: #ffffff;
     margin: 0;
     height: 100vh;
     width: 100%;
@@ -13,9 +13,7 @@ main{
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 15px;
-
- 
+  gap: 10px;
 }
 
 #root {
@@ -26,14 +24,14 @@ main{
 .first-img{
   width: 300px;
   height: 300px;
- 
 }
 
-
-.buttons-container img{
-  width: 165px;
-  height: 65px;
+.logo{
+  height: 66px;
+  width: 175px;
+  padding-bottom: 10px;
 }
+
 .welcome-text{
   font-family: 'Poppins',sans-serif;
   font-size: 12px;
@@ -52,16 +50,14 @@ main{
   align-items: center;
   width: 258px;
   height: 200px;  
-  background-color: #fafafa;
+  background-color: #ffffff;
   margin-top: 0;
-  justify-content: space-between;
-  border-radius: 15px;
  
-
+  border-radius: 15px;
 }
 
 .button{
-  background-color: #fafafa;
+  background-color: #ffffff;
   color: #445E84;
   width: 240px;
   height: 50px;
@@ -69,7 +65,12 @@ main{
   border-radius: 20px;
   font-weight: 700;
   font-size: 1em;
-  border: 2px solid #A4DAFF;;
+  border: 2px solid #A4DAFF;
+ 
+}
+#login{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 /*HOVER PARA BOTONES DE REGISTER AN LOGIN */
 .button:hover{
@@ -79,7 +80,7 @@ main{
 }
 
 .welcome-footer{
-  background-color: #fafafa;
+  background-color: #ffffff;
   height: 30px;
   width: 320px;
   

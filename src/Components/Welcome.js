@@ -10,6 +10,7 @@ export function welcome() {
 
   // Logo
   const logo = document.createElement('img');
+  logo.setAttribute('class', 'logo');
   logo.src = './img/logo.png';
   buttonsContainer.appendChild(logo);
 
@@ -21,7 +22,7 @@ export function welcome() {
   // Login
   const loginBtn = document.createElement('button');
   loginBtn.setAttribute('class', 'button');
-  loginBtn.setAttribute('name', 'login');
+  loginBtn.setAttribute('id', 'login');
   loginBtn.innerHTML = 'Login';
   buttonsContainer.appendChild(loginBtn);
 

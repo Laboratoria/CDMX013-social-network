@@ -1,22 +1,23 @@
 import { welcome } from './Components/Welcome.js';
-// import { register } from './Components/Register.js';
+import { register } from './Components/Register.js';
 
-welcome();
+// welcome();
 // register();
 
 const root = document.querySelector('#root');
 
 const routes = {
   '/': welcome,
-  // '/register': register,
+  '/register': register,
 };
 
-const onNavigate = (pathname) => {
+export const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
     window.location.origin + pathname,
   );
+  root.removeChild(root.firstChild);
   root.appendChild(routes[pathname]());
 };
 

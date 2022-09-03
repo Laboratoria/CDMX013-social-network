@@ -1,5 +1,7 @@
+import { onNavigate } from '../main.js';
+
 export function welcome() {
-  //Container for main and footer
+  // Container for main and footer
   const fatherOfAll = document.createElement('div');
   // Buttons Container
   const mainContainer = document.createElement('main');
@@ -33,6 +35,9 @@ export function welcome() {
   registerBtn.setAttribute('class', 'button');
   registerBtn.setAttribute('id', 'register');
   registerBtn.innerHTML = 'Register';
+  registerBtn.addEventListener('click', () => {
+    onNavigate('/register');
+  });
   buttonsContainer.appendChild(registerBtn);
 
   // Footer Div

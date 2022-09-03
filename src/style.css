@@ -85,4 +85,110 @@ main{
   width: 320px;
   
 }
+/*second view */
+.registerDiv {
+  position: relative;
+  display: flex;
+  flex-direction:column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 275px;
+  height: 175px;  
+  margin: 15px;
+  z-index: 1;
 
+}
+
+.confetti-img {
+  position: absolute;
+  width: 275px;
+  height: 175px;
+  z-index: 2;
+
+}
+
+.create-account {
+  position: absolute;
+  width: 228px;
+  height: 61px;
+  justify-content: center;
+  top: 30px;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 39px;
+  display: flex;
+  align-items: center;
+  color: #EF899C;
+  z-index: 3;
+}
+.join-text {
+  position: absolute;
+  width: 200px;
+  height: 39px;
+  top: 110px;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+.form-container {
+  
+  width: 260px;
+  height: 250px;
+  
+}
+.form-register {
+  display: flex;
+  flex-direction:column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 260px;
+  height: 250px;
+
+}
+label {
+  
+font-family: 'Poppins',sans-serif;
+font-weight: 700;
+font-size: 14px;
+line-height: 21px;
+color: #445E84;
+
+}
+.sign-up {
+  position: relative;
+  width: 136px;
+  height: 30px;
+  left: 60px;
+  background: #A6DBFF;
+  border: 2px solid #A6DBFF;
+  border-radius: 16px;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
+  color: #445E84;
+}
+
+
+.footer-text {
+  height: 30px;
+  width: 320px;
+  top: 20px;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  padding-top: 20px;
+  color: rgba(0, 0, 0, 60%);
+  
+}

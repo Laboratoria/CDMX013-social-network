@@ -61,14 +61,13 @@ export function register() {
   // Insert footer text
   registerFooter.appendChild(footerText);
   // Insert form elements
-  registerForm.append(labelUsername, inputUsername, labelMail, inputMail);
-  registerForm.append(labelPass, inputPass, btnSignUp);
+  registerForm.append(labelUsername, inputUsername, labelMail, inputMail,labelPass, inputPass, btnSignUp);
+  formContainer.append(registerForm);
   // Insert form to form container
-  registerFooter.append(registerForm);
   // Insert everything to main
-  mainContainer.append(registerDiv, formContainer, registerFooter);
+  mainContainer.append(registerDiv, formContainer);
   // Inser to div father of all
-  fatherOfAll.appendChild(mainContainer);
+  fatherOfAll.append(mainContainer,registerFooter);
   // Return all
   return fatherOfAll;
 }

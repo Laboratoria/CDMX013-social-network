@@ -9,6 +9,7 @@ body{
     align-items: center;
    
 }
+
 main{
   display: flex;
   align-items: center;
@@ -16,11 +17,7 @@ main{
   gap: 10px;
 }
 
-#root {
-    justify-content: center;
-  
-    display: flex;
-}
+
 .first-img{
   width: 300px;
   height: 270px;
@@ -72,7 +69,7 @@ main{
   margin-top: 10px;
   margin-bottom: 20px;
 }
-/*HOVER PARA BOTONES DE REGISTER AN LOGIN */
+/*HOVER BUTTONS IN LOGIN */
 .button:hover{
   background-color: #A4DAFF;
   color: #445E84;
@@ -85,7 +82,7 @@ main{
   width: 320px;
   
 }
-/*second view */
+/*REGISTER VIEW */
 .registerDiv {
   position: relative;
   display: flex;
@@ -101,7 +98,7 @@ main{
 }
 
 .confetti-img {
-  position: absolute;
+  object-fit: cover;
   width: 275px;
   height: 175px;
   z-index: 2;
@@ -138,12 +135,7 @@ main{
   color: rgba(0, 0, 0, 0.6);
   z-index: 3;
 }
-.form-container {
-  
-  width: 260px;
-  height: 250px;
-  
-}
+
 .form-register {
   display: flex;
   flex-direction:column;
@@ -153,15 +145,24 @@ main{
   height: 250px;
 
 }
+
 label {
-  
 font-family: 'Poppins',sans-serif;
 font-weight: 700;
 font-size: 14px;
 line-height: 21px;
 color: #445E84;
-
+margin: 5px;
 }
+
+.form-register input {
+    border:none;
+    border-bottom:  2px solid #A6DBFF;
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
 .sign-up {
   position: relative;
   width: 136px;
@@ -176,6 +177,7 @@ color: #445E84;
   line-height: 20px;
   align-items: center;
   color: #445E84;
+  margin-top: 20px;
 }
 
 
@@ -189,6 +191,5 @@ color: #445E84;
   line-height: 18px;
   text-align: center;
   padding-top: 20px;
-  color: rgba(0, 0, 0, 60%);
-  
+  color: rgba(0, 0, 0, 60%); 
 }

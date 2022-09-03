@@ -61,7 +61,8 @@ export function register() {
   // Insert footer text
   registerFooter.appendChild(footerText);
   // Insert form elements
-  registerForm.append(labelUsername, inputUsername, labelMail, inputMail,labelPass, inputPass, btnSignUp);
+  registerForm.append(
+    labelUsername, inputUsername, labelMail, inputMail,labelPass, inputPass, btnSignUp);
   formContainer.append(registerForm);
   // Insert form to form container
   // Insert everything to main

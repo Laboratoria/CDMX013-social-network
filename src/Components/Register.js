@@ -1,3 +1,6 @@
+import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { app } from '../lib/config.js'
+
 export function register() {
 // Container for main and footer
   const fatherOfAll = document.createElement('div');
@@ -69,6 +72,32 @@ export function register() {
   mainContainer.append(registerDiv, formContainer);
   // Inser to div father of all
   fatherOfAll.append(mainContainer,registerFooter);
-  // Return all
-  return fatherOfAll;
+  
+  // Take data from the form
+registerForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  /*const inputName = document.querySelector('#username').value;*/
+   const inputmailValue = document.querySelector('#user-mail').value;
+   const inputpasswordValue = document.querySelector('#user-pass').value;
+ 
+  console.log( inputmailValue, inputpasswordValue);
+  const auth = getAuth(app);
+   createUserWithEmailAndPassword(auth, inputmailValue, inputpasswordValue)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    // ...
+  })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+  
+});
+
+
+// Return all
+return fatherOfAll;
 }
+

@@ -1,8 +1,11 @@
 import { welcome } from './Components/Welcome.js';
 import { register } from './Components/Register.js';
+import { app } from './lib/config.js';
+
 
 // welcome();
 // register();
+console.log(app)
 
 const root = document.querySelector('#root');
 

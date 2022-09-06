@@ -1,4 +1,5 @@
 import { newUser } from '../lib/Auth.js';
+import { onNavigate } from '../main.js';
 
 export function register() {
 // Container for main and footer
@@ -49,6 +50,10 @@ export function register() {
   const inputPass = document.createElement('input');
   inputPass.setAttribute('type', 'password');
   inputPass.setAttribute('id', 'user-pass');
+  // aler msg
+  const alertMsg = document.createElement('p');
+  alertMsg.textContent = 'Password must have 6 characters length';
+  alertMsg.setAttribute('id', 'alert-msg');
   // Sign up btn
   const btnSignUp = document.createElement('button');
   btnSignUp.textContent = 'Sign up';
@@ -64,7 +69,7 @@ export function register() {
   registerFooter.appendChild(footerText);
   // Insert form elements
   // eslint-disable-next-line max-len
-  registerForm.append(labelUsername, inputUsername, labelMail, inputMail, labelPass, inputPass, btnSignUp);
+  registerForm.append(labelUsername, inputUsername, labelMail, inputMail, labelPass, inputPass, alertMsg, btnSignUp);
   formContainer.append(registerForm);
   // Insert form to form container
   // Insert everything to main
@@ -88,12 +93,14 @@ export function register() {
       // Email verification sent!
       // ...
       console.log('si funciona');
+      onNavigate('/home');
     })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log('nel');
         // ..
+        alertMsg.style = 'display: block';
       });
   });
   // Return all

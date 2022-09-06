@@ -36,6 +36,7 @@ export function register() {
   const inputUsername = document.createElement('input');
   inputUsername.setAttribute('type', 'text');
   inputUsername.setAttribute('id', 'username');
+  inputUsername.setAttribute('required', 'required');
   // Mail
   const labelMail = document.createElement('label');
   labelMail.setAttribute('for', 'user-mail');
@@ -43,6 +44,8 @@ export function register() {
   const inputMail = document.createElement('input');
   inputMail.setAttribute('type', 'email');
   inputMail.setAttribute('id', 'user-mail');
+  inputMail.setAttribute('required', 'required');
+
   // Password
   const labelPass = document.createElement('label');
   labelPass.setAttribute('for', 'user-pass');
@@ -50,6 +53,8 @@ export function register() {
   const inputPass = document.createElement('input');
   inputPass.setAttribute('type', 'password');
   inputPass.setAttribute('id', 'user-pass');
+  inputPass.setAttribute('required', 'required');
+  
   // aler msg
   const alertMsg = document.createElement('p');
   alertMsg.textContent = 'Password must have 6 characters length';
@@ -79,10 +84,11 @@ export function register() {
   // Take data from the form
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    /* const inputName = document.querySelector('#username').value; */
+    /* const inputName = document.querySelector('#username').value; 
+    document.querySelector('#username').required = true;*/
+ 
     const inputmailValue = document.querySelector('#user-mail').value;
     const inputpasswordValue = document.querySelector('#user-pass').value;
-
     console.log(inputmailValue, inputpasswordValue);
 
     newUser(inputmailValue, inputpasswordValue).then((userCredential) => {
@@ -100,7 +106,10 @@ export function register() {
         const errorMessage = error.message;
         console.log('nel');
         // ..
-        alertMsg.style = 'display: block';
+        if(inputpasswordValue >= 1 ){
+          alertMsg.style = 'display: block';
+        }
+        
       });
   });
   // Return all

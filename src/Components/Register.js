@@ -1,5 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
-import { app } from '../lib/config.js'
+import { newUser } from '../lib/Auth.js';
 
 export function register() {
 // Container for main and footer
@@ -64,40 +63,39 @@ export function register() {
   // Insert footer text
   registerFooter.appendChild(footerText);
   // Insert form elements
-  registerForm.append(
-    labelUsername, inputUsername, labelMail, inputMail,labelPass, inputPass, btnSignUp);
+  // eslint-disable-next-line max-len
+  registerForm.append(labelUsername, inputUsername, labelMail, inputMail, labelPass, inputPass, btnSignUp);
   formContainer.append(registerForm);
   // Insert form to form container
   // Insert everything to main
   mainContainer.append(registerDiv, formContainer);
   // Inser to div father of all
-  fatherOfAll.append(mainContainer,registerFooter);
-  
+  fatherOfAll.append(mainContainer, registerFooter);
   // Take data from the form
-registerForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  /*const inputName = document.querySelector('#username').value;*/
-   const inputmailValue = document.querySelector('#user-mail').value;
-   const inputpasswordValue = document.querySelector('#user-pass').value;
- 
-  console.log( inputmailValue, inputpasswordValue);
-  const auth = getAuth(app);
-   createUserWithEmailAndPassword(auth, inputmailValue, inputpasswordValue)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    /* const inputName = document.querySelector('#username').value; */
+    const inputmailValue = document.querySelector('#user-mail').value;
+    const inputpasswordValue = document.querySelector('#user-pass').value;
+
+    console.log(inputmailValue, inputpasswordValue);
+
+    newUser(inputmailValue, inputpasswordValue).then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
       // ..
-    });
-  
-});
-
-
-// Return all
-return fatherOfAll;
+      console.log(user);
+      // Email verification sent!
+      // ...
+      console.log('si funciona');
+    })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('nel');
+        // ..
+      });
+  });
+  // Return all
+  return fatherOfAll;
 }
-

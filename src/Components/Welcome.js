@@ -34,7 +34,7 @@ export function welcome() {
   const registerBtn = document.createElement('button');
   registerBtn.setAttribute('class', 'button');
   registerBtn.setAttribute('id', 'register');
-  registerBtn.innerHTML = 'Register';
+  registerBtn.innerHTML = 'Sign up';
   registerBtn.addEventListener('click', () => {
     onNavigate('/register');
   });

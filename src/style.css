@@ -100,7 +100,7 @@ main{
 .confetti-img {
   object-fit: cover;
   width: 275px;
-  height: 175px;
+  height: 160px;
   z-index: 2;
 
 }
@@ -142,7 +142,7 @@ main{
   box-sizing: border-box;
   justify-content: space-between;
   width: 260px;
-  height: 250px;
+  height: 300px;
 
 }
 
@@ -170,9 +170,9 @@ margin: 5px;
 }
 .sign-up {
   position: relative;
-  width: 136px;
-  height: 30px;
-  left: 60px;
+  width: 200px;
+  height: 40px;
+  left: 30px;
   background: #A6DBFF;
   border: 2px solid #A6DBFF;
   border-radius: 16px;
@@ -182,7 +182,7 @@ margin: 5px;
   line-height: 20px;
   align-items: center;
   color: #445E84;
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 
@@ -195,6 +195,6 @@ margin: 5px;
   font-size: 12px;
   line-height: 18px;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 10px;
   color: rgba(0, 0, 0, 60%); 
 }

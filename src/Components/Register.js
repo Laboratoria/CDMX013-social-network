@@ -69,7 +69,7 @@ export function register() {
   const registerFooter = document.createElement('footer');
   const footerText = document.createElement('p');
   footerText.setAttribute('class', 'footer-text');
-  footerText.textContent = 'Already have an account? Log in';
+  footerText.textContent = 'Already have an account? Login';
   // Insert footer text
   registerFooter.appendChild(footerText);
   // Insert form elements
@@ -82,6 +82,8 @@ export function register() {
   // Inser to div father of all
   fatherOfAll.append(mainContainer, registerFooter);
   // Take data from the form
+
+  // footerText.addEventListener('')
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
     /* const inputName = document.querySelector('#username').value; 

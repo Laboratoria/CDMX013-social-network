@@ -199,9 +199,20 @@ input {
   margin-top: 25px;
 }
 
-footer{
+footer, .login-footer{
   display: flex;
   justify-content: center;
+}
+
+.login-footer{
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logos-container{
+  display: flex;
+  gap: 20px;
 }
 
 .footer-register {

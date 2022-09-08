@@ -20,7 +20,7 @@ export function welcome() {
 
   // Text
   const text = document.createElement('p');
-  text.setAttribute('class', 'welcome-text');
+  text.setAttribute('class', 'first-text');
   text.innerHTML = 'By Signing up you agree to the Terms of use';
 
   // Login
@@ -45,10 +45,7 @@ export function welcome() {
 
   // Footer Div
   const footerContainer = document.createElement('footer');
-  const divFooter = document.createElement('div');
-  divFooter.setAttribute('class', 'welcome-footer');
-  divFooter.appendChild(text);
-  footerContainer.appendChild(divFooter);
+  footerContainer.appendChild(text);
   // Insert to main
   mainContainer.append(welcomeImg, buttonsContainer);
   fatherOfAll.append(mainContainer, footerContainer);

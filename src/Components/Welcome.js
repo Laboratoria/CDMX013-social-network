@@ -28,6 +28,9 @@ export function welcome() {
   loginBtn.setAttribute('class', 'button');
   loginBtn.setAttribute('id', 'login');
   loginBtn.innerHTML = 'Login';
+  loginBtn.addEventListener('click', () => {
+    onNavigate('/login');
+  });
   buttonsContainer.appendChild(loginBtn);
 
   // Register

@@ -185,16 +185,38 @@ margin: 5px;
   margin-top: 25px;
 }
 
-
+footer{
+  display: flex;
+  margin-left: 60px;
+}
 .footer-text {
   height: 30px;
-  width: 320px;
+  width: 75%px;
   top: 20px;
   font-family: 'Poppins',sans-serif;
   font-weight: 700;
   font-size: 12px;
   line-height: 18px;
-  text-align: center;
   padding-top: 10px;
   color: rgba(0, 0, 0, 60%); 
+ justify-content: flex-end;
+}
+
+.login-text {
+  height: 30px;
+  width: 25%;
+  top: 20px;
+  padding-left: 5px;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  padding-top: 10px;
+  color: rgba(0, 0, 0, 60%); 
+  justify-content: flex-start;
+
+}
+
+.login-text:hover {
+  text-decoration: underline ;
 }

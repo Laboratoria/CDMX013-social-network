@@ -1,6 +1,7 @@
 import { welcome } from './Components/Welcome.js';
 import { register } from './Components/Register.js';
 import { home } from './Components/Home.js';
+import { login } from './Components/Login.js';
 
 // welcome();
 // register();
@@ -9,6 +10,7 @@ const root = document.querySelector('#root');
 const routes = {
   '/': welcome,
   '/register': register,
+  '/login':login,
   '/home': home,
 };
 

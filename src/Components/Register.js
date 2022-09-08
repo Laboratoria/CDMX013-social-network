@@ -69,9 +69,14 @@ export function register() {
   const registerFooter = document.createElement('footer');
   const footerText = document.createElement('p');
   footerText.setAttribute('class', 'footer-text');
-  footerText.textContent = 'Already have an account? Login';
+  footerText.textContent = 'Already have an account?';
+  
+  const loginText = document.createElement('p');
+  loginText.setAttribute('class', 'login-text');
+  loginText.textContent = 'Login';
+
   // Insert footer text
-  registerFooter.appendChild(footerText);
+  registerFooter.append(footerText, loginText);
   // Insert form elements
   // eslint-disable-next-line max-len
   registerForm.append(labelUsername, inputUsername, labelMail, inputMail, labelPass, inputPass, alertMsg, btnSignUp);
@@ -82,7 +87,9 @@ export function register() {
   // Inser to div father of all
   fatherOfAll.append(mainContainer, registerFooter);
   // Take data from the form
-
+  loginText.addEventListener('click',() => {
+    onNavigate('/login');
+  })
   // footerText.addEventListener('')
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();

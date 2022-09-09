@@ -1,3 +1,5 @@
+import { loginUser } from '../lib/Auth.js';
+import { onNavigate } from '../main.js';
 
 export function login() {
   // Container for main and footer
@@ -37,11 +39,11 @@ export function login() {
   inputMail.setAttribute('required', 'required');
   // Password
   const labelPassword= document.createElement('label');
-  labelPassword.setAttribute('class','passLogin');
+  labelPassword.setAttribute('class', 'passLogin');
   labelPassword.setAttribute('for', 'password');
   labelPassword.textContent = 'Password';
   const inputPassword = document.createElement('input');
-  inputPassword.setAttribute('type', 'text');
+  inputPassword.setAttribute('type', 'password');
   inputPassword.setAttribute('id', 'password');
   inputPassword.setAttribute('required', 'required');
   // aler msg
@@ -80,14 +82,30 @@ export function login() {
   loginFooter.append(footerText, logosContainer);
   // Insert form elements
   // eslint-disable-next-line max-len
-  loginForm.append( labelMail, inputMail, labelPassword, inputPassword, alertMsg,  btnLogin );
+  loginForm.append(labelMail, inputMail, labelPassword, inputPassword, alertMsg,  btnLogin );
   formContainer.append(loginForm);
   // Insert everything to main
   mainContainer.append(loginDiv, formContainer);
   // Inser to div father of all
-  fatherOfAll.append(mainContainer, loginFooter);
-     
+  fatherOfAll.append(mainContainer, loginFooter);    
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const inputmailValue = document.querySelector('#mail').value;
+    const inputpasswordValue = document.querySelector('#password').value;
+
+    loginUser(inputmailValue, inputpasswordValue).then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      // ...
+      onNavigate('/home');
+    })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('valiendo qso');
+      });
+  });
 
   return fatherOfAll;
 }
-

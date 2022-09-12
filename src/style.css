@@ -97,7 +97,7 @@ main{
 
 }
 
-.confetti-img {
+.confetti-img, .home-img{
   object-fit: cover;
   width: 275px;
   height: 160px;
@@ -105,7 +105,7 @@ main{
 
 }
 
-.create-account, .login-title {
+.create-account, .login-title, .welcome-title{
   position: absolute;
   width: 228px;
   height: 61px;
@@ -259,5 +259,14 @@ footer, .login-footer{
 
 .login-text:hover {
   text-decoration: underline ;
+}
+
+/* BOTON LOGOUT*/
+.log-out{
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 525px;
+  left: 25px;
 }
 

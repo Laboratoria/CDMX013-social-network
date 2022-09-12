@@ -1,6 +1,6 @@
-import { loginUser } from '../lib/Auth.js';
-import { signIn, resultRedirec,credential } from '../lib/Auth.js';
+import { providerGoogle, resultRedirect, credential, singIn, loginUser } from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
+
 
 
 export function login() {
@@ -99,8 +99,7 @@ export function login() {
     loginUser(inputmailValue, inputpasswordValue).then((userCredential) => {
       // Signed in
       const user = userCredential.user;
-      // ...
-      onNavigate('/home');
+      
     })
       .catch((error) => {
         const errorCode = error.code;
@@ -108,23 +107,25 @@ export function login() {
         console.log('valiendo qso');
       });
   });
- 
+
   logoGoogle.addEventListener('click', ()=> {
-    signIn();
-    resultRedirec.then((result)=> {
+    providerGoogle;
+    singIn(providerGoogle);
+    resultRedirect().then((result)=> {
       const credentialGoogle = credential(result);
       const token = credentialGoogle.accessToken;
     // The signed-in user info.
       const user = result.user;
     console.log(user);
     console.log('si funciona');
-    
     })
     .catch((error) =>{
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log('valiendo qso');
-    })
+    });
   });
+  
+ 
   return fatherOfAll;
 }

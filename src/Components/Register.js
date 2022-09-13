@@ -67,6 +67,7 @@ export function register() {
   btnSignUp.setAttribute('value', 'submit');
   // Footer
   const registerFooter = document.createElement('footer');
+  registerFooter.setAttribute('class', 'footer-register');
   const footerText = document.createElement('p');
   footerText.setAttribute('class', 'footer-text');
   footerText.textContent = 'Already have an account?';

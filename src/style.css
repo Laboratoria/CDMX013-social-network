@@ -46,7 +46,7 @@ main{
   justify-content: center;
   align-items: center;
   width: 258px;
-  height: 250px;  
+  height: 200px;  
   background-color: #ffffff;
   margin-top: 0;
  
@@ -83,7 +83,7 @@ main{
   
 }
 /*REGISTER VIEW */
-.registerDiv {
+.registerDiv, .loginDiv {
   position: relative;
   display: flex;
   flex-direction:column;
@@ -97,7 +97,7 @@ main{
 
 }
 
-.confetti-img {
+.confetti-img, .home-img{
   object-fit: cover;
   width: 275px;
   height: 160px;
@@ -105,7 +105,7 @@ main{
 
 }
 
-.create-account {
+.create-account, .login-title, .welcome-title{
   position: absolute;
   width: 228px;
   height: 61px;
@@ -120,7 +120,7 @@ main{
   color: #EF899C;
   z-index: 3;
 }
-.join-text {
+.join-text, .welcome-text {
   position: absolute;
   width: 200px;
   height: 39px;
@@ -146,6 +146,16 @@ main{
 
 }
 
+.form-login {
+  display: flex;
+  flex-direction:column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 260px;
+  height: 200px;
+
+}
+
 label {
 font-family: 'Poppins',sans-serif;
 font-weight: 700;
@@ -155,7 +165,11 @@ color: #445E84;
 margin: 5px;
 }
 
-.form-register input {
+.passLogin {
+  margin-top: 10px;
+}
+
+input {
     border:none;
     border-bottom:  2px solid #A6DBFF;
     width: 100%;
@@ -168,7 +182,7 @@ margin: 5px;
   font-size: 12px;
   color: red;
 }
-.sign-up {
+.sign-up, .login {
   position: relative;
   width: 200px;
   height: 40px;
@@ -176,7 +190,7 @@ margin: 5px;
   background: #A6DBFF;
   border: 2px solid #A6DBFF;
   border-radius: 16px;
-  font-family: 'Poppins',sans-serif;
+  font-family: 'Poppins',sans-serif; 
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
@@ -185,22 +199,49 @@ margin: 5px;
   margin-top: 25px;
 }
 
-footer{
+footer, .login-footer{
   display: flex;
-  margin-left: 60px;
+  justify-content: center;
+}
+
+.login-footer{
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logos-container{
+  display: flex;
+  gap: 20px;
+}
+
+.footer-register {
+  margin-left: 40px;
 }
 .footer-text {
   height: 30px;
   width: 75%px;
-  top: 20px;
   font-family: 'Poppins',sans-serif;
   font-weight: 700;
   font-size: 12px;
   line-height: 18px;
-  padding-top: 10px;
   color: rgba(0, 0, 0, 60%); 
  justify-content: flex-end;
 }
+
+.first-text {
+    height: 30px;
+    width: 100%px;
+    top: 20px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: rgba(0, 0, 0, 60%); 
+   
+  }
+
 
 .login-text {
   height: 30px;
@@ -211,7 +252,6 @@ footer{
   font-weight: 700;
   font-size: 12px;
   line-height: 18px;
-  padding-top: 10px;
   color: rgba(0, 0, 0, 60%); 
   justify-content: flex-start;
 
@@ -220,3 +260,13 @@ footer{
 .login-text:hover {
   text-decoration: underline ;
 }
+
+/* BOTON LOGOUT*/
+.log-out{
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 500px;
+  left: 25px;
+}
+

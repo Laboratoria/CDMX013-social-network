@@ -3,7 +3,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult, GithubAuthProvider,
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect, getRedirectResult, GithubAuthProvider, signOut
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { app } from './config.js';
 
@@ -20,3 +20,5 @@ export const credential = (result) => provider.credentialFromResult(result);
 // LOGIN WITH GITHUB
 export const providerGithub = new GithubAuthProvider();
 export const signInWithGithub = (providerGithub) => signInWithRedirect(auth, providerGithub);
+// SIGNOUT
+export const signoutPage = () => signOut(auth);

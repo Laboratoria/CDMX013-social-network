@@ -1,3 +1,5 @@
+import { signoutPage } from '../lib/Auth.js';
+ 
 /* eslint-disable space-before-blocks */
 export function home(){
   // Father container
@@ -15,5 +17,16 @@ export function home(){
   logOut.src = '../img/switch.png';
   logOut.setAttribute('class', 'log-out');
   fatherOfAll.append(homeImg, welcomeTxt, logOut);
+  // evento click cerrar sesion
+  logOut.addEventListener('click', () => {
+   
+    signoutPage().then(() => {
+      // Sign-out successful.
+      console.log('si cerro');
+    }).catch((error) => {
+      // An error happened.
+    });
+    
+});
   return fatherOfAll;
 }

@@ -261,12 +261,63 @@ footer, .login-footer{
   text-decoration: underline ;
 }
 
-/* BOTON LOGOUT*/
-.log-out{
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 500px;
-  left: 25px;
-}
 
+/*FEED*/
+.header-feed {
+  width: 90%;
+  height: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px;
+  
+  }
+  .logogym-feed {
+  width: 108px;
+  height: 40px;
+  }
+  .log-out{
+  width: 24px;
+  height:24px;
+  }
+  
+  .main-feed{
+   display: flex;
+    
+  }
+  .background-feed{
+    position: relative;
+    z-index: 1;
+  }
+  .hello-div{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .feed-title{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 39px;
+    display: flex;
+    color: #445E84;
+    
+  }
+  .icon-feed{
+    
+    width: 26px;
+    height: 26px;
+  }
+  .question-feed{
+    position: absolute;
+    z-index: 2;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    top: 120px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+  }

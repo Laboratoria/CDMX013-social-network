@@ -9,7 +9,16 @@ body{
     align-items: center;
    
 }
-
+.root{
+  height: 568px;
+  width: 320px;
+}
+.fatherOfAll-feed{
+  height: 568px;
+  width: 320px;
+  position: relative;
+    z-index: 1;
+}
 main{
   display: flex;
   align-items: center;
@@ -264,42 +273,62 @@ footer, .login-footer{
 
 /*FEED*/
 .header-feed {
-  width: 90%;
-  height: 30%;
+  width: 320px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 15px;
-  
+  z-index: 3;
+  position: absolute;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
   }
   .logogym-feed {
   width: 108px;
   height: 40px;
+  padding-left: 15px;
+  
   }
   .log-out{
-  width: 24px;
-  height:24px;
+  width: 30px;
+  height:30px;
+  padding-right: 15px;
   }
   
   .main-feed{
-   display: flex;
-    
+   width: 320px;
+   height: 560px;
+   display: grid;
+   grid-template-rows: 75px 75px auto;
+   justify-items: center;
+   align-items: start;
   }
   .background-feed{
-    position: relative;
-    z-index: 1;
-  }
-  .hello-div{
     position: absolute;
     z-index: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .containerhello-div{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    gap:8px;
+  }
+  .hello-div{
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: 10px;
+    
   }
   .feed-title{
     font-family: 'Poppins',sans-serif;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 32px;
     line-height: 39px;
     display: flex;
     color: #445E84;
@@ -311,13 +340,52 @@ footer, .login-footer{
     height: 26px;
   }
   .question-feed{
-    position: absolute;
-    z-index: 2;
     font-family: 'Poppins',sans-serif;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 21px;
-    top: 120px;
+    font-size: 16px;
     text-align: center;
     color: rgba(0, 0, 0, 0.6);
+  }
+
+  .post-feed{
+    background-color: white;
+    z-index: 2;
+    grid-row-start: 3;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 248px;
+    height: 75x;
+  }
+
+  .input-feed{
+    display: flex;
+    padding-bottom: 5px;
+  }
+
+  .newpost-feed {
+    border: none;
+  }
+  .writeicon-feed{
+    width: 16px;
+    height: 16px;
+  }
+  .containerbutton-feed{
+    display: flex;
+    justify-content: end;
+    border-top: solid 2px rgba(0, 0, 0, 0.05);
+    padding-top: 5px;
+  }
+  
+  .sharebutton-feed{
+    background-color: rgba(239, 137, 156, 0.8);
+  color: white;
+  width: 71px;
+  height: 19px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1em;
+  
   }

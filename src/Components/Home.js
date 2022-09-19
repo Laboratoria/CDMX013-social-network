@@ -1,4 +1,5 @@
 import { signoutPage } from '../lib/Auth.js';
+import { savePost, onGetPosts } from '../lib/Store.js';
 
 /* eslint-disable space-before-blocks */
 export function home(){
@@ -60,6 +61,7 @@ export function home(){
   createPost.setAttribute('type', 'text');
   createPost.setAttribute('placeholder', 'Ask to your partner...');
   createPost.setAttribute('class', 'newpost-feed');
+  createPost.setAttribute('id', 'inputpost-feed');
   // icon
   const writeIcon = document.createElement('img');
   writeIcon.src = '../img/write-icon.png';
@@ -72,11 +74,16 @@ export function home(){
   const shareButton = document.createElement('button');
   shareButton.setAttribute('class', 'sharebutton-feed');
   shareButton.textContent = 'share';
+  // New post 
+  const newpostDiv = document.createElement('div');
+  newpostDiv.setAttribute('class', 'post-feed');
+
   containerButton.appendChild(shareButton);
   postDiv.append(inputDiv, containerButton);
 
-  mainContainer.append(containerHello, postDiv);
+  mainContainer.append(containerHello, postDiv, newpostDiv);
   fatherOfAll.append(background, headerFeed, mainContainer);
+
   logOut.addEventListener('click', () => {
     signoutPage().then(() => {
       // Sign-out successful.
@@ -84,6 +91,27 @@ export function home(){
     }).catch((error) => {
       // An error happened.
     });
+  });
+
+  shareButton.addEventListener('click', (e) =>{
+    e.preventDefault();
+    console.log('enviado');
+    const inputPostValue = document.querySelector('#inputpost-feed').value;
+    console.log(inputPostValue);
+    savePost(inputPostValue);
+
+    onGetPosts((querySnapshot) => {
+      let html = "";
+      querySnapshot.forEach((doc) => {
+        const post = doc.data();
+        html +=  `
+        <div class="post-new">${post.post}</div>`;
+        
+      });
+      console.log('si llega');
+      newpostDiv.innerHTML = html;
+      inputPostValue="";
+    })
   });
   return fatherOfAll;
 }

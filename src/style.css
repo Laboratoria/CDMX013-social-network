@@ -77,9 +77,10 @@ main{
 #login{
   margin-top: 10px;
   margin-bottom: 20px;
+  
 }
 /*HOVER BUTTONS IN LOGIN */
-.button:hover{
+.button:hover {
   background-color: #A4DAFF;
   color: #445E84;
   box-shadow: 4px 4px 4px #445E84;
@@ -207,7 +208,11 @@ input {
   color: #445E84;
   margin-top: 25px;
 }
-
+.login:hover, .sign-up:hover{
+  background-color: #445E84;
+  color: #A4DAFF;
+  border-color: #445E84;
+}
 footer, .login-footer{
   display: flex;
   justify-content: center;
@@ -252,7 +257,7 @@ footer, .login-footer{
   }
 
 
-.login-text {
+.login-text, .register-text {
   height: 30px;
   width: 25%;
   top: 20px;
@@ -270,6 +275,15 @@ footer, .login-footer{
   text-decoration: underline ;
 }
 
+.register-login{
+  display: flex;
+  width: 320px;
+  justify-content: center;
+}
+
+.register-text{
+  width: 45px;
+}
 
 /*FEED*/
 .header-feed {

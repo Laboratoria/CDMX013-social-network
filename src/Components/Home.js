@@ -3,6 +3,8 @@ import { savePost, onGetPosts } from '../lib/Store.js';
 
 /* eslint-disable space-before-blocks */
 export function home(){
+  
+ 
   // Father container
   const fatherOfAll = document.createElement('div');
   fatherOfAll.setAttribute('class', 'fatherOfAll-feed');
@@ -24,8 +26,8 @@ export function home(){
   // Creates main
   const mainContainer = document.createElement('main');
   mainContainer.setAttribute('class', 'main-feed');
- /* // IMG background*/
-  
+  /* // IMG background */
+
   // container Hello
   const containerHello = document.createElement('div');
   containerHello.setAttribute('class', 'containerhello-div');
@@ -46,9 +48,13 @@ export function home(){
   questionText.textContent = 'What´s going on?';
   helloDiv.append(welcomeTxt, iconGym);
   containerHello.append(helloDiv, questionText);
+  // feed Container 
+  const feedContainer = document.createElement('div');
+  feedContainer.setAttribute('id', 'feed');
+  
   // Div new Post
   const postDiv = document.createElement('div');
-  postDiv.setAttribute('class', 'post-feed');
+  postDiv.setAttribute('class', 'post-input');
   // Div input
   const inputDiv = document.createElement('div');
   inputDiv.setAttribute('class', 'input-feed');
@@ -74,14 +80,30 @@ export function home(){
   const shareButton = document.createElement('button');
   shareButton.setAttribute('class', 'sharebutton-feed');
   shareButton.textContent = 'share';
-  // New post 
-  const newpostDiv = document.createElement('div');
-  newpostDiv.setAttribute('class', 'post-feed');
 
+  feedContainer.append(postDiv);
+  mainContainer.append(containerHello, feedContainer);
+
+  const allPost = [];
+  onGetPosts((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const post = doc.data();
+      allPost.push(post);
+    });
+    
+    allPost.forEach((post) => {
+      const postContainer = document.createElement('div');
+      postContainer.setAttribute('class', 'post-feed');
+      postContainer.textContent = post.post;
+      feedContainer.appendChild(postContainer);
+    });   
+  });
+
+  console.log(allPost);
   containerButton.appendChild(shareButton);
   postDiv.append(inputDiv, containerButton);
 
-  mainContainer.append(containerHello, postDiv, newpostDiv);
+  
   fatherOfAll.append(background, headerFeed, mainContainer);
 
   logOut.addEventListener('click', () => {
@@ -93,25 +115,13 @@ export function home(){
     });
   });
 
-  shareButton.addEventListener('click', (e) =>{
+  shareButton.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('enviado');
     const inputPostValue = document.querySelector('#inputpost-feed').value;
     console.log(inputPostValue);
     savePost(inputPostValue);
-
-    onGetPosts((querySnapshot) => {
-      let html = "";
-      querySnapshot.forEach((doc) => {
-        const post = doc.data();
-        html +=  `
-        <div class="post-new">${post.post}</div>`;
-        
-      });
-      console.log('si llega');
-      newpostDiv.innerHTML = html;
-      inputPostValue="";
-    })
   });
+
   return fatherOfAll;
 }

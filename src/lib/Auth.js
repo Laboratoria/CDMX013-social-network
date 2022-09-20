@@ -9,7 +9,7 @@ import {
 import { app } from './config.js';
 
 const auth = getAuth(app);
-/*export const user = auth.currentUser;
+export const user = auth.currentUser;
 /*if (user !== null) {
   // The user object has basic properties such as display name, email, etc.
   

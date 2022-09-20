@@ -1,6 +1,6 @@
 import { signoutPage } from '../lib/Auth.js';
 import { savePost, onGetPosts } from '../lib/Store.js';
-
+import { getAuth,onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 /* eslint-disable space-before-blocks */
 export function home(){
   // Father container
@@ -83,6 +83,22 @@ export function home(){
   shareButton.textContent = 'share';
 
   let allPost = [];
+  let userName;
+  let userEmail;
+  const auth = getAuth();
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      userName = auth.currentUser.displayName;
+      auth.currentUser.providerData.forEach((profile) => {
+        userName = profile.displayName;
+        userEmail = profile.email;
+      });
+      console.log(userName, userEmail);
+    } else {
+      console.log('not working');
+    }
+  });
+
   onGetPosts((querySnapshot) => {
     allPost = [];
     // containerDivs.remove();
@@ -106,9 +122,10 @@ export function home(){
   });
 
   console.log(allPost);
+  feedContainer.append(postDiv,containerDivs);
   containerButton.appendChild(shareButton);
   postDiv.append(inputDiv, containerButton);
-
+  mainContainer.append(containerHello, feedContainer);
   fatherOfAll.append(background, headerFeed, mainContainer);
 
   logOut.addEventListener('click', () => {
@@ -128,7 +145,10 @@ export function home(){
     savePost(inputPostValue);
     const newValue = document.querySelector('#inputpost-feed');
     newValue.value = '';
+    //Aqui tenemos que lograr que el post que se guarde se relacione con el userName
+    console.log('userName', userName);
   });
 
+  
   return fatherOfAll;
 }

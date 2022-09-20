@@ -3,7 +3,6 @@ import { savePost, onGetPosts } from '../lib/Store.js';
 
 /* eslint-disable space-before-blocks */
 export function home(){
- 
   // Father container
   const fatherOfAll = document.createElement('div');
   fatherOfAll.setAttribute('class', 'fatherOfAll-feed');
@@ -47,10 +46,10 @@ export function home(){
   questionText.textContent = 'What´s going on?';
   helloDiv.append(welcomeTxt, iconGym);
   containerHello.append(helloDiv, questionText);
-  // feed Container 
+  // feed Container
   const feedContainer = document.createElement('div');
   feedContainer.setAttribute('id', 'feed');
-  
+
   // Div new Post
   const postDiv = document.createElement('div');
   postDiv.setAttribute('class', 'post-input');
@@ -75,33 +74,41 @@ export function home(){
   // Container button
   const containerButton = document.createElement('div');
   containerButton.setAttribute('class', 'containerbutton-feed');
+  // Container divs post
+  const containerDivs = document.createElement('div');
+  containerDivs.setAttribute('class', 'container-posts');
   // share button
   const shareButton = document.createElement('button');
   shareButton.setAttribute('class', 'sharebutton-feed');
   shareButton.textContent = 'share';
 
-  feedContainer.append(postDiv);
-  mainContainer.append(containerHello, feedContainer);
-
-  const allPost = [];
+  let allPost = [];
   onGetPosts((querySnapshot) => {
+    allPost = [];
+    // containerDivs.remove();
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       allPost.push(post);
     });
-    
+
+    let child = containerDivs.lastElementChild;
+    while (child) {
+      containerDivs.removeChild(child);
+      child = containerDivs.lastElementChild;
+    }
+
     allPost.forEach((post) => {
       const postContainer = document.createElement('div');
       postContainer.setAttribute('class', 'post-feed');
       postContainer.textContent = post.post;
-      feedContainer.appendChild(postContainer);
-    });   
+      containerDivs.appendChild(postContainer);
+    });
   });
 
   console.log(allPost);
   containerButton.appendChild(shareButton);
   postDiv.append(inputDiv, containerButton);
-  
+
   fatherOfAll.append(background, headerFeed, mainContainer);
 
   logOut.addEventListener('click', () => {
@@ -112,7 +119,6 @@ export function home(){
       // An error happened.
     });
   });
-
 
   shareButton.addEventListener('click', (e) => {
     e.preventDefault();

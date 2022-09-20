@@ -28,6 +28,11 @@ const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   if (user) {
     onNavigate('/home');
+    console.log(auth.currentUser.displayName);
+    auth.currentUser.providerData.forEach((profile) => {
+      console.log(`  Name: ${profile.displayName}`);
+      console.log(`  Email: ${profile.email}`);
+    });
   } else {
     onNavigate('/');
   }

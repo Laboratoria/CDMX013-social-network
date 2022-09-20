@@ -3,7 +3,6 @@ import { savePost, onGetPosts } from '../lib/Store.js';
 
 /* eslint-disable space-before-blocks */
 export function home(){
-  
  
   // Father container
   const fatherOfAll = document.createElement('div');
@@ -102,7 +101,6 @@ export function home(){
   console.log(allPost);
   containerButton.appendChild(shareButton);
   postDiv.append(inputDiv, containerButton);
-
   
   fatherOfAll.append(background, headerFeed, mainContainer);
 
@@ -115,12 +113,15 @@ export function home(){
     });
   });
 
+
   shareButton.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('enviado');
     const inputPostValue = document.querySelector('#inputpost-feed').value;
     console.log(inputPostValue);
     savePost(inputPostValue);
+    const newValue = document.querySelector('#inputpost-feed');
+    newValue.value = '';
   });
 
   return fatherOfAll;

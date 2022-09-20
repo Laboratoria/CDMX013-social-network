@@ -1,4 +1,4 @@
-import { newUser } from '../lib/Auth.js';
+import { newUser, updateInfo } from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
 
 export function register() {
@@ -54,7 +54,7 @@ export function register() {
   inputPass.setAttribute('type', 'password');
   inputPass.setAttribute('id', 'user-pass');
   inputPass.setAttribute('required', 'required');
-  
+
   // aler msg
   const alertMsg = document.createElement('p');
   alertMsg.textContent = 'Password must have 6 characters length';
@@ -71,7 +71,7 @@ export function register() {
   const footerText = document.createElement('p');
   footerText.setAttribute('class', 'footer-text');
   footerText.textContent = 'Already have an account?';
-  
+
   const loginText = document.createElement('p');
   loginText.setAttribute('class', 'login-text');
   loginText.textContent = 'Login';
@@ -88,26 +88,26 @@ export function register() {
   // Inser to div father of all
   fatherOfAll.append(mainContainer, registerFooter);
   // Take data from the form
-  loginText.addEventListener('click',() => {
+  loginText.addEventListener('click', () => {
     onNavigate('/login');
-  })
+  });
   // footerText.addEventListener('')
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    /* const inputName = document.querySelector('#username').value; 
-    document.querySelector('#username').required = true;*/
- 
+    /* const inputName = document.querySelector('#username').value;
+    document.querySelector('#username').required = true; */
+
     const inputmailValue = document.querySelector('#user-mail').value;
     const inputpasswordValue = document.querySelector('#user-pass').value;
-    console.log(inputmailValue, inputpasswordValue);
-
+    const inputName = document.querySelector('#username').value;
+    console.log(inputmailValue, inputpasswordValue, inputName);
     newUser(inputmailValue, inputpasswordValue).then((userCredential) => {
       // Signed in
       const user = userCredential.user;
       // ..
       console.log(user);
-      // Email verification sent!
-      // ...
+      // Add user name
+      updateInfo(inputName);
       console.log('si funciona');
       onNavigate('/home');
     })
@@ -116,10 +116,9 @@ export function register() {
         const errorMessage = error.message;
         console.log('nel');
         // ..
-        if(inputpasswordValue >= 1 ){
+        if (inputpasswordValue >= 1) {
           alertMsg.style = 'display: block';
         }
-        
       });
   });
   // Return all

@@ -166,7 +166,7 @@ export function login() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('valiendo qso');
+        console.log('no entra a git');
       });
   });
 

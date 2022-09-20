@@ -76,33 +76,45 @@ export function home(){
   // Container button
   const containerButton = document.createElement('div');
   containerButton.setAttribute('class', 'containerbutton-feed');
+  //Container divs post
+  let containerDivs = document.createElement('div');
+  containerDivs.setAttribute('class', 'container-posts');
   // share button
   const shareButton = document.createElement('button');
   shareButton.setAttribute('class', 'sharebutton-feed');
   shareButton.textContent = 'share';
 
-  feedContainer.append(postDiv);
-  mainContainer.append(containerHello, feedContainer);
+ 
 
-  const allPost = [];
+  let allPost = [];
   onGetPosts((querySnapshot) => {
+    allPost = [];
+    //containerDivs.remove();
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       allPost.push(post);
+
     });
-    
+
+ let child = containerDivs.lastElementChild; 
+        while (child) {
+          containerDivs.removeChild(child);
+            child = containerDivs.lastElementChild;
+        };
+     
     allPost.forEach((post) => {
       const postContainer = document.createElement('div');
       postContainer.setAttribute('class', 'post-feed');
       postContainer.textContent = post.post;
-      feedContainer.appendChild(postContainer);
-    });   
+      containerDivs.appendChild(postContainer);
+    })   
   });
 
   console.log(allPost);
   containerButton.appendChild(shareButton);
   postDiv.append(inputDiv, containerButton);
-
+  feedContainer.append(postDiv,containerDivs);
+  mainContainer.append(containerHello, feedContainer);
   
   fatherOfAll.append(background, headerFeed, mainContainer);
 
@@ -121,6 +133,9 @@ export function home(){
     const inputPostValue = document.querySelector('#inputpost-feed').value;
     console.log(inputPostValue);
     savePost(inputPostValue);
+    const newValue = document.querySelector('#inputpost-feed');
+    newValue.value = '';
+
   });
 
   return fatherOfAll;

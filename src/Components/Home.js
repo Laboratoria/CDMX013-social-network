@@ -142,7 +142,7 @@ export function home(){
     console.log('enviado');
     const inputPostValue = document.querySelector('#inputpost-feed').value;
     console.log(inputPostValue);
-    savePost(inputPostValue);
+    savePost(inputPostValue, userName, userEmail);
     const newValue = document.querySelector('#inputpost-feed');
     newValue.value = '';
     //Aqui tenemos que lograr que el post que se guarde se relacione con el userName

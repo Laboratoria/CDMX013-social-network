@@ -3,8 +3,8 @@ import { app } from './config.js';
 
 const db = getFirestore(app);
 
-export const savePost = (post) => 
-    addDoc(collection(db,'posts'), {post});
+export const savePost = (post,name, email) => 
+    addDoc(collection(db,'posts'), {post, name, email});
 
 //export const getTasks = () => getDocs(collection(db,'tasks'));
 

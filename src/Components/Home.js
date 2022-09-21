@@ -117,11 +117,12 @@ export function home(){
     }
 
     allPost.forEach((posts) => {
+      // post feed container 
       const postContainer = document.createElement('div');
       postContainer.setAttribute('class', 'post-feed');
-      const imgPostFeed = document.createElement('div');
-      imgPostFeed.setAttribute('class', 'detail-post');
-
+      // header post
+      const headerPost = document.createElement('div');
+      headerPost.setAttribute('class','header-post')
       // Create container img post
       const imgPostContainer = document.createElement('div');
       imgPostContainer.setAttribute('class', 'img-post');
@@ -133,11 +134,16 @@ export function home(){
       const userNamePostContainer = document.createElement('div');
       userNamePostContainer.setAttribute('class', 'user-post');
       userNamePostContainer.textContent = posts.name;
+      headerPost.append(imgPostContainer, userNamePostContainer);
+      // text container
       const textPostContainer = document.createElement('div');
       textPostContainer.setAttribute('class', 'text-feed');
       textPostContainer.textContent = posts.post;
-      userNamePostContainer.append(textPostContainer);
-      postContainer.append(imgPostContainer, userNamePostContainer);
+      // Footer
+      const footerPost = document.createElement('div');
+      footerPost.setAttribute('class','footer-post');
+      postContainer.append(headerPost, textPostContainer, footerPost);
+
       containerDivs.append(postContainer);
     });
   });

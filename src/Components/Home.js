@@ -62,11 +62,13 @@ export function home(){
   inputImg.src = '../img/user-img.png';
   inputImg.setAttribute('class', 'userimg-feed');
   // input
-  const createPost = document.createElement('input');
-  createPost.setAttribute('type', 'text');
+  const createPost = document.createElement('textarea');
+  createPost.setAttribute('cols', '40');
+  createPost.setAttribute('rows', '2');
   createPost.setAttribute('placeholder', 'Ask to your partner...');
   createPost.setAttribute('class', 'newpost-feed');
   createPost.setAttribute('id', 'inputpost-feed');
+  
   // icon
   const writeIcon = document.createElement('img');
   writeIcon.src = '../img/write-icon.png';

@@ -1,6 +1,7 @@
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { signoutPage } from '../lib/Auth.js';
 import { savePost, onGetPosts } from '../lib/Store.js';
-import { getAuth,onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+
 /* eslint-disable space-before-blocks */
 export function home(){
   // Father container
@@ -113,16 +114,34 @@ export function home(){
       child = containerDivs.lastElementChild;
     }
 
-    allPost.forEach((post) => {
+    allPost.forEach((posts) => {
       const postContainer = document.createElement('div');
       postContainer.setAttribute('class', 'post-feed');
-      postContainer.textContent = post.post;
-      containerDivs.appendChild(postContainer);
+      const imgPostFeed = document.createElement('div');
+      imgPostFeed.setAttribute('class', 'detail-post');
+
+      // Create container img post
+      const imgPostContainer = document.createElement('div');
+      imgPostContainer.setAttribute('class', 'img-post');
+      const createImgPost = document.createElement('img');
+      createImgPost.setAttribute('class', 'userimg-feed');
+      createImgPost.src = '../img/user-img.png';
+      imgPostContainer.appendChild(createImgPost);
+      // Create username div
+      const userNamePostContainer = document.createElement('div');
+      userNamePostContainer.setAttribute('class', 'user-post');
+      userNamePostContainer.textContent = posts.name;
+      const textPostContainer = document.createElement('div');
+      textPostContainer.setAttribute('class', 'text-feed');
+      textPostContainer.textContent = posts.post;
+      userNamePostContainer.append(textPostContainer);
+      postContainer.append(imgPostContainer, userNamePostContainer);
+      containerDivs.append(postContainer);
     });
   });
 
   console.log(allPost);
-  feedContainer.append(postDiv,containerDivs);
+  feedContainer.append(postDiv, containerDivs);
   containerButton.appendChild(shareButton);
   postDiv.append(inputDiv, containerButton);
   mainContainer.append(containerHello, feedContainer);
@@ -145,10 +164,9 @@ export function home(){
     savePost(inputPostValue, userName, userEmail);
     const newValue = document.querySelector('#inputpost-feed');
     newValue.value = '';
-    //Aqui tenemos que lograr que el post que se guarde se relacione con el userName
+    // Aqui tenemos que lograr que el post que se guarde se relacione con el userName
     console.log('userName', userName);
   });
 
-  
   return fatherOfAll;
 }

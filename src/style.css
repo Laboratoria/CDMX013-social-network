@@ -409,3 +409,19 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
   font-size: 1em;
   
   }
+
+  /* FEED POSTS*/
+ .post-feed{
+   display: flex;
+   gap: 20px;
+ }
+ .user-post{
+   font-family: 'Poppins', sans-serif;
+   color: rgba(68, 94, 132, 1);
+   font-weight: bold;
+   
+ }
+ .text-feed{
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: normal;
+ }

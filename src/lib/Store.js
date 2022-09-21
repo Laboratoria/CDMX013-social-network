@@ -4,9 +4,9 @@ import {
 import { app } from './config.js';
 
 const db = getFirestore(app);
-const q = query(collection(db, 'posts'), orderBy('time', 'desc'));
+const q = query(collection(db, 'posts'), orderBy('time',"desc"));
 
 export const savePost = (post, name, email) => addDoc(collection(db, 'posts'), { post, name, email, time : serverTimestamp()});
 
-export const onGetPosts = (callback) => onSnapshot(collection(db, 'posts'), callback);
+export const onGetPosts = (callback) => onSnapshot(q, callback);
 

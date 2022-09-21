@@ -9,7 +9,7 @@ export function home(){
   fatherOfAll.setAttribute('class', 'fatherOfAll-feed');
   const background = document.createElement('img');
   background.setAttribute('class', 'background-feed');
-  background.src = '../img/background.jpg';
+  background.src = '../img/Imgfeed.png';
   // Header
   const headerFeed = document.createElement('header');
   headerFeed.setAttribute('class', 'header-feed');

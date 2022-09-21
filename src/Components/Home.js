@@ -77,6 +77,10 @@ export function home(){
   // Container button
   const containerButton = document.createElement('div');
   containerButton.setAttribute('class', 'containerbutton-feed');
+   // Msg Error " "
+   const msgError = document.createElement('div');
+   msgError.setAttribute('class', 'msgerror-feed');
+   msgError.textContent = 'please, write something';
   // Container divs post
   const containerDivs = document.createElement('div');
   containerDivs.setAttribute('class', 'container-posts');
@@ -144,7 +148,7 @@ export function home(){
 
   console.log(allPost);
   feedContainer.append(postDiv, containerDivs);
-  containerButton.appendChild(shareButton);
+  containerButton.append(msgError, shareButton);
   postDiv.append(inputDiv, containerButton);
   mainContainer.append(containerHello, feedContainer);
   fatherOfAll.append(background, headerFeed, mainContainer);
@@ -162,13 +166,19 @@ export function home(){
     e.preventDefault();
     console.log('enviado');
     const inputPostValue = document.querySelector('#inputpost-feed').value;
-    console.log(inputPostValue);
-    savePost(inputPostValue, userName, userEmail);
-    const newValue = document.querySelector('#inputpost-feed');
-    newValue.value = '';
-    // Aqui tenemos que lograr que el post que se guarde se relacione con el userName
-    console.log('userName', userName);
-  });
+    if(inputPostValue == ""){
+      msgError.style = 'visibility: visible';
+      console.log('error');
+    }else{
+      console.log(inputPostValue);
+      savePost(inputPostValue, userName, userEmail);
+      const newValue = document.querySelector('#inputpost-feed');
+      newValue.value = '';
+      // Aqui tenemos que lograr que el post que se guarde se relacione con el userName
+      console.log('userName', userName);
+    }
+
+    });
 
   return fatherOfAll;
 }

@@ -393,9 +393,10 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
   }
   .containerbutton-feed{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     border-top: solid 2px rgba(0, 0, 0, 0.05);
     padding-top: 5px;
+    height: 20px;
   }
   
   .sharebutton-feed{
@@ -407,6 +408,7 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
   font-weight: 700;
   font-size: 1em;
+  margin-right: 25px;
   
   }
 
@@ -429,4 +431,9 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
   font-weight: normal;
   display: flex;
   flex-wrap: wrap;
+ }
+ .msgerror-feed {
+  visibility: hidden;
+  font-size: 12px;
+  color: red;
  }

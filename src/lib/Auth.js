@@ -4,19 +4,19 @@
 /* eslint-disable max-len */
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect,
-   getRedirectResult, GithubAuthProvider, signOut, updateProfile
+  getRedirectResult, GithubAuthProvider, signOut, updateProfile,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { app } from './config.js';
 
 const auth = getAuth(app);
 export const user = auth.currentUser;
-/*if (user !== null) {
+/* if (user !== null) {
   // The user object has basic properties such as display name, email, etc.
-  
+
   console.log(user.displayName);
 }
 
-//export const displayName = user.displayName;*/
+//export const displayName = user.displayName; */
 
 // CREATE USER WITH EMAIL AND PASSWORD
 export const newUser = (inputmailValue, inputpasswordValue) => createUserWithEmailAndPassword(auth, inputmailValue, inputpasswordValue);
@@ -34,7 +34,7 @@ export const signInWithGithub = (providerGithub) => signInWithRedirect(auth, pro
 export const signoutPage = () => signOut(auth);
 // ADD USER NAME
 export const updateInfo = (name) => updateProfile(auth.currentUser, {
-  displayName: name, photoURL: '../img/user-img.png'
+  displayName: name,
 }).then(() => {
   // Profile updated!
   // ...

@@ -1,4 +1,4 @@
-import { newUser, updateInfo } from '../lib/Auth.js';
+import { newUser} from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
 
 export function register() {
@@ -29,14 +29,7 @@ export function register() {
   // Register Form
   const registerForm = document.createElement('form');
   registerForm.setAttribute('class', 'form-register');
-  // Username
-  const labelUsername = document.createElement('label');
-  labelUsername.setAttribute('for', 'username');
-  labelUsername.textContent = 'Username';
-  const inputUsername = document.createElement('input');
-  inputUsername.setAttribute('type', 'text');
-  inputUsername.setAttribute('id', 'username');
-  inputUsername.setAttribute('required', 'required');
+
   // Mail
   const labelMail = document.createElement('label');
   labelMail.setAttribute('for', 'user-mail');
@@ -80,7 +73,7 @@ export function register() {
   registerFooter.append(footerText, loginText);
   // Insert form elements
   // eslint-disable-next-line max-len
-  registerForm.append(labelUsername, inputUsername, labelMail, inputMail, labelPass, inputPass, alertMsg, btnSignUp);
+  registerForm.append(labelMail, inputMail, labelPass, inputPass, alertMsg, btnSignUp);
   formContainer.append(registerForm);
   // Insert form to form container
   // Insert everything to main
@@ -99,15 +92,12 @@ export function register() {
 
     const inputmailValue = document.querySelector('#user-mail').value;
     const inputpasswordValue = document.querySelector('#user-pass').value;
-    const inputName = document.querySelector('#username').value;
-    console.log(inputmailValue, inputpasswordValue, inputName);
+    console.log(inputmailValue, inputpasswordValue);
     newUser(inputmailValue, inputpasswordValue).then((userCredential) => {
       // Signed in
       const user = userCredential.user;
       // ..
       console.log(user);
-      // Add user name
-      updateInfo(inputName);
       console.log('si funciona');
       onNavigate('/home');
     })

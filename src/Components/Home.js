@@ -1,5 +1,5 @@
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
-import { signoutPage } from '../lib/Auth.js';
+
+import { signoutPage} from '../lib/Auth.js';
 import { savePost, onGetPosts } from '../lib/Store.js';
 
 /* eslint-disable space-before-blocks */
@@ -90,22 +90,6 @@ export function home(){
   shareButton.textContent = 'share';
 
   let allPost = [];
-  let userName;
-  let userEmail;
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      userName = auth.currentUser.displayName;
-      auth.currentUser.providerData.forEach((profile) => {
-        userName = profile.displayName;
-        userEmail = profile.email;
-      });
-      console.log(userName, userEmail);
-    } else {
-      console.log('not working');
-    }
-  });
-
   onGetPosts((querySnapshot) => {
     allPost = [];
     // containerDivs.remove();
@@ -137,7 +121,7 @@ export function home(){
       // Create username div
       const userNamePostContainer = document.createElement('div');
       userNamePostContainer.setAttribute('class', 'user-post');
-      userNamePostContainer.textContent = posts.name;
+      userNamePostContainer.textContent = posts.email;
       headerPost.append(imgPostContainer, userNamePostContainer);
       // text container
       const textPostContainer = document.createElement('div');
@@ -152,7 +136,6 @@ export function home(){
     });
   });
 
-  console.log(allPost);
   feedContainer.append(postDiv, containerDivs);
   containerButton.append(msgError, shareButton);
   postDiv.append(inputDiv, containerButton);
@@ -177,11 +160,9 @@ export function home(){
       console.log('error');
     }else{
       console.log(inputPostValue);
-      savePost(inputPostValue, userName, userEmail);
+      savePost(inputPostValue);
       const newValue = document.querySelector('#inputpost-feed');
       newValue.value = '';
-      // Aqui tenemos que lograr que el post que se guarde se relacione con el userName
-      console.log('userName', userName);
     }
 
     });

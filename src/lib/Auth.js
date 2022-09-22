@@ -7,17 +7,8 @@ import {
   getRedirectResult, GithubAuthProvider, signOut, updateProfile,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { app } from './config.js';
-
 const auth = getAuth(app);
 export const user = auth.currentUser;
-/* if (user !== null) {
-  // The user object has basic properties such as display name, email, etc.
-
-  console.log(user.displayName);
-}
-
-//export const displayName = user.displayName; */
-
 // CREATE USER WITH EMAIL AND PASSWORD
 export const newUser = (inputmailValue, inputpasswordValue) => createUserWithEmailAndPassword(auth, inputmailValue, inputpasswordValue);
 // LOGIN WITH EMAIL AND PASSWORD

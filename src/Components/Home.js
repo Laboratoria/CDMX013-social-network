@@ -131,7 +131,14 @@ export function home(){
       const footerPost = document.createElement('div');
       footerPost.setAttribute('class','footer-post');
       postContainer.append(headerPost, textPostContainer, footerPost);
-
+      //container heart
+      const containerHeart = document.createElement('div');
+      containerHeart.setAttribute('class','container-heart');
+       //icon heart
+       const iconHeart = document.createElement('span');
+       iconHeart.setAttribute('class','icon-heart');
+       containerHeart.appendChild(iconHeart);
+       footerPost.append(containerHeart);
       containerDivs.append(postContainer);
     });
   });

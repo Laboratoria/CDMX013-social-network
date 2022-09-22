@@ -371,7 +371,7 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     width: 248px;
-    height: 75x;
+   
   }
 
   .input-feed{
@@ -420,7 +420,7 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
    display: flex;
    gap: 10px;
    flex-direction: column;
-   padding: 0px;
+   padding: 0px 0px 10px 0px;
    width: 270px;
  }
  .header-post{
@@ -457,3 +457,43 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
   font-size: 12px;
   color: red;
  }
+/* Heart*/
+ .container-heart{
+  display:flex;
+  padding-left: 30px;
+  align-items:center;
+  
+}
+
+.icon-heart{
+  position:relative;
+  height:20px;
+  width:12px;
+  background: #A4DAFF;
+  border-radius:100px 100px 0 0;
+  transform:rotate(45deg);
+  transition:all 0.5s;
+  cursor:pointer;
+}
+
+.icon-heart:before{
+  content:'';
+  position:absolute;
+  background: #A4DAFF;
+  height:20px;
+  width:12px;
+  transform:rotate(-90deg);
+  border-radius:100px 100px 0 0;
+  left:-5px;
+  top:5px;
+  transition:all 0.5s;
+
+}
+
+.icon-heart:hover{
+  background:rgba(239, 137, 156, 1);
+}
+
+.icon-heart:hover::before{
+  background-color:rgba(239, 137, 156, 1);
+}

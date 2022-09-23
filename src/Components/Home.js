@@ -1,6 +1,5 @@
-
-import { signoutPage} from '../lib/Auth.js';
-import { savePost, onGetPosts } from '../lib/Store.js';
+import { signoutPage } from '../lib/Auth.js';
+import { savePost, onGetPosts, addLikes } from '../lib/Posts.js';
 
 /* eslint-disable space-before-blocks */
 export function home(){
@@ -68,7 +67,7 @@ export function home(){
   createPost.setAttribute('placeholder', 'Ask to your partner...');
   createPost.setAttribute('class', 'newpost-feed');
   createPost.setAttribute('id', 'inputpost-feed');
-  
+
   // icon
   const writeIcon = document.createElement('img');
   writeIcon.src = '../img/write-icon.png';
@@ -77,10 +76,10 @@ export function home(){
   // Container button
   const containerButton = document.createElement('div');
   containerButton.setAttribute('class', 'containerbutton-feed');
-   // Msg Error " "
-   const msgError = document.createElement('div');
-   msgError.setAttribute('class', 'msgerror-feed');
-   msgError.textContent = 'please, write something';
+  // Msg Error " "
+  const msgError = document.createElement('div');
+  msgError.setAttribute('class', 'msgerror-feed');
+  msgError.textContent = 'please, write something';
   // Container divs post
   const containerDivs = document.createElement('div');
   containerDivs.setAttribute('class', 'container-posts');
@@ -91,26 +90,24 @@ export function home(){
 
   let allPost = [];
   onGetPosts((querySnapshot) => {
-    allPost = [];
-    // containerDivs.remove();
-    querySnapshot.forEach((doc) => {
-      const post = doc.data();
-      allPost.push(post);
-    });
-
+    // Remove all child
     let child = containerDivs.lastElementChild;
     while (child) {
       containerDivs.removeChild(child);
       child = containerDivs.lastElementChild;
     }
 
-    allPost.forEach((posts) => {
-      // post feed container 
+    allPost = [];
+    // containerDivs.remove();
+    querySnapshot.forEach((doc) => {
+      const posts = doc.data();
+      allPost.push(posts);
+      // post feed container
       const postContainer = document.createElement('div');
       postContainer.setAttribute('class', 'post-feed');
       // header post
       const headerPost = document.createElement('div');
-      headerPost.setAttribute('class','header-post')
+      headerPost.setAttribute('class', 'header-post');
       // Create container img post
       const imgPostContainer = document.createElement('div');
       imgPostContainer.setAttribute('class', 'img-post');
@@ -129,17 +126,23 @@ export function home(){
       textPostContainer.textContent = posts.post;
       // Footer
       const footerPost = document.createElement('div');
-      footerPost.setAttribute('class','footer-post');
+      footerPost.setAttribute('class', 'footer-post');
       postContainer.append(headerPost, textPostContainer, footerPost);
-      //container heart
+      // container heart
       const containerHeart = document.createElement('div');
-      containerHeart.setAttribute('class','container-heart');
-       //icon heart
-       const iconHeart = document.createElement('span');
-       iconHeart.setAttribute('class','icon-heart');
-       containerHeart.appendChild(iconHeart);
-       footerPost.append(containerHeart);
+      containerHeart.setAttribute('class', 'container-heart');
+      // icon heart
+      const iconHeart = document.createElement('span');
+      iconHeart.setAttribute('class', 'icon-heart');
+      containerHeart.appendChild(iconHeart);
+      footerPost.append(containerHeart);
       containerDivs.append(postContainer);
+
+      containerHeart.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log(doc.id);
+        addLikes(doc.id);
+      });
     });
   });
 
@@ -162,17 +165,16 @@ export function home(){
     e.preventDefault();
     console.log('enviado');
     const inputPostValue = document.querySelector('#inputpost-feed').value;
-    if(inputPostValue == ""){
+    if (inputPostValue == ''){
       msgError.style = 'visibility: visible';
       console.log('error');
-    }else{
+    } else {
       console.log(inputPostValue);
       savePost(inputPostValue);
       const newValue = document.querySelector('#inputpost-feed');
       newValue.value = '';
     }
-
-    });
+  });
 
   return fatherOfAll;
 }

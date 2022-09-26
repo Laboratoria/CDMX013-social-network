@@ -1,10 +1,10 @@
 import {
   getFirestore, collection, addDoc/* , getDocs */,
   onSnapshot, query, orderBy, serverTimestamp, updateDoc, doc,
-  arrayUnion, arrayRemove
+  arrayUnion, arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
-import { app } from './config.js';
+import { app } from './Config.js';
 
 const db = getFirestore(app);
 const q = query(collection(db, 'posts'), orderBy('time', 'desc'));
@@ -39,11 +39,11 @@ export const removeLikes = async (idPost) => {
   });
 };
 
-/*export const verifyLikes = (idPost) => {
+/* export const verifyLikes = (idPost) => {
   const auth = getAuth();
   const user = auth.currentUser;
 
   console.log((db, 'posts', idPost).likes);
 
   //if(doc(db, 'posts', idPost).likes)
-}*/
+} */

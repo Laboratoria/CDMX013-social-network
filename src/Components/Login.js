@@ -91,9 +91,9 @@ export function login() {
   const registerText = document.createElement('div');
   registerText.setAttribute('class', 'register-text');
   registerText.textContent = 'Sign up';
-  registerText.addEventListener('click',() => {
+  registerText.addEventListener('click', () => {
     onNavigate('/register');
-  })
+  });
   createAccount.append(footerQuestion, registerText);
   logosContainer.append(logoGoogle, logoGithub);
   // Insert footer text
@@ -170,12 +170,12 @@ export function login() {
       });
   });
 
-  inputMail.addEventListener('click', (e)=>{
+  inputMail.addEventListener('click', (e) => {
     e.preventDefault();
     alertMsg.style = 'display: none';
   });
 
-  inputPassword.addEventListener('click', (e)=>{
+  inputPassword.addEventListener('click', (e) => {
     e.preventDefault();
     alertMsg.style = 'display: none';
   });

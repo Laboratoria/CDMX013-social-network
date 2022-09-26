@@ -1,6 +1,9 @@
-import { signoutPage} from '../lib/Auth.js';
-import { savePost, onGetPosts, addLikes, removeLikes } from '../lib/Posts.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { signoutPage } from '../lib/Auth.js';
+import {
+  savePost, onGetPosts, addLikes, removeLikes,
+}
+  from '../lib/Posts.js';
 
 /* eslint-disable space-before-blocks */
 export function home(){
@@ -129,7 +132,7 @@ export function home(){
       const footerPost = document.createElement('div');
       footerPost.setAttribute('class', 'footer-post');
       postContainer.append(headerPost, textPostContainer, footerPost);
-      //container likes
+      // container likes
       const containerLikes = document.createElement('div');
       containerLikes.setAttribute('class', 'container-likes');
       // container heart
@@ -148,40 +151,38 @@ export function home(){
       const numberLikes = document.createElement('div');
       numberLikes.setAttribute('class', 'number-likes');
       let countLikes = 0;
-      if(posts.likes.length != undefined){
+      if (posts.likes.length != undefined){
         countLikes = posts.likes.length;
       }
-      
+
       numberLikes.textContent = countLikes;
       // likes text
       const textLikes = document.createElement('div');
       textLikes.setAttribute('class', 'text-likes');
       textLikes.textContent = ' likes';
 
-      likesCounter.append(numberLikes,textLikes);
-      containerHeart.append(iconHeart,beforeHeart);
-      containerLikes.append(containerHeart,likesCounter);
+      likesCounter.append(numberLikes, textLikes);
+      containerHeart.append(iconHeart, beforeHeart);
+      containerLikes.append(containerHeart, likesCounter);
       footerPost.append(containerLikes);
       containerDivs.append(postContainer);
 
       // Fill heart if user liked post
       const auth = getAuth();
       const user = auth.currentUser;
-      if(posts.likes.includes(user.uid) && document.querySelector(`.icon-heart.heart-${doc.id}`) != null){
+      if (posts.likes.includes(user.uid) && document.querySelector(`.icon-heart.heart-${doc.id}`) != null){
         document.querySelector(`.icon-heart.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
         document.querySelector(`.icon-heart-before.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
       }
 
       containerHeart.addEventListener('click', (e) => {
         e.preventDefault();
-        if(posts.likes.includes(user.uid)){
+        if (posts.likes.includes(user.uid)){
           removeLikes(doc.id);
-        }else{
+        } else {
           console.log(doc.id);
           addLikes(doc.id);
         }
-       
-
       });
     });
   });

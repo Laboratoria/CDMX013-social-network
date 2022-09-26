@@ -1,4 +1,4 @@
-import { newUser} from '../lib/Auth.js';
+import { newUser } from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
 
 export function register() {

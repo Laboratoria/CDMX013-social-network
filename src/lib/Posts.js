@@ -1,7 +1,7 @@
 import {
   getFirestore, collection, addDoc/* , getDocs */,
   onSnapshot, query, orderBy, serverTimestamp, updateDoc, doc,
-  arrayUnion,
+  arrayUnion, arrayRemove
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { app } from './config.js';
@@ -19,14 +19,6 @@ export const savePost = (post) => {
 
 export const onGetPosts = (callback) => onSnapshot(q, callback);
 
-/* const likesRef = doc(db, 'posts', 'likes');
-
-export const updateLikes = () => {
-  updateDoc(likesRef, {
-    likes: true,
-  });
-}; */
-
 export const addLikes = async (idPost) => {
   const auth = getAuth();
   const user = auth.currentUser;
@@ -35,7 +27,16 @@ export const addLikes = async (idPost) => {
   await updateDoc(likesRef, {
     likes: arrayUnion(user.uid),
   });
-  /* collection(db, 'posts').doc(idPost).update({ likes: firebase.firestore.FieldValue.arrayUnion(idUser) }); */
+};
+
+export const removeLikes = async (idPost) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const likesRef = doc(db, 'posts', idPost);
+
+  await updateDoc(likesRef, {
+    likes: arrayRemove(user.uid),
+  });
 };
 
 /*export const verifyLikes = (idPost) => {

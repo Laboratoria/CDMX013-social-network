@@ -1,5 +1,5 @@
 import { signoutPage} from '../lib/Auth.js';
-import { savePost, onGetPosts, addLikes } from '../lib/Posts.js';
+import { savePost, onGetPosts, addLikes, removeLikes } from '../lib/Posts.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 /* eslint-disable space-before-blocks */
@@ -174,8 +174,14 @@ export function home(){
 
       containerHeart.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(doc.id);
-        addLikes(doc.id);
+        if(posts.likes.includes(user.uid)){
+          removeLikes(doc.id);
+        }else{
+          console.log(doc.id);
+          addLikes(doc.id);
+        }
+       
+
       });
     });
   });

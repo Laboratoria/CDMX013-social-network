@@ -128,17 +128,35 @@ export function home(){
       const footerPost = document.createElement('div');
       footerPost.setAttribute('class', 'footer-post');
       postContainer.append(headerPost, textPostContainer, footerPost);
+      //container likes
+      const containerLikes = document.createElement('div');
+      containerLikes.setAttribute('class', 'container-likes');
       // container heart
       const containerHeart = document.createElement('div');
       containerHeart.setAttribute('class', 'container-heart');
       // icon heart
       const iconHeart = document.createElement('span');
       iconHeart.setAttribute('class', 'icon-heart');
-      containerHeart.appendChild(iconHeart);
-      footerPost.append(containerHeart);
+      // likes container
+      const likes = document.createElement('div');
+      likes.setAttribute('class', 'likes');
+      // number of likes
+      const numberLikes = document.createElement('div');
+      numberLikes.setAttribute('class', 'number-likes');
+      const countLikes = posts.likes.length;
+      numberLikes.textContent = countLikes;
+      // likes text
+      const textLikes = document.createElement('div');
+      textLikes.setAttribute('class', 'text-likes');
+      textLikes.textContent = ' likes';
+
+      likes.append(numberLikes,textLikes);
+      containerHeart.append(iconHeart);
+      containerLikes.append(containerHeart,likes);
+      footerPost.append(containerLikes);
       containerDivs.append(postContainer);
 
-      containerHeart.addEventListener('click', (e) => {
+      iconHeart.addEventListener('click', (e) => {
         e.preventDefault();
         console.log(doc.id);
         addLikes(doc.id);

@@ -476,7 +476,7 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
   cursor:pointer;
 }
 
-.icon-heart:before{
+/*.icon-heart:before{
   content:'';
   position:absolute;
   background: #A4DAFF;
@@ -488,15 +488,28 @@ box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
   top:5px;
   transition:all 0.5s;
 
+}*/
+
+.icon-heart-before{
+  content: '';
+  position: absolute;
+  background: #A4DAFF;
+  height: 20px;
+  width: 12px;
+  transform: rotate(314deg);
+  border-radius: 100px 100px 0 0;
+  left: 252px;
+  transition: all 0.5s;
 }
 
-.icon-heart:hover{
+
+/*.icon-heart:hover{
   background:rgba(239, 137, 156, 1);
-}
+}*/
 
-.icon-heart:hover::before{
+/*.icon-heart:hover::before{
   background-color:rgba(239, 137, 156, 1);
-}
+}*/
 
 .likes{
   color:#445E84; 

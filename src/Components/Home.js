@@ -1,5 +1,6 @@
-import { signoutPage } from '../lib/Auth.js';
+import { signoutPage} from '../lib/Auth.js';
 import { savePost, onGetPosts, addLikes } from '../lib/Posts.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 /* eslint-disable space-before-blocks */
 export function home(){
@@ -135,28 +136,43 @@ export function home(){
       const containerHeart = document.createElement('div');
       containerHeart.setAttribute('class', 'container-heart');
       // icon heart
-      const iconHeart = document.createElement('span');
-      iconHeart.setAttribute('class', 'icon-heart');
+      const iconHeart = document.createElement('div');
+      iconHeart.setAttribute('class', ` icon-heart heart-${doc.id}`);
+      const beforeHeart = document.createElement('div');
+      beforeHeart.setAttribute('class', `icon-heart-before heart-${doc.id}`);
+
       // likes container
-      const likes = document.createElement('div');
-      likes.setAttribute('class', 'likes');
+      const likesCounter = document.createElement('div');
+      likesCounter.setAttribute('class', 'likes');
       // number of likes
       const numberLikes = document.createElement('div');
       numberLikes.setAttribute('class', 'number-likes');
-      const countLikes = posts.likes.length;
+      let countLikes = 0;
+      if(posts.likes.length != undefined){
+        countLikes = posts.likes.length;
+      }
+      
       numberLikes.textContent = countLikes;
       // likes text
       const textLikes = document.createElement('div');
       textLikes.setAttribute('class', 'text-likes');
       textLikes.textContent = ' likes';
 
-      likes.append(numberLikes,textLikes);
-      containerHeart.append(iconHeart);
-      containerLikes.append(containerHeart,likes);
+      likesCounter.append(numberLikes,textLikes);
+      containerHeart.append(iconHeart,beforeHeart);
+      containerLikes.append(containerHeart,likesCounter);
       footerPost.append(containerLikes);
       containerDivs.append(postContainer);
 
-      iconHeart.addEventListener('click', (e) => {
+      // Fill heart if user liked post
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if(posts.likes.includes(user.uid) && document.querySelector(`.icon-heart.heart-${doc.id}`) != null){
+        document.querySelector(`.icon-heart.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
+        document.querySelector(`.icon-heart-before.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
+      }
+
+      containerHeart.addEventListener('click', (e) => {
         e.preventDefault();
         console.log(doc.id);
         addLikes(doc.id);

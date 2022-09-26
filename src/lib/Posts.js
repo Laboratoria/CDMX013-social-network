@@ -37,3 +37,12 @@ export const addLikes = async (idPost) => {
   });
   /* collection(db, 'posts').doc(idPost).update({ likes: firebase.firestore.FieldValue.arrayUnion(idUser) }); */
 };
+
+/*export const verifyLikes = (idPost) => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  console.log((db, 'posts', idPost).likes);
+
+  //if(doc(db, 'posts', idPost).likes)
+}*/

@@ -170,6 +170,46 @@ export function home(){
       containerLikes.append(containerHeart, likesCounter);
       footerPost.append(containerLikes);
       containerDivs.append(postContainer);
+     // Modal 
+     const modalContainer = document.createElement('div');
+     modalContainer.setAttribute('class',`modal modal-${doc.id}`);
+
+     const modalContent = document.createElement('div');
+     modalContent.setAttribute('class','modal-content');
+
+     const modalClose = document.createElement('span');
+     modalClose.setAttribute('class',`close close-${doc.id}`);
+     modalClose.textContent = 'X';
+
+     const modalText = document.createElement('p');
+     modalText.setAttribute('class','modal-text');
+     modalText.textContent = 'Are you sure?, You won´t be able to revert this!';
+
+     const buttonConfirm = document.createElement('button');
+     buttonConfirm.setAttribute('class', 'button-confirm');
+     buttonConfirm.textContent = 'Confirm';
+
+
+     modalContent.append(modalClose, modalText,buttonConfirm);
+     modalContainer.appendChild(modalContent);
+     postContainer.appendChild(modalContainer);
+     
+     // Modal Events
+     const span = document.querySelector(`.close.close-${doc.id}`);
+     console.log(span);
+     if(span != null){
+      span.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalContainer.style.display = 'none';
+      });
+
+     /* window.addEventListener('click', (e) => {
+        if (e.target == modalContainer) {
+          modalContainer.style.display = "none";
+        }
+      });*/
+     }
+      
 
       // Fill heart if user liked post
       const auth = getAuth();
@@ -193,12 +233,23 @@ export function home(){
       // delete post
       deleteIcon.addEventListener('click', (e) => {
         e.preventDefault();
-        if (user.uid === posts.uid){
+        if(user.uid === posts.uid){
+          document.querySelector(`.modal-${doc.id}`).style.display = "block";
+        }else{
+          document.querySelector(`.modal-${doc.id}`).style.display = "none";
+        } 
+      });
+
+      buttonConfirm.addEventListener('click', (e) =>{
+        e.preventDefault();
+        if (user.uid === posts.uid ){
           deletePost(doc.id);
         }
       });
     });
   });
+
+ 
 
   feedContainer.append(postDiv, containerDivs);
   containerButton.append(msgError, shareButton);

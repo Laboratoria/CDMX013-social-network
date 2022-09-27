@@ -1,7 +1,7 @@
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { signoutPage } from '../lib/Auth.js';
 import {
-  savePost, onGetPosts, addLikes, removeLikes,
+  savePost, onGetPosts, addLikes, removeLikes, deletePost,
 }
   from '../lib/Posts.js';
 
@@ -123,7 +123,11 @@ export function home(){
       const userNamePostContainer = document.createElement('div');
       userNamePostContainer.setAttribute('class', 'user-post');
       userNamePostContainer.textContent = posts.email;
-      headerPost.append(imgPostContainer, userNamePostContainer);
+      // Delete post
+      const deleteIcon = document.createElement('img');
+      deleteIcon.setAttribute('class', `delete trash${doc.id}`);
+      deleteIcon.src = '../img/delete.png';
+      headerPost.append(imgPostContainer, userNamePostContainer, deleteIcon);
       // text container
       const textPostContainer = document.createElement('div');
       textPostContainer.setAttribute('class', 'text-feed');
@@ -151,7 +155,7 @@ export function home(){
       const numberLikes = document.createElement('div');
       numberLikes.setAttribute('class', 'number-likes');
       let countLikes = 0;
-      if (posts.likes.length != undefined){
+      if (posts.likes.length !== undefined){
         countLikes = posts.likes.length;
       }
 
@@ -175,6 +179,7 @@ export function home(){
         document.querySelector(`.icon-heart-before.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
       }
 
+      // Add Like
       containerHeart.addEventListener('click', (e) => {
         e.preventDefault();
         if (posts.likes.includes(user.uid)){
@@ -182,6 +187,14 @@ export function home(){
         } else {
           console.log(doc.id);
           addLikes(doc.id);
+        }
+      });
+
+      // delete post
+      deleteIcon.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (user.uid === posts.uid){
+          deletePost(doc.id);
         }
       });
     });

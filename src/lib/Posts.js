@@ -1,7 +1,7 @@
 import {
   getFirestore, collection, addDoc/* , getDocs */,
   onSnapshot, query, orderBy, serverTimestamp, updateDoc, doc,
-  arrayUnion, arrayRemove,
+  arrayUnion, arrayRemove, deleteDoc
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { app } from './Config.js';
@@ -39,11 +39,6 @@ export const removeLikes = async (idPost) => {
   });
 };
 
-/* export const verifyLikes = (idPost) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
-
-  console.log((db, 'posts', idPost).likes);
-
-  //if(doc(db, 'posts', idPost).likes)
-} */
+export const deletePost = async (idPost) => {
+  await deleteDoc(doc(db, 'posts', idPost));
+};

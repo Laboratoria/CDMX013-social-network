@@ -458,7 +458,7 @@ footer, .login-footer{
  }
  .msgerror-feed {
   visibility: hidden;
-  font-size: 12px;
+  font-size: 14px;
   color: red;
  }
 /* Heart*/
@@ -568,4 +568,14 @@ footer, .login-footer{
   font-weight: 700;
   font-size: 1em;
   margin-right: 25px;
+}
+.optionsDiv{
+  display: flex;
+  align-self: center;
+}
+.edit-icon{
+  height: 27px;
+  width: 27px;
+  align-self: center;
+  padding-bottom: 2px;
 }

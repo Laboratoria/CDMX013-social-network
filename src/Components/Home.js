@@ -125,14 +125,22 @@ export function home(){
       const userNamePostContainer = document.createElement('div');
       userNamePostContainer.setAttribute('class', 'user-post');
       userNamePostContainer.textContent = posts.email;
+      // Create edit icon
+      const optionsDiv = document.createElement('div');
+      optionsDiv.setAttribute('class', 'options-div');
+      const editIcon = document.createElement('img');
+      editIcon.src = '../img/edit-icon.png';
+      editIcon.setAttribute('class', 'edit-icon');
 
       // Delete post
       const deleteIcon = document.createElement('img');
       deleteIcon.setAttribute('class', `delete trash${doc.id}`);
       deleteIcon.src = '../img/delete.png';
-      headerPost.append(imgPostContainer, userNamePostContainer, deleteIcon);
+      optionsDiv.append(editIcon, deleteIcon);
+      headerPost.append(imgPostContainer, userNamePostContainer, optionsDiv);
       if (user.uid !== posts.uid){
         deleteIcon.style.visibility = 'hidden';
+        editIcon.style.visibility = 'hidden';
       }
       // text container
       const textPostContainer = document.createElement('div');

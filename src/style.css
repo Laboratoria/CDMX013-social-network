@@ -569,3 +569,13 @@ footer, .login-footer{
   font-size: 1em;
   margin-right: 25px;
 }
+.optionsDiv{
+  display: flex;
+  align-self: center;
+}
+.edit-icon{
+  height: 27px;
+  width: 27px;
+  align-self: center;
+  padding-bottom: 2px;
+}

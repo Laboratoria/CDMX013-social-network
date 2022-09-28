@@ -80,17 +80,17 @@ export function home(){
   // Container button
   const containerButton = document.createElement('div');
   containerButton.setAttribute('class', 'containerbutton-feed');
-  // Msg Error " "
+  // Msg Error
   const msgError = document.createElement('div');
   msgError.setAttribute('class', 'msgerror-feed');
-  msgError.textContent = 'please, write something';
+  msgError.textContent = 'Please, write something';
   // Container divs post
   const containerDivs = document.createElement('div');
   containerDivs.setAttribute('class', 'container-posts');
   // share button
   const shareButton = document.createElement('button');
   shareButton.setAttribute('class', 'sharebutton-feed');
-  shareButton.textContent = 'share';
+  shareButton.textContent = 'Share';
 
   let allPost = [];
   onGetPosts((querySnapshot) => {

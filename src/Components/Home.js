@@ -104,6 +104,8 @@ export function home(){
     allPost = [];
     // containerDivs.remove();
     querySnapshot.forEach((doc) => {
+      const auth = getAuth();
+      const user = auth.currentUser;
       const posts = doc.data();
       allPost.push(posts);
       // post feed container
@@ -123,11 +125,15 @@ export function home(){
       const userNamePostContainer = document.createElement('div');
       userNamePostContainer.setAttribute('class', 'user-post');
       userNamePostContainer.textContent = posts.email;
+
       // Delete post
       const deleteIcon = document.createElement('img');
       deleteIcon.setAttribute('class', `delete trash${doc.id}`);
       deleteIcon.src = '../img/delete.png';
       headerPost.append(imgPostContainer, userNamePostContainer, deleteIcon);
+      if (user.uid !== posts.uid){
+        deleteIcon.style.visibility = 'hidden';
+      }
       // text container
       const textPostContainer = document.createElement('div');
       textPostContainer.setAttribute('class', 'text-feed');
@@ -170,50 +176,47 @@ export function home(){
       containerLikes.append(containerHeart, likesCounter);
       footerPost.append(containerLikes);
       containerDivs.append(postContainer);
-     // Modal 
-     const modalContainer = document.createElement('div');
-     modalContainer.setAttribute('class',`modal modal-${doc.id}`);
+      // Modal
+      const modalContainer = document.createElement('div');
+      modalContainer.setAttribute('class', `modal modal-${doc.id}`);
 
-     const modalContent = document.createElement('div');
-     modalContent.setAttribute('class','modal-content');
+      const modalContent = document.createElement('div');
+      modalContent.setAttribute('class', 'modal-content');
 
-     const modalClose = document.createElement('span');
-     modalClose.setAttribute('class',`close close-${doc.id}`);
-     modalClose.textContent = 'X';
+      const modalClose = document.createElement('span');
+      modalClose.setAttribute('class', `close close-${doc.id}`);
+      modalClose.textContent = 'X';
 
-     const modalText = document.createElement('p');
-     modalText.setAttribute('class','modal-text');
-     modalText.textContent = 'Are you sure?, You won´t be able to revert this!';
+      const modalText = document.createElement('p');
+      modalText.setAttribute('class', 'modal-text');
+      modalText.textContent = 'Are you sure?, You won´t be able to revert this!';
 
-     const buttonConfirm = document.createElement('button');
-     buttonConfirm.setAttribute('class', 'button-confirm');
-     buttonConfirm.textContent = 'Confirm';
+      const buttonConfirm = document.createElement('button');
+      buttonConfirm.setAttribute('class', 'button-confirm');
+      buttonConfirm.textContent = 'Confirm';
 
+      modalContent.append(modalClose, modalText, buttonConfirm);
+      modalContainer.appendChild(modalContent);
+      postContainer.appendChild(modalContainer);
 
-     modalContent.append(modalClose, modalText,buttonConfirm);
-     modalContainer.appendChild(modalContent);
-     postContainer.appendChild(modalContainer);
-     
-     // Modal Events
-     const span = document.querySelector(`.close.close-${doc.id}`);
-     console.log(span);
-     if(span != null){
-      span.addEventListener('click', (e) => {
-        e.preventDefault();
-        modalContainer.style.display = 'none';
-      });
+      // Modal Events
+      const span = document.querySelector(`.close.close-${doc.id}`);
+      console.log(span);
+      if (span != null){
+        span.addEventListener('click', (e) => {
+          e.preventDefault();
+          modalContainer.style.display = 'none';
+        });
 
-     /* window.addEventListener('click', (e) => {
+        /* window.addEventListener('click', (e) => {
         if (e.target == modalContainer) {
           modalContainer.style.display = "none";
         }
-      });*/
-     }
-      
+      }); */
+      }
 
       // Fill heart if user liked post
-      const auth = getAuth();
-      const user = auth.currentUser;
+      
       if (posts.likes.includes(user.uid) && document.querySelector(`.icon-heart.heart-${doc.id}`) != null){
         document.querySelector(`.icon-heart.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
         document.querySelector(`.icon-heart-before.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
@@ -233,23 +236,21 @@ export function home(){
       // delete post
       deleteIcon.addEventListener('click', (e) => {
         e.preventDefault();
-        if(user.uid === posts.uid){
-          document.querySelector(`.modal-${doc.id}`).style.display = "block";
-        }else{
-          document.querySelector(`.modal-${doc.id}`).style.display = "none";
-        } 
+        if (user.uid === posts.uid){
+          document.querySelector(`.modal-${doc.id}`).style.display = 'block';
+        } else {
+          document.querySelector(`.modal-${doc.id}`).style.display = 'none';
+        }
       });
 
-      buttonConfirm.addEventListener('click', (e) =>{
+      buttonConfirm.addEventListener('click', (e) => {
         e.preventDefault();
-        if (user.uid === posts.uid ){
+        if (user.uid === posts.uid){
           deletePost(doc.id);
         }
       });
     });
   });
-
- 
 
   feedContainer.append(postDiv, containerDivs);
   containerButton.append(msgError, shareButton);

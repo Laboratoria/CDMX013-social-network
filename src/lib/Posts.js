@@ -1,5 +1,5 @@
 import {
-  getFirestore, collection, addDoc/* , getDocs */,
+  getFirestore, collection, addDoc, getDoc,
   onSnapshot, query, orderBy, serverTimestamp, updateDoc, doc,
   arrayUnion, arrayRemove, deleteDoc
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
@@ -41,4 +41,15 @@ export const removeLikes = async (idPost) => {
 
 export const deletePost = async (idPost) => {
   await deleteDoc(doc(db, 'posts', idPost));
+};
+
+export const editPost = async (idPost) => {
+  const docRef = doc(db, "posts", idPost);
+const docSnap = await getDoc(docRef);
+if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+} else {
+  // doc.data() will be undefined in this case
+  console.log("No such document!");
+}
 };

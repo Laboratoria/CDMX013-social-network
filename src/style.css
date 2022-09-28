@@ -451,6 +451,7 @@ footer, .login-footer{
   flex-wrap: wrap;
   padding: 0px 10px 10px 10px;
   border-bottom: solid 2px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
  }
 
  .footer-post{
@@ -578,4 +579,11 @@ footer, .login-footer{
   width: 27px;
   align-self: center;
   padding-bottom: 2px;
+  padding-left: 2px;
+}
+.save-Edit{
+  visibility: hidden;
+  width: 22px;
+  height: 22px;
+  padding-right: 5px;
 }

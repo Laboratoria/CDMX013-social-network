@@ -1,7 +1,7 @@
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { signoutPage } from '../lib/Auth.js';
 import {
-  savePost, onGetPosts, addLikes, removeLikes, deletePost,
+  savePost, onGetPosts, addLikes, removeLikes, deletePost, editPost
 }
   from '../lib/Posts.js';
 
@@ -131,6 +131,10 @@ export function home(){
       const editIcon = document.createElement('img');
       editIcon.src = '../img/edit-icon.png';
       editIcon.setAttribute('class', 'edit-icon');
+      //Edit save
+     const saveEdit = document.createElement('img');
+     saveEdit.src = '../img/save-post.png';
+     saveEdit.setAttribute('class','save-Edit');
 
       // Delete post
       const deleteIcon = document.createElement('img');
@@ -142,10 +146,29 @@ export function home(){
         deleteIcon.style.visibility = 'hidden';
         editIcon.style.visibility = 'hidden';
       }
+
+      //Edit Post
+        //if(user.uid === posts.uid){
+        editIcon.addEventListener('click', (e)=>{
+          textPostContainer.setAttribute('contenteditable','true');
+          textPostContainer.style.border = '2px solid #00000';
+          saveEdit.style.visibility = 'visible';
+          deleteIcon.style.visibility = 'hidden';
+          editIcon.style.visibility = 'hidden';
+        textPostContainer.addEventListener('click', (e)=>{
+            editPost(doc.id);
+            
+          });
+        });
+       // }
+       
+      
       // text container
       const textPostContainer = document.createElement('div');
-      textPostContainer.setAttribute('class', 'text-feed');
+      textPostContainer.setAttribute('class', `text-feed text-feed${doc.id}`);
+      textPostContainer.setAttribute('contenteditable','false');
       textPostContainer.textContent = posts.post;
+      textPostContainer.appendChild(saveEdit);
       // Footer
       const footerPost = document.createElement('div');
       footerPost.setAttribute('class', 'footer-post');

@@ -131,11 +131,19 @@ export function home(){
       const editIcon = document.createElement('img');
       editIcon.src = '../img/edit-icon.png';
       editIcon.setAttribute('class', 'edit-icon');
-      //Edit save
+      //Div icons edit
+      const divIconsedit = document.createElement('div');
+      divIconsedit.setAttribute('class','edit-options');
+     
+      //Edit save icon 
      const saveEdit = document.createElement('img');
      saveEdit.src = '../img/save-post.png';
      saveEdit.setAttribute('class','save-Edit');
-
+    //Cancel icon
+    const cancelEdit = document.createElement('img');
+    cancelEdit.src = '../img/cancel-post.png';
+    cancelEdit.setAttribute('class','cancel-edit');
+    divIconsedit.append(saveEdit, cancelEdit);
       // Delete post
       const deleteIcon = document.createElement('img');
       deleteIcon.setAttribute('class', `delete trash${doc.id}`);
@@ -148,27 +156,38 @@ export function home(){
       }
 
       //Edit Post
-        //if(user.uid === posts.uid){
         editIcon.addEventListener('click', (e)=>{
           textPostContainer.setAttribute('contenteditable','true');
-          textPostContainer.style.border = '2px solid #00000';
+          textPostContainer.focus();
           saveEdit.style.visibility = 'visible';
+          cancelEdit.style.visibility = 'visible';
           deleteIcon.style.visibility = 'hidden';
-          editIcon.style.visibility = 'hidden';
-        textPostContainer.addEventListener('click', (e)=>{
-            editPost(doc.id);
-            
-          });
+          editIcon.style.visibility = 'hidden'; 
+          
         });
-       // }
-       
+        saveEdit.addEventListener('click', (e) =>{
+         const newValue = document.querySelector(`.text-feed.text-feed${doc.id}`);
+         if( newValue.textContent != "") {
+          console.log(newValue.textContent);
+          editPost(doc.id,newValue.textContent);
+         }
+        });
+        cancelEdit.addEventListener('click', (e) => {
+          textPostContainer.setAttribute('contenteditable','false');
+          textPostContainer.blur();
+          saveEdit.style.visibility = 'hidden';
+          cancelEdit.style.visibility = 'hidden';
+          deleteIcon.style.visibility = 'visible';
+          editIcon.style.visibility = 'visible';
+
+        })
       
       // text container
       const textPostContainer = document.createElement('div');
       textPostContainer.setAttribute('class', `text-feed text-feed${doc.id}`);
       textPostContainer.setAttribute('contenteditable','false');
       textPostContainer.textContent = posts.post;
-      textPostContainer.appendChild(saveEdit);
+      textPostContainer.append(divIconsedit);
       // Footer
       const footerPost = document.createElement('div');
       footerPost.setAttribute('class', 'footer-post');

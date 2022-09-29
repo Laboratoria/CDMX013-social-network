@@ -586,4 +586,10 @@ footer, .login-footer{
   width: 22px;
   height: 22px;
   padding-right: 5px;
+  margin-top: 5px;
+}
+.cancel-edit{
+  visibility: hidden;
+  width: 22px;
+  height: 22px;
 }

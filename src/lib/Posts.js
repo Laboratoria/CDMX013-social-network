@@ -43,13 +43,10 @@ export const deletePost = async (idPost) => {
   await deleteDoc(doc(db, 'posts', idPost));
 };
 
-export const editPost = async (idPost) => {
+export const editPost = async (idPost, editText) => {
   const docRef = doc(db, "posts", idPost);
-const docSnap = await getDoc(docRef);
-if (docSnap.exists()) {
-  console.log("Document data:", docSnap.data());
-} else {
-  // doc.data() will be undefined in this case
-  console.log("No such document!");
-}
+  await updateDoc(docRef, {
+    post: editText
+  });
 };
+

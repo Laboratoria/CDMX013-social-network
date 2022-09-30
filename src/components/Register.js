@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { guardarUssuario, loginGoogle } from '../firebase/auth.js';
 
 export const Register = () => {
   const div = document.createElement('div');
@@ -9,8 +10,9 @@ export const Register = () => {
   const inputPass = document.createElement('input');
   const descriptionRegister = document.createElement('h3');
   const inputConfirm = document.createElement('input');
-  const buttongoogler = document.createElement('button');
+
   const liner = document.createElement('hr');
+  const imageGoogle = document.createElement('img');
 
   div.classList.add('container-register');
   buttonBack.textContent = 'Menú de Inicio';
@@ -30,23 +32,39 @@ export const Register = () => {
   inputConfirm.placeholder = 'Confirmar contraseña';
   buttonNewRegister.textContent = 'Registrar';
   buttonNewRegister.classList = ('buttonr');
-  buttongoogler.textContent = '';
-  buttongoogler.classList = ('buttongoogle');
   liner.classList = ('liner');
+  imageGoogle.classList = ('buttongoogle');
+  imageGoogle.setAttribute('src', 'https://i.postimg.cc/tJh7mK8T/google.png');
 
-  document.getElementsByClassName('inputEmail').value;
+  imageGoogle.addEventListener('click', () => {
+    loginGoogle();
+  });
+  // document.getElementsByClassName('inputEmail').value;
 
-  /*buttonNewRegister.addEventListener ('click' ) , () => {
+  /* buttonNewRegister.addEventListener ('click' ) , () => {
  console.log("Hola");
-  }*/
+  } */
   buttonBack.addEventListener('click', () => {
     onNavigate('/');
+  });
 
-
+  buttonNewRegister.addEventListener('click', () => {
+    guardarUssuario(inputEmail.value, inputPass.value).then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log('ya se creo tu user');
+      // ...
+    })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('Nel Karnal no puedes', errorMessage);
+        // ..
+      });
   });
 
   // eslint-disable-next-line max-len
-  div.append(title, liner, buttongoogler, descriptionRegister, buttonBack, inputEmail, inputPass, inputConfirm, buttonNewRegister, buttonBack);
+  div.append(title, liner, imageGoogle, descriptionRegister, buttonBack, inputEmail, inputPass, inputConfirm, buttonNewRegister, buttonBack);
 
   return div;
 };

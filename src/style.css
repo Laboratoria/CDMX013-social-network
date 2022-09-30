@@ -444,22 +444,13 @@ body {
 }
 
 
-.buttongoogler {
-    position: absolute;
-    width: 208px;
-    height: 46px;
-    left: 110px;
-    top: 630px;
-
-}
-
-
 .buttongoogle {
     position: absolute;
     width: 208px;
     height: 46px;
-    left: 155px;
-    top: 572px;
-
+    left: 157px;
+    top: 580px;
 
 }
+
+

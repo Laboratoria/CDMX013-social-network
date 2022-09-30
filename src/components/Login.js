@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { guardarUssuario } from '../firebase/auth.js';
+
 
 export const Login = () => {
   const div = document.createElement('div');
@@ -45,21 +45,7 @@ export const Login = () => {
   buttonBack.addEventListener('click', () => {
     onNavigate('/');
   });
-  button.addEventListener('click', () => {
-    guardarUssuario('carlos@carlos.com', '123456').then((userCredential) => {
-      // Signed in
-      console.log('ya se creo tu user');
-      // ...
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('Nel Karnal no puedes', errorMessage);
-        // ..
-      });
-
-      
-  });
+  
 
   div.append(titlepost, recuerdame, notienescuenta, line, forgotpassword, buttongoogle, title, inputEmail, inputPassword, button, buttonBack, buttonnuevacuenta);
 

@@ -1,7 +1,7 @@
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { signoutPage } from '../lib/Auth.js';
 import {
-  savePost, onGetPosts, addLikes, removeLikes, deletePost, editPost
+  savePost, onGetPosts, addLikes, removeLikes, deletePost, editPost,
 }
   from '../lib/Posts.js';
 
@@ -131,19 +131,19 @@ export function home(){
       const editIcon = document.createElement('img');
       editIcon.src = '../img/edit-icon.png';
       editIcon.setAttribute('class', 'edit-icon');
-      //Div icons edit
+      // Div icons edit
       const divIconsedit = document.createElement('div');
-      divIconsedit.setAttribute('class','edit-options');
-     
-      //Edit save icon 
-     const saveEdit = document.createElement('img');
-     saveEdit.src = '../img/save-post.png';
-     saveEdit.setAttribute('class','save-Edit');
-    //Cancel icon
-    const cancelEdit = document.createElement('img');
-    cancelEdit.src = '../img/cancel-post.png';
-    cancelEdit.setAttribute('class','cancel-edit');
-    divIconsedit.append(saveEdit, cancelEdit);
+      divIconsedit.setAttribute('class', 'edit-options');
+
+      // Edit save icon
+      const saveEdit = document.createElement('img');
+      saveEdit.src = '../img/save-post.png';
+      saveEdit.setAttribute('class', 'save-Edit');
+      // Cancel icon
+      const cancelEdit = document.createElement('img');
+      cancelEdit.src = '../img/cancel-post.png';
+      cancelEdit.setAttribute('class', 'cancel-edit');
+      divIconsedit.append(saveEdit, cancelEdit);
       // Delete post
       const deleteIcon = document.createElement('img');
       deleteIcon.setAttribute('class', `delete trash${doc.id}`);
@@ -155,37 +155,35 @@ export function home(){
         editIcon.style.visibility = 'hidden';
       }
 
-      //Edit Post
-        editIcon.addEventListener('click', (e)=>{
-          textPostContainer.setAttribute('contenteditable','true');
-          textPostContainer.focus();
-          saveEdit.style.visibility = 'visible';
-          cancelEdit.style.visibility = 'visible';
-          deleteIcon.style.visibility = 'hidden';
-          editIcon.style.visibility = 'hidden'; 
-          
-        });
-        saveEdit.addEventListener('click', (e) =>{
-         const newValue = document.querySelector(`.text-feed.text-feed${doc.id}`);
-         if( newValue.textContent != "") {
+      // Edit Post
+      editIcon.addEventListener('click', (e) => {
+        textPostContainer.setAttribute('contenteditable', 'true');
+        textPostContainer.focus();
+        saveEdit.style.visibility = 'visible';
+        cancelEdit.style.visibility = 'visible';
+        deleteIcon.style.visibility = 'hidden';
+        editIcon.style.visibility = 'hidden';
+      });
+      saveEdit.addEventListener('click', (e) => {
+        const newValue = document.querySelector(`.text-feed.text-feed${doc.id}`);
+        if (newValue.textContent != '') {
           console.log(newValue.textContent);
-          editPost(doc.id,newValue.textContent);
-         }
-        });
-        cancelEdit.addEventListener('click', (e) => {
-          textPostContainer.setAttribute('contenteditable','false');
-          textPostContainer.blur();
-          saveEdit.style.visibility = 'hidden';
-          cancelEdit.style.visibility = 'hidden';
-          deleteIcon.style.visibility = 'visible';
-          editIcon.style.visibility = 'visible';
+          editPost(doc.id, newValue.textContent);
+        }
+      });
+      cancelEdit.addEventListener('click', (e) => {
+        textPostContainer.setAttribute('contenteditable', 'false');
+        textPostContainer.blur();
+        saveEdit.style.visibility = 'hidden';
+        cancelEdit.style.visibility = 'hidden';
+        deleteIcon.style.visibility = 'visible';
+        editIcon.style.visibility = 'visible';
+      });
 
-        })
-      
       // text container
       const textPostContainer = document.createElement('div');
       textPostContainer.setAttribute('class', `text-feed text-feed${doc.id}`);
-      textPostContainer.setAttribute('contenteditable','false');
+      textPostContainer.setAttribute('contenteditable', 'false');
       textPostContainer.textContent = posts.post;
       textPostContainer.append(divIconsedit);
       // Footer
@@ -266,7 +264,7 @@ export function home(){
       }
 
       // Fill heart if user liked post
-      
+
       if (posts.likes.includes(user.uid) && document.querySelector(`.icon-heart.heart-${doc.id}`) != null){
         document.querySelector(`.icon-heart.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
         document.querySelector(`.icon-heart-before.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';

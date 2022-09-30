@@ -87,9 +87,6 @@ export function register() {
   // footerText.addEventListener('')
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    /* const inputName = document.querySelector('#username').value;
-    document.querySelector('#username').required = true; */
-
     const inputmailValue = document.querySelector('#user-mail').value;
     const inputpasswordValue = document.querySelector('#user-pass').value;
     console.log(inputmailValue, inputpasswordValue);

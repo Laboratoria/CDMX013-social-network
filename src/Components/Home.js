@@ -1,9 +1,11 @@
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
-import { signoutPage } from '../lib/Auth.js';
 import {
-  savePost, onGetPosts, addLikes, removeLikes, deletePost, editPost,
+  onGetPosts, addLikes, removeLikes,
 }
   from '../lib/Posts.js';
+import {
+  singOut, deleteUserPost, updatePost, createUserPost,
+} from '../Controller/home-controller.js';
 
 /* eslint-disable space-before-blocks */
 export function home(){
@@ -28,8 +30,6 @@ export function home(){
   // Creates main
   const mainContainer = document.createElement('main');
   mainContainer.setAttribute('class', 'main-feed');
-  /* // IMG background */
-
   // container Hello
   const containerHello = document.createElement('div');
   containerHello.setAttribute('class', 'containerhello-div');
@@ -54,6 +54,7 @@ export function home(){
   const feedContainer = document.createElement('div');
   feedContainer.setAttribute('id', 'feed');
 
+  //                          NEW POST
   // Div new Post
   const postDiv = document.createElement('div');
   postDiv.setAttribute('class', 'post-input');
@@ -71,7 +72,6 @@ export function home(){
   createPost.setAttribute('placeholder', 'Ask to your partner...');
   createPost.setAttribute('class', 'newpost-feed');
   createPost.setAttribute('id', 'inputpost-feed');
-
   // icon
   const writeIcon = document.createElement('img');
   writeIcon.src = '../img/write-icon.png';
@@ -92,6 +92,7 @@ export function home(){
   shareButton.setAttribute('class', 'sharebutton-feed');
   shareButton.textContent = 'Share';
 
+  //                             ALL POSTS
   let allPost = [];
   onGetPosts((querySnapshot) => {
     // Remove all child
@@ -102,7 +103,6 @@ export function home(){
     }
 
     allPost = [];
-    // containerDivs.remove();
     querySnapshot.forEach((doc) => {
       const auth = getAuth();
       const user = auth.currentUser;
@@ -134,7 +134,6 @@ export function home(){
       // Div icons edit
       const divIconsedit = document.createElement('div');
       divIconsedit.setAttribute('class', 'edit-options');
-
       // Edit save icon
       const saveEdit = document.createElement('img');
       saveEdit.src = '../img/save-post.png';
@@ -150,37 +149,11 @@ export function home(){
       deleteIcon.src = '../img/delete.png';
       optionsDiv.append(editIcon, deleteIcon);
       headerPost.append(imgPostContainer, userNamePostContainer, optionsDiv);
+      // Show incons just in current user post
       if (user.uid !== posts.uid){
         deleteIcon.style.visibility = 'hidden';
         editIcon.style.visibility = 'hidden';
       }
-
-      // Edit Post
-      editIcon.addEventListener('click', (e) => {
-        textPostContainer.setAttribute('contenteditable', 'true');
-        textPostContainer.focus();
-        saveEdit.style.visibility = 'visible';
-        cancelEdit.style.visibility = 'visible';
-        deleteIcon.style.visibility = 'hidden';
-        editIcon.style.visibility = 'hidden';
-      });
-      saveEdit.addEventListener('click', (e) => {
-        const newValue = document.querySelector(`.text-feed.text-feed${doc.id}`);
-
-        if (newValue.textContent !== ''){
-          console.log(newValue.textContent);
-          editPost(doc.id, newValue.textContent);
-        }
-      });
-      cancelEdit.addEventListener('click', (e) => {
-        textPostContainer.setAttribute('contenteditable', 'false');
-        textPostContainer.blur();
-        saveEdit.style.visibility = 'hidden';
-        cancelEdit.style.visibility = 'hidden';
-        deleteIcon.style.visibility = 'visible';
-        editIcon.style.visibility = 'visible';
-      });
-
       // text container
       const textPostContainer = document.createElement('div');
       textPostContainer.setAttribute('class', `text-feed text-feed${doc.id}`);
@@ -248,21 +221,7 @@ export function home(){
       modalContainer.appendChild(modalContent);
       postContainer.appendChild(modalContainer);
 
-      // Modal Events
-      const span = document.querySelector(`.close.close-${doc.id}`);
-      console.log(span);
-      if (span != null){
-        span.addEventListener('click', (e) => {
-          e.preventDefault();
-          modalContainer.style.display = 'none';
-        });
-
-        /* window.addEventListener('click', (e) => {
-        if (e.target == modalContainer) {
-          modalContainer.style.display = "none";
-        }
-      }); */
-      }
+      
 
       // Fill heart if user liked post
 
@@ -271,18 +230,53 @@ export function home(){
         document.querySelector(`.icon-heart-before.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
       }
 
-      // Add Like
+      //  Likes and dislikes
       containerHeart.addEventListener('click', (e) => {
         e.preventDefault();
         if (posts.likes.includes(user.uid)){
           removeLikes(doc.id);
         } else {
-          console.log(doc.id);
           addLikes(doc.id);
         }
       });
 
-      // delete post
+      // EDIT POST
+      // Hide edit and delete icon
+      editIcon.addEventListener('click', (e) => {
+        textPostContainer.setAttribute('contenteditable', 'true');
+        textPostContainer.focus();
+        saveEdit.style.visibility = 'visible';
+        cancelEdit.style.visibility = 'visible';
+        deleteIcon.style.visibility = 'hidden';
+        editIcon.style.visibility = 'hidden';
+      });
+
+      // Save edited post
+      saveEdit.addEventListener('click', (e) => {
+        const newValue = document.querySelector(`.text-feed.text-feed${doc.id}`);
+        updatePost(newValue.textContent, doc.id);
+      });
+
+      // Cancel edit
+      cancelEdit.addEventListener('click', (e) => {
+        textPostContainer.setAttribute('contenteditable', 'false');
+        textPostContainer.blur();
+        saveEdit.style.visibility = 'hidden';
+        cancelEdit.style.visibility = 'hidden';
+        deleteIcon.style.visibility = 'visible';
+        editIcon.style.visibility = 'visible';
+      });
+      // DELETE POST
+      // Modal Events (Cancel delete)
+      const span = document.querySelector(`.close.close-${doc.id}`);
+
+      if (span != null){
+        span.addEventListener('click', (e) => {
+          e.preventDefault();
+          modalContainer.style.display = 'none';
+        });
+      }
+      //
       deleteIcon.addEventListener('click', (e) => {
         e.preventDefault();
         if (user.uid === posts.uid){
@@ -292,11 +286,10 @@ export function home(){
         }
       });
 
+      // Modal confirm botton
       buttonConfirm.addEventListener('click', (e) => {
         e.preventDefault();
-        if (user.uid === posts.uid){
-          deletePost(doc.id);
-        }
+        deleteUserPost(user.uid, posts.uid, doc.id);
       });
     });
   });
@@ -307,28 +300,16 @@ export function home(){
   mainContainer.append(containerHello, feedContainer);
   fatherOfAll.append(background, headerFeed, mainContainer);
 
+  // Sing out
   logOut.addEventListener('click', () => {
-    signoutPage().then(() => {
-      // Sign-out successful.
-      console.log('si cerro');
-    }).catch((error) => {
-      // An error happened.
-    });
+    singOut();
   });
 
+  // Share post
   shareButton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('enviado');
     const inputPostValue = document.querySelector('#inputpost-feed').value;
-    if (inputPostValue == ''){
-      msgError.style = 'visibility: visible';
-      console.log('error');
-    } else {
-      console.log(inputPostValue);
-      savePost(inputPostValue);
-      const newValue = document.querySelector('#inputpost-feed');
-      newValue.value = '';
-    }
+    createUserPost(inputPostValue);
   });
 
   return fatherOfAll;

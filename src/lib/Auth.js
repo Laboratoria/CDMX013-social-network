@@ -4,7 +4,7 @@
 /* eslint-disable max-len */
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect,
-  getRedirectResult, GithubAuthProvider, signOut, updateProfile,
+  getRedirectResult, GithubAuthProvider, signOut,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { app } from './Config.js';
 
@@ -24,7 +24,7 @@ export const providerGithub = new GithubAuthProvider();
 export const signInWithGithub = (providerGithub) => signInWithRedirect(auth, providerGithub);
 // SIGNOUT
 export const signoutPage = () => signOut(auth);
-// ADD USER NAME
+/* // UPDATE INFO
 export const updateInfo = (name) => updateProfile(auth.currentUser, {
   displayName: name,
 }).then(() => {
@@ -36,3 +36,4 @@ export const updateInfo = (name) => updateProfile(auth.currentUser, {
   // ...
   console.log('no name');
 });
+*/

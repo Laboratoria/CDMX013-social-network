@@ -7,6 +7,7 @@ import {
 }
   from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
+import { redirectGoogle, signInWithEmail } from '../Controller/loginSignup-controller.js';
 
 export function login() {
   // Container for main and footer
@@ -110,45 +111,16 @@ export function login() {
   // Login email and password
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
     const inputmailValue = document.querySelector('#mail').value;
     const inputpasswordValue = document.querySelector('#password').value;
-
-    loginUser(inputmailValue, inputpasswordValue).then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (errorCode === 'auth/wrong-password') {
-          alertMsg.textContent = 'Email or password incorrect';
-          alertMsg.style = 'display: block';
-        } else {
-          alertMsg.textContent = 'User not found';
-          alertMsg.style = 'display: block';
-        }
-      });
+    signInWithEmail(inputmailValue, inputpasswordValue);
   });
 
   // LOGIN WITH GOOGLE
   logoGoogle.addEventListener('click', () => {
     providerGoogle;
     singIn(providerGoogle);
-    resultRedirect().then((result) => {
-      const credentialGoogle = credential(result);
-      const token = credentialGoogle.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-      console.log(user);
-      console.log('si funciona');
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('valiendo qso');
-      });
+    redirectGoogle();
   });
   // LOGIN WITH GITHUB
   logoGithub.addEventListener('click', () => {

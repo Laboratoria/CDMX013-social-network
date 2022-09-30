@@ -81,32 +81,32 @@ export function register() {
   // Inser to div father of all
   fatherOfAll.append(mainContainer, registerFooter);
   // Take data from the form
+
+  
   loginText.addEventListener('click', () => {
     onNavigate('/login');
   });
   // footerText.addEventListener('')
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const inputmailValue = document.querySelector('#user-mail').value;
     const inputpasswordValue = document.querySelector('#user-pass').value;
-    console.log(inputmailValue, inputpasswordValue);
-    newUser(inputmailValue, inputpasswordValue).then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ..
-      console.log(user);
-      console.log('si funciona');
-      onNavigate('/home');
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('nel');
-        // ..
-        if (inputpasswordValue >= 1) {
-          alertMsg.style = 'display: block';
-        }
-      });
+    if (inputpasswordValue.length < 6) {
+      alertMsg.style = 'display: block';
+    } else {
+      newUser(inputmailValue, inputpasswordValue).then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        onNavigate('/home');
+      })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          
+        });
+    }
+    
   });
   // Return all
   return fatherOfAll;

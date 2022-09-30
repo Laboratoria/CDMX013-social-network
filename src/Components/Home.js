@@ -166,7 +166,10 @@ export function home(){
       });
       saveEdit.addEventListener('click', (e) => {
         const newValue = document.querySelector(`.text-feed.text-feed${doc.id}`);
-        if (newValue.textContent != '') {
+
+        if (newValue.textContent !== ''){
+        
+
           console.log(newValue.textContent);
           editPost(doc.id, newValue.textContent);
         }

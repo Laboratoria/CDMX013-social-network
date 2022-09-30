@@ -510,8 +510,8 @@ footer, .login-footer{
 
 
 .delete{
-  width: 32px;
-  height: 32px;
+  width: 23px;
+  height: 25px;
   align-self: center;
 }
 
@@ -575,8 +575,8 @@ footer, .login-footer{
   align-self: center;
 }
 .edit-icon{
-  height: 27px;
-  width: 27px;
+  height: 23px;
+  width: 19px;
   align-self: center;
   padding-bottom: 2px;
   padding-left: 2px;

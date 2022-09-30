@@ -16,7 +16,7 @@ body {
     width: 346.48px;
     height: 67.5px;
     left: 68px;
-    top: 488px;
+    top: 581px;
 
 
 
@@ -35,7 +35,7 @@ body {
     width: 346.48px;
     height: 67.5px;
     left: 68px;
-    top: 581px;
+    top: 485px;
     background-color: rgb(203, 153, 100);
     color: rgb(0, 0, 0);
     padding: 15px 32px;
@@ -444,22 +444,13 @@ body {
 }
 
 
-.buttongoogler {
-    position: absolute;
-    width: 208px;
-    height: 46px;
-    left: 110px;
-    top: 630px;
-
-}
-
-
 .buttongoogle {
     position: absolute;
     width: 208px;
     height: 46px;
-    left: 155px;
-    top: 572px;
-
+    left: 157px;
+    top: 580px;
 
 }
+
+

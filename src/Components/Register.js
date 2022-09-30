@@ -1,5 +1,5 @@
-import { newUser } from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
+import { createUser } from '../Controller/loginSignup-controller.js';
 
 export function register() {
 // Container for main and footer
@@ -82,7 +82,6 @@ export function register() {
   fatherOfAll.append(mainContainer, registerFooter);
   // Take data from the form
 
-  
   loginText.addEventListener('click', () => {
     onNavigate('/login');
   });
@@ -95,18 +94,8 @@ export function register() {
     if (inputpasswordValue.length < 6) {
       alertMsg.style = 'display: block';
     } else {
-      newUser(inputmailValue, inputpasswordValue).then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        onNavigate('/home');
-      })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          
-        });
+      createUser(inputmailValue, inputpasswordValue);
     }
-    
   });
   // Return all
   return fatherOfAll;

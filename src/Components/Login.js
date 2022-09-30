@@ -129,9 +129,6 @@ export function login() {
           alertMsg.textContent = 'User not found';
           alertMsg.style = 'display: block';
         }
-        
-        console.log(errorCode);
-        console.log(errorMessage);
       });
   });
 

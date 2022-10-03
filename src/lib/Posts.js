@@ -1,7 +1,7 @@
 import {
-  getFirestore, collection, addDoc, getDoc,
+  getFirestore, collection, addDoc,
   onSnapshot, query, orderBy, serverTimestamp, updateDoc, doc,
-  arrayUnion, arrayRemove, deleteDoc
+  arrayUnion, arrayRemove, deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { app } from './Config.js';
@@ -44,9 +44,9 @@ export const deletePost = async (idPost) => {
 };
 
 export const editPost = async (idPost, editText) => {
-  const docRef = doc(db, "posts", idPost);
+  const docRef = doc(db, 'posts', idPost);
   await updateDoc(docRef, {
-    post: editText
+    post: editText,
   });
 };
 

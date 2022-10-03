@@ -3,11 +3,11 @@
 /* eslint-disable no-unused-vars */
 
 import {
-  providerGoogle, resultRedirect, credential, singIn, loginUser, providerGithub, signInWithGithub,
+  providerGoogle, singIn, providerGithub, signInWithGithub,
 }
   from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
-import { redirectGoogle, signInWithEmail } from '../Controller/loginSignup-controller.js';
+import { redirectGoogle, signInWithEmail, redirectGithub } from '../Controller/loginSignup-controller.js';
 
 export function login() {
   // Container for main and footer
@@ -125,18 +125,8 @@ export function login() {
   // LOGIN WITH GITHUB
   logoGithub.addEventListener('click', () => {
     providerGithub;
-    singIn(providerGithub);
-    resultRedirect().then((result) => {
-      const credentialGithub = credential(result);
-      const token = credentialGithub.accessToken;
-      // The signed-in user info.
-      const user = result.user;
-    })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('no entra a git');
-      });
+    signInWithGithub(providerGithub);
+    redirectGithub();
   });
 
   inputMail.addEventListener('click', (e) => {

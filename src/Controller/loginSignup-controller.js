@@ -1,4 +1,6 @@
-import { newUser, resultRedirect, credential, loginUser } from '../lib/Auth.js';
+import {
+  newUser, resultRedirect, credential, loginUser,
+} from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
 
 export const createUser = (inputmailValue, inputpasswordValue) => {
@@ -34,7 +36,7 @@ export const signInWithEmail = (inputmailValue, inputpasswordValue) => {
       }
     });
 };
-
+// LOGIN WITH GOOGLE
 export const redirectGoogle = () => {
   resultRedirect().then((result) => {
     const credentialGoogle = credential(result);
@@ -46,5 +48,20 @@ export const redirectGoogle = () => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
+    });
+};
+
+// LOGIN WITH GITHUB
+export const redirectGithub = () => {
+  resultRedirect().then((result) => {
+    const credentialGithub = credential(result);
+    const token = credentialGithub.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+  })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log('no entra a git');
     });
 };

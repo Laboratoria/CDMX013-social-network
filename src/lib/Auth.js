@@ -5,7 +5,7 @@
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect,
   getRedirectResult, GithubAuthProvider, signOut,
-} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+} from './imports.js';
 import { app } from './Config.js';
 
 const auth = getAuth(app);

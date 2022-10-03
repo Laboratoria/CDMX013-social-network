@@ -43,7 +43,6 @@ export const redirectGoogle = () => {
     const token = credentialGoogle.accessToken;
     // The signed-in user info.
     const user = result.user;
-    console.log(user);
   })
     .catch((error) => {
       const errorCode = error.code;
@@ -62,6 +61,5 @@ export const redirectGithub = () => {
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log('no entra a git');
     });
 };

@@ -220,16 +220,12 @@ export function home(){
       modalContent.append(modalClose, modalText, buttonConfirm);
       modalContainer.appendChild(modalContent);
       postContainer.appendChild(modalContainer);
-
-      
-
       // Fill heart if user liked post
 
       if (posts.likes.includes(user.uid) && document.querySelector(`.icon-heart.heart-${doc.id}`) != null){
         document.querySelector(`.icon-heart.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
         document.querySelector(`.icon-heart-before.heart-${doc.id}`).style = 'background:rgba(239, 137, 156, 1)';
       }
-
       //  Likes and dislikes
       containerHeart.addEventListener('click', (e) => {
         e.preventDefault();
@@ -239,7 +235,6 @@ export function home(){
           addLikes(doc.id);
         }
       });
-
       // EDIT POST
       // Hide edit and delete icon
       editIcon.addEventListener('click', (e) => {

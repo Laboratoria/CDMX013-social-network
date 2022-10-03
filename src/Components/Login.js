@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 
 import {
-  providerGoogle, singIn, providerGithub, signInWithGithub,
+  singIn, signInWithGithub,
 }
   from '../lib/Auth.js';
 import { onNavigate } from '../main.js';
@@ -118,14 +118,12 @@ export function login() {
 
   // LOGIN WITH GOOGLE
   logoGoogle.addEventListener('click', () => {
-    providerGoogle;
-    singIn(providerGoogle);
+    singIn();
     redirectGoogle();
   });
   // LOGIN WITH GITHUB
   logoGithub.addEventListener('click', () => {
-    providerGithub;
-    signInWithGithub(providerGithub);
+    signInWithGithub();
     redirectGithub();
   });
 

@@ -15,13 +15,19 @@ export const newUser = (inputmailValue, inputpasswordValue) => createUserWithEma
 // LOGIN WITH EMAIL AND PASSWORD
 export const loginUser = (inputmailValue, inputpasswordValue) => signInWithEmailAndPassword(auth, inputmailValue, inputpasswordValue);
 // LOGIN WITH GOOGLE
-export const providerGoogle = new GoogleAuthProvider();
-export const singIn = (providerGoogle) => signInWithRedirect(auth, providerGoogle);
+
+export const singIn = () => {
+  const providerGoogle = new GoogleAuthProvider();
+  signInWithRedirect(auth, providerGoogle);
+};
 export const resultRedirect = () => getRedirectResult(auth);
 export const credential = (result) => provider.credentialFromResult(result);
 // LOGIN WITH GITHUB
-export const providerGithub = new GithubAuthProvider();
-export const signInWithGithub = (providerGithub) => signInWithRedirect(auth, providerGithub);
+
+export const signInWithGithub = () => {
+  const providerGithub = new GithubAuthProvider();
+  signInWithRedirect(auth, providerGithub);
+};
 // SIGNOUT
 export const signoutPage = () => signOut(auth);
 /* // UPDATE INFO

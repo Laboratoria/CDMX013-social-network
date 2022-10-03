@@ -67,7 +67,6 @@ main{
   color: #445E84;
   width: 240px;
   height: 50px;
-  border: none;
   border-radius: 20px;
   font-weight: 700;
   font-size: 1em;
@@ -234,7 +233,7 @@ footer, .login-footer{
 }
 .footer-text {
   height: 30px;
-  width: 75%px;
+  width: 75; /*Aqui habia %*/
   font-family: 'Poppins',sans-serif;
   font-weight: 700;
   font-size: 12px;
@@ -245,7 +244,7 @@ footer, .login-footer{
 
 .first-text {
     height: 30px;
-    width: 100%px;
+    width: 100; /* Aqui habia %*/
     top: 20px;
     font-family: 'Poppins',sans-serif;
     font-weight: 700;

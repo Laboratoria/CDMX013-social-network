@@ -25,6 +25,7 @@ export const Register = () => {
   inputEmail.classList = ('inputEmail');
   inputPass.textContent = ('input');
   inputPass.classList = ('inputPass');
+  inputPass.setAttribute('type', 'password');
   inputConfirm.textContent = ('input');
   inputConfirm.classList = ('inputConfirm');
   inputEmail.placeholder = 'Email';

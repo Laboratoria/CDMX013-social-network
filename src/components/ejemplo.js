@@ -1,27 +1,22 @@
-const div = document.createElement('div');
-const title = document.createElement('h2');
-const descriptionRegister = document.createElement('h3');
-const button = document.createElement('button');
-const buttonBack = document.createElement('button');
-const buttonG = document.createElement('button');
-const inputEmail = document.createElement('input');
-const inputPass = document.createElement('input');
-const inputConfirm = document.createElement('input');
-button.textContent = 'Registrar';
-button.classList = ('button');
-buttonBack.textContent = 'Menu de inicio';
-buttonBack.classList = ('buttonBack');
-buttonG.textContent = 'google';
-buttonG.classList = ('buttonGoogle');
-button.classList = ('button');
+AUTH  
+// entrar con email y password
+/* export const signWithEmailPassword = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+    // Signed in
+      const user = userCredential.user;
+      console.log(user);
+    // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(error);
+    });
+};
 
-inputEmail.textContent = ('input');
-inputEmail.classList = ('inputEmail');
-inputPass.textContent = ('input');
-inputPass.classList = ('inputPass');
-inputConfirm.textContent = ('input');
-inputConfirm.classList = ('inputConfirm');
+// login cuando ya esten registrados
+//
+*/
 
-inputEmail.placeholder = 'Email';
-inputPass.placeholder = 'Contraseña';
-inputConfirm.placeholder = 'Confirmar contraseña';
+//funcion log out

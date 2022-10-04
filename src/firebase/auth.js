@@ -39,6 +39,6 @@ export const loginGoogle = () => {
 
 // .then promesa .catch manejo de excepciones
 
-//
+
 
 export const signWithEmailPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);

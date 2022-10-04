@@ -3,8 +3,8 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 import {
-  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithRedirect,
-  getRedirectResult, GithubAuthProvider, signOut,
+  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithRedirect,
+  getRedirectResult, GithubAuthProvider, signOut, providerGoogle,
 } from './imports.js';
 import { app } from './Config.js';
 
@@ -17,8 +17,8 @@ export const loginUser = (inputmailValue, inputpasswordValue) => signInWithEmail
 // LOGIN WITH GOOGLE
 
 export const singIn = () => {
-  const providerGoogle = new GoogleAuthProvider();
-  signInWithRedirect(auth, providerGoogle);
+  const provider = providerGoogle;
+  signInWithRedirect(auth, provider);
 };
 export const resultRedirect = () => getRedirectResult(auth);
 export const credential = (result) => provider.credentialFromResult(result);

@@ -451,6 +451,7 @@ footer, .login-footer{
   padding: 0px 10px 10px 10px;
   border-bottom: solid 2px rgba(0, 0, 0, 0.05);
   justify-content: space-between;
+  width: 70%;
  }
 
  .footer-post{
@@ -591,4 +592,9 @@ footer, .login-footer{
   visibility: hidden;
   width: 22px;
   height: 22px;
+}
+.text-options{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

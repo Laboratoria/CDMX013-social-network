@@ -159,14 +159,11 @@ export function home(){
       textPostContainer.setAttribute('class', `text-feed text-feed${doc.id}`);
       textPostContainer.setAttribute('contenteditable', 'false');
       textPostContainer.textContent = posts.post;
-      // Container text-options
-      const textoptionsContainer = document.createElement('div');
-      textoptionsContainer.setAttribute('class', 'text-options');
-      textoptionsContainer.append(textPostContainer, divIconsedit);
+      textPostContainer.append(divIconsedit);
       // Footer
       const footerPost = document.createElement('div');
       footerPost.setAttribute('class', 'footer-post');
-      postContainer.append(headerPost, textoptionsContainer, footerPost);
+      postContainer.append(headerPost, textPostContainer, footerPost);
       // container likes
       const containerLikes = document.createElement('div');
       containerLikes.setAttribute('class', 'container-likes');
@@ -240,9 +237,7 @@ export function home(){
       });
       // EDIT POST
       // Hide edit and delete icon
-      let oldPost;
       editIcon.addEventListener('click', (e) => {
-        oldPost = textPostContainer.textContent;
         textPostContainer.setAttribute('contenteditable', 'true');
         textPostContainer.focus();
         saveEdit.style.visibility = 'visible';
@@ -259,7 +254,6 @@ export function home(){
 
       // Cancel edit
       cancelEdit.addEventListener('click', (e) => {
-        textPostContainer.textContent = oldPost;
         textPostContainer.setAttribute('contenteditable', 'false');
         textPostContainer.blur();
         saveEdit.style.visibility = 'hidden';

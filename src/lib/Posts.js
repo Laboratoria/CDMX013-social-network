@@ -8,7 +8,7 @@ import { app } from './Config.js';
 
 const db = getFirestore(app);
 const q = query(collection(db, 'posts'), orderBy('time', 'desc'));
-// Create Post
+
 export const savePost = (post) => {
   const auth = getAuth();
   const user = auth.currentUser;
@@ -18,7 +18,7 @@ export const savePost = (post) => {
 };
 
 export const onGetPosts = (callback) => onSnapshot(q, callback);
-// Add likes
+
 export const addLikes = async (idPost) => {
   const auth = getAuth();
   const user = auth.currentUser;
@@ -28,7 +28,7 @@ export const addLikes = async (idPost) => {
     likes: arrayUnion(user.uid),
   });
 };
-// Remove likes
+
 export const removeLikes = async (idPost) => {
   const auth = getAuth();
   const user = auth.currentUser;
@@ -38,11 +38,11 @@ export const removeLikes = async (idPost) => {
     likes: arrayRemove(user.uid),
   });
 };
-// Delete post
+
 export const deletePost = async (idPost) => {
   await deleteDoc(doc(db, 'posts', idPost));
 };
-// Edit post
+
 export const editPost = async (idPost, editText) => {
   const docRef = doc(db, 'posts', idPost);
   await updateDoc(docRef, {

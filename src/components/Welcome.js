@@ -2,7 +2,7 @@ import { onNavigate } from '../main.js';
 
 export const Welcome = () => {
   const sectionWelcome = document.createElement('section');
-  const header = document.createElement('header');
+  const headerWelcome = document.createElement('header');
   const imageLogo = document.createElement('img');
   const mainWelcome = document.createElement('main');
   const description = document.createElement('p');
@@ -13,7 +13,7 @@ export const Welcome = () => {
   const buttonRegister = document.createElement('button');
 
   sectionWelcome.classList = 'sectionOfWelcome';
-  header.classList = 'header';
+  headerWelcome.classList = 'headerWelcome';
   imageLogo.classList = 'imageLogo';
   imageLogo.alt = 'Imagen de un taco';
   mainWelcome.classList = 'mainWelcome';
@@ -41,9 +41,9 @@ export const Welcome = () => {
   });
 
 
-  header.append(imageLogo);
+  headerWelcome.append(imageLogo);
   mainWelcome.append(description, buttonSignWithGoogle, orSelect, buttonLogin, ask, buttonRegister);
-  sectionWelcome.append(header, mainWelcome);
+  sectionWelcome.append(headerWelcome, mainWelcome);
 
   return sectionWelcome;
 };

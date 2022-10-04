@@ -10,6 +10,7 @@ signInWithEmailAndPassword(auth, email, password)
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
+    //imprimir mensaje en dom o que vuelva al inicio
   });
 
   //video 24:30

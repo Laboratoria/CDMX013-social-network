@@ -2,11 +2,11 @@ import { Welcome } from './components/Welcome.js';
 import { Login } from './components/Login.js';
 import { Register } from './components/Register.js';
 import { Wall } from './components/wall.js';
-import {userObserver} from './firebase/auth.js';
+import { userObserver } from './firebase/auth.js';
 
 const root = document.getElementById('root');
 const routes = {
-  '/': Welcome,     //solo / para welcome
+  '/': Welcome,
   '/login': Login,
   '/register': Register,
   '/wall': Wall,
@@ -41,6 +41,3 @@ userObserver ((user)=> {
   }
 
 });
-
-
-//hacer parte de login

@@ -1,0 +1,594 @@
+body{
+   background-color: #ffffff;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+.root{
+  height: 568px;
+  width: 320px;
+}
+.fatherOfAll-feed{
+  height: 568px;
+  width: 320px;
+  position: relative;
+  z-index: 1;
+}
+main{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+.first-img{
+  width: 300px;
+  height: 270px;
+}
+
+.logo{
+  height: 66px;
+  width: 175px;
+  padding-bottom: 10px;
+}
+
+.welcome-text{
+  font-family: 'Poppins',sans-serif;
+  font-size: 12px;
+  line-height: 27px;
+  text-align: center;
+  color: rgba(0, 0, 0, 60%);
+  font-weight: 700;
+  margin: 0;
+}
+
+.buttons-container{
+  display: flex;
+  flex-direction:column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 258px;
+  height: 200px;  
+  background-color: #ffffff;
+  margin-top: 0;
+ 
+  border-radius: 15px;
+}
+
+.button{
+  background-color: #ffffff;
+  color: #445E84;
+  width: 240px;
+  height: 50px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1em;
+  border: 2px solid #A4DAFF;
+ 
+}
+#login{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+}
+/*HOVER BUTTONS IN LOGIN */
+.button:hover {
+  background-color: #A4DAFF;
+  color: #445E84;
+  box-shadow: 4px 4px 4px #445E84;
+}
+
+.welcome-footer{
+  background-color: #ffffff;
+  height: 30px;
+  width: 320px;
+  
+}
+/*REGISTER VIEW */
+.registerDiv, .loginDiv {
+  position: relative;
+  display: flex;
+  flex-direction:column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 275px;
+  height: 175px;  
+  margin: 15px;
+  z-index: 1;
+
+}
+
+.confetti-img, .home-img{
+  object-fit: cover;
+  width: 275px;
+  height: 160px;
+  z-index: 2;
+
+}
+
+.create-account, .login-title, .welcome-title{
+  position: absolute;
+  width: 228px;
+  height: 61px;
+  justify-content: center;
+  top: 30px;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 39px;
+  display: flex;
+  align-items: center;
+  color: #EF899C;
+  z-index: 3;
+}
+.join-text, .welcome-text {
+  position: absolute;
+  width: 200px;
+  height: 39px;
+  top: 110px;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.6);
+  z-index: 3;
+}
+
+.form-register {
+  display: flex;
+  flex-direction:column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 260px;
+  height: 237px;
+
+}
+
+.form-login {
+  display: flex;
+  flex-direction:column;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 260px;
+  height: 200px;
+
+}
+
+label {
+font-family: 'Poppins',sans-serif;
+font-weight: 700;
+font-size: 14px;
+line-height: 21px;
+color: #445E84;
+margin: 5px;
+}
+
+.passLogin {
+  margin-top: 10px;
+}
+
+input {
+    border:none;
+    border-bottom:  2px solid #A6DBFF;
+    width: 100%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+}
+
+#alert-msg {
+  display:none;
+  font-size: 12px;
+  color: red;
+}
+.sign-up, .login {
+  position: relative;
+  width: 200px;
+  height: 40px;
+  left: 30px;
+  background: #A6DBFF;
+  border: 2px solid #A6DBFF;
+  border-radius: 16px;
+  font-family: 'Poppins',sans-serif; 
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  align-items: center;
+  color: #445E84;
+  margin-top: 25px;
+}
+.login:hover, .sign-up:hover{
+  background-color: #445E84;
+  color: #A4DAFF;
+  border-color: #445E84;
+}
+footer, .login-footer{
+  display: flex;
+  justify-content: center;
+}
+
+.login-footer{
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.logos-container{
+  display: flex;
+  gap: 20px;
+}
+
+.footer-register {
+  margin-left: 40px;
+}
+.footer-text {
+  height: 30px;
+  width: 75; /*Aqui habia %*/
+  font-family: 'Poppins',sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 60%); 
+ justify-content: flex-end;
+}
+
+.first-text {
+    height: 30px;
+    width: 100; /* Aqui habia %*/
+    top: 20px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: rgba(0, 0, 0, 60%); 
+   
+  }
+
+
+.login-text, .register-text {
+  height: 30px;
+  width: 25%;
+  top: 20px;
+  padding-left: 5px;
+  font-family: 'Poppins',sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 60%); 
+  justify-content: flex-start;
+
+}
+
+.login-text:hover {
+  text-decoration: underline ;
+}
+
+.register-login{
+  display: flex;
+  width: 320px;
+  justify-content: center;
+}
+
+.register-text{
+  width: 45px;
+}
+
+/*FEED*/
+.header-feed {
+  width: 320px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 3;
+  position: absolute;
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08);
+  }
+  .logogym-feed {
+  width: 108px;
+  height: 40px;
+  padding-left: 15px;
+  
+  }
+  .log-out{
+  width: 30px;
+  height:30px;
+  padding-right: 15px;
+  }
+  
+  .main-feed{
+   width: 320px;
+   height: 560px;
+   display: grid;
+   grid-template-rows: 75px 75px auto;
+   justify-items: center;
+   align-items: start;
+  }
+  .background-feed{
+    position: absolute;
+    z-index: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 300px;
+    height: 200px;
+    
+  }
+  .containerhello-div{
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    gap:8px;
+  }
+  .hello-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    
+  }
+  .feed-title{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 39px;
+    display: flex;
+    color: #445E84;
+    
+  }
+  .icon-feed{
+    
+    width: 26px;
+    height: 26px;
+  }
+  .question-feed{
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .post-feed, .post-input{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 248px;
+   
+  }
+
+  .input-feed{
+    display: flex;
+    padding-bottom: 5px;
+  }
+
+  #feed, .container-posts{
+    z-index: 2;
+    grid-row-start: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .newpost-feed {
+    border: none;
+  }
+  .writeicon-feed{
+    width: 16px;
+    height: 16px;
+  }
+  .containerbutton-feed{
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 2px rgba(0, 0, 0, 0.05);
+    padding-top: 5px;
+    height: 20px;
+  }
+  
+  .sharebutton-feed{
+    background-color: rgba(239, 137, 156, 0.8);
+  color: white;
+  width: 71px;
+  height: 19px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1em;
+  margin-right: 25px;
+  
+  }
+
+  /* FEED POSTS*/
+ .post-feed{
+   display: flex;
+   gap: 3px;
+   flex-direction: column;
+   padding: 0px 0px 10px 0px;
+   width: 270px;
+ }
+ .header-post{
+  display: flex;
+  background-color: #7188AB;
+  color: white;
+  gap: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px 10px 0px 10px;
+  font-size: 13px;
+  justify-content: space-between;
+  
+ }
+ .user-post{
+   font-family: 'Poppins', sans-serif;
+   font-weight: bold;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   align-self: center;
+   
+ }
+ .text-feed{
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: normal;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 10px 10px 10px;
+  border-bottom: solid 2px rgba(0, 0, 0, 0.05);
+  justify-content: space-between;
+ }
+
+ .footer-post{
+  height: 35px;
+ }
+ .msgerror-feed {
+  visibility: hidden;
+  font-size: 14px;
+  color: red;
+ }
+/* Heart*/
+ .container-heart{
+  display:flex;
+  flex-direction: column;
+  padding-right: 10px;
+}
+
+.icon-heart{
+  position:relative;
+  height:20px;
+  width:12px;
+  background: #A4DAFF;
+  border-radius:100px 100px 0 0;
+  transform:rotate(45deg);
+  transition:all 0.5s;
+  cursor:pointer;
+}
+
+.icon-heart-before{
+  content: '';
+  position: absolute;
+  background: #A4DAFF;
+  height: 20px;
+  width: 12px;
+  transform: rotate(314deg);
+  border-radius: 100px 100px 0 0;
+  left: 252px;
+  transition: all 0.5s;
+}
+
+.likes{
+  color:#445E84; 
+  display: flex;
+  gap:5px;
+}
+
+.container-likes{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 15px;
+  font-family: 'Poppins',sans-serif;
+  font-size: 13px;
+  gap:5px;
+}
+
+
+.delete{
+  width: 23px;
+  height: 25px;
+  align-self: center;
+}
+
+/*MODAL
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  font-family: 'Poppins',sans-serif;
+  color:#445E84;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-confirm {
+  background-color: rgba(239, 137, 156, 0.8);
+  color: white;
+  width: 80px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1em;
+  margin-right: 25px;
+}
+.optionsDiv{
+  display: flex;
+  align-self: center;
+}
+.edit-icon{
+  height: 23px;
+  width: 19px;
+  align-self: center;
+  padding-bottom: 2px;
+  padding-left: 2px;
+}
+.save-Edit{
+  visibility: hidden;
+  width: 22px;
+  height: 22px;
+  padding-right: 5px;
+  margin-top: 5px;
+}
+.cancel-edit{
+  visibility: hidden;
+  width: 22px;
+  height: 22px;
+}

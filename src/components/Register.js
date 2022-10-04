@@ -3,19 +3,19 @@ import { creatAnAccount } from '../lib/auth.js';
 
 export const Register = () => {
   const sectionRegister = document.createElement('section');
-  const header = document.createElement('header');
+  const headerRegister = document.createElement('header');
   const imageLogo = document.createElement('img');
   const mainRegister = document.createElement('main');
   const createAnAccount = document.createElement('p');
   const email = document.createElement('input');
   const password = document.createElement('input');
-  const buttonRegister1 = document.createElement('button');
+  const buttonReg = document.createElement('button');
   const buttonBack = document.createElement('button');
-  let errorMessageOfRegister = document.createElement('p');
+  const errorMessageOfRegister = document.createElement('div');
   const footerWelcome = document.createElement('footer');
 
   sectionRegister.classList = 'sectionRegister';
-  header.classList = 'header';
+  headerRegister.classList = 'headerRegister';
   imageLogo.classList = 'imageLogo';
   imageLogo.alt = 'Imagen de un taco';
   mainRegister.classList = 'mainRegister';
@@ -23,7 +23,7 @@ export const Register = () => {
   email.classList = 'email';
   password.classList = 'password';
   password.type = 'password';
-  buttonRegister1.classList = 'buttonRegister1';
+  buttonReg.classList = 'buttonReg';
   buttonBack.classList = 'buttonBack';
   errorMessageOfRegister.classList = 'errorMessageOfRegister';
   footerWelcome.classList = 'footer';
@@ -32,35 +32,37 @@ export const Register = () => {
   createAnAccount.textContent = 'Crea una cuenta';
   email.placeholder = 'Correo electrónico';
   password.placeholder = 'password';
-  buttonRegister1.textContent = 'Regístrate';
+  buttonReg.textContent = 'Regístrate';
   buttonBack.textContent = 'Regresar';
-  errorMessageOfRegister = '';
+  errorMessageOfRegister.textContent = '';
   footerWelcome.textContent = 'Al registrarte, aceptas los Términos de servicio y la Política de privacidad, incluida la política de Uso de Cookies';
 
-  buttonRegister1.addEventListener('click', () => {
+  buttonReg.addEventListener('click', () => {
+    errorMessageOfRegister.textContent = '';
     if (email.value === '' || password.value === '') {
-      errorMessageOfRegister.innerHTML = 'Llena los campos requeridos';
+      errorMessageOfRegister.textContent = 'Llena los campos requeridos';
     } else {
       creatAnAccount(email.value, password.value)
         .then((userCredential) => {
         // Signed in
           const user = userCredential.user;
+          // console.log(userCredential);
           console.log(user);
           onNavigate('/wall');
         // ...
         })
         .catch((error) => {
-          // if (error.code === "auth/invalid-email"){
-
-          // }else if() {
-
-          // }
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          //console.log(error.keys());
           console.log(error.code)
-          console.log(error.message);
-          // ..
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
+          if (error.code === 'auth/email-already-in-use') {
+            errorMessageOfRegister.textContent = 'Ya existe una cuenta con el email proporcionado';
+          } else if (error.code === 'auth/invalid-email') {
+            errorMessageOfRegister.textContent = 'La dirección de email no es válida';
+            console.log('estoy dentro del if');
+          } else if (error.code === 'auth/weak-password') {
+            errorMessageOfRegister.textContent = 'Introduce al menos 8 caracteres';
+          }
         });
     }
   });
@@ -69,9 +71,14 @@ export const Register = () => {
     onNavigate('/');
   });
 
-  mainRegister.append(createAnAccount, email, password, buttonRegister1, buttonBack);
-  header.append(imageLogo);
-  sectionRegister.append(header, mainRegister, footerWelcome);
+  mainRegister.append(createAnAccount,
+    errorMessageOfRegister,
+    email,
+    password,
+    buttonReg,
+    buttonBack);
+  headerRegister.append(imageLogo);
+  sectionRegister.append(headerRegister, mainRegister, footerWelcome);
 
   return sectionRegister;
 };

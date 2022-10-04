@@ -4,7 +4,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { app } from './config.js';
 
-const auth = getAuth();
+const auth = getAuth(app);
 
 export const guardarUssuario = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
@@ -34,20 +34,11 @@ export const loginGoogle = () => {
     });
 };
 
-export const userObserver = (callBack) => {
-  const authObserver = getAuth();
-  onAuthStateChanged(authObserver, callBack);
-};
 
-export const signWithEmailPassword = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-    // Signed in
-      const user = userCredential.user;
-    // ...
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
-};
+// retorno implicito sin llaves {}
+
+// .then promesa .catch manejo de excepciones
+
+//
+
+export const signWithEmailPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
-import { signWithEmailPassword } from '../firebase/auth.js';
+import { signWithEmailPassword, loginGoogle } from '../firebase/auth.js';
 
 
 export const Login = () => {
@@ -12,7 +12,7 @@ export const Login = () => {
   const inputEmail = document.createElement('input');
   const inputPassword = document.createElement('input');
   const recuerdame = document.createElement('p');
-  
+
   const forgotpassword = document.createElement('p');
   const line = document.createElement('hr');
   const notienescuenta = document.createElement('p');
@@ -47,17 +47,28 @@ export const Login = () => {
   imageGoogletwo.classList = ('buttongoogle');
   imageGoogletwo.setAttribute('src', 'https://i.postimg.cc/tJh7mK8T/google.png');
 
-  /*botonparaacceder.addEventListener('click', () => {
-    let mail = inputEmail.value
-    let password = inputPassword.value
-    signWithEmailPassword(mail, password);
-  });*/
-
-
+  button.addEventListener('click', () => {
+    console.log('hola');
+    const mail = inputEmail.value;
+    const password = inputPassword.value;
+    signWithEmailPassword(mail, password).then((userCredential) => {
+      // Signed in
+      const user = userCredential.user;
+      console.log(user)
+      // ...
+    })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log (errorMessage)
+      });
+  });
+  imageGoogletwo.addEventListener('click', () => {
+    loginGoogle();
+  });
   buttonBack.addEventListener('click', () => {
     onNavigate('/');
   });
-  
 
   div.append(titlepost, imageGoogletwo, recuerdame, notienescuenta, line, forgotpassword, title, inputEmail, inputPassword, button, buttonBack, buttonnuevacuenta);
 

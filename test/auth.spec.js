@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 import { register } from '../src/Components/Register.js';
-import { login } from '../src/Components/Login.js';
+import { home } from '../src/Components/Home.js';
 
 jest.mock('../src/main.js');
 jest.mock('../src/lib/imports.js');
@@ -30,5 +30,10 @@ describe('Test de Registro', () => {
   });
   /* Aqui se pone lo mismo que arriba pero con una contraseña
    que sea 123 y se usa el SnapShot en vez de el toBe */
+  test('Debe cerrar sesión', () => {
+    const muro = home();
+    const cerrarSesion = muro.querySelector('.log-out');
+    expect(window.location.pathname).toBe('/');
+  });
 });
 

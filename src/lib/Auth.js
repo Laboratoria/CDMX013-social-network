@@ -30,16 +30,4 @@ export const signInWithGithub = () => {
 };
 // SIGNOUT
 export const signoutPage = () => signOut(auth);
-/* // UPDATE INFO
-export const updateInfo = (name) => updateProfile(auth.currentUser, {
-  displayName: name,
-}).then(() => {
-  // Profile updated!
-  // ...
-  console.log('name updated');
-}).catch((error) => {
-  // An error occurred
-  // ...
-  console.log('no name');
-});
-*/
+

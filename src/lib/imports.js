@@ -7,3 +7,4 @@ export {
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 export const providerGoogle = new GoogleAuthProvider();
+//export const auth = getAuth();

@@ -89,12 +89,12 @@ export function register() {
   registerForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const inputmailValue = document.querySelector('#user-mail').value;
-    const inputpasswordValue = document.querySelector('#user-pass').value;
-    if (inputpasswordValue.length < 6) {
+    // const inputmailValue = document.querySelector('#user-mail').value;
+    // const inputpasswordValue = document.querySelector('#user-pass').value;
+    if (inputMail.value.length < 6) {
       alertMsg.style = 'display: block';
     } else {
-      createUser(inputmailValue, inputpasswordValue);
+      createUser(inputMail.value, inputPass.value);
     }
   });
   // Return all

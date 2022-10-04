@@ -28,5 +28,7 @@ describe('Test de Registro', () => {
     form.submit();
     setTimeout(() => { expect(window.location.pathname).toBe('/home'); }, 7000);
   });
+  /* Aqui se pone lo mismo que arriba pero con una contraseña
+   que sea 123 y se usa el SnapShot en vez de el toBe */
 });
 

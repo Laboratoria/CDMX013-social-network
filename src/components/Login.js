@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import { onNavigate } from '../main.js';
 
-
 export const Login = () => {
   const div = document.createElement('div');
   const titlepost = document.createElement('h1');
@@ -30,6 +29,7 @@ export const Login = () => {
   inputEmail.classList = ('emaillogin');
   inputPassword.placeholder = 'Contraseña';
   inputPassword.classList = ('passwordlogin');
+  inputPassword.setAttribute('type', 'password');
   recuerdame.textContent = 'Recordarme';
   recuerdame.classList = ('recuerdame');
   buttongoogle.textContent = '';
@@ -45,7 +45,6 @@ export const Login = () => {
   buttonBack.addEventListener('click', () => {
     onNavigate('/');
   });
-  
 
   div.append(titlepost, recuerdame, notienescuenta, line, forgotpassword, buttongoogle, title, inputEmail, inputPassword, button, buttonBack, buttonnuevacuenta);
 

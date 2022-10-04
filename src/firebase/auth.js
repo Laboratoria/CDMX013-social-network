@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import {
-  getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
+  getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { app } from './config.js';
 
@@ -33,23 +33,3 @@ export const loginGoogle = () => {
     // ...
     });
 };
-
-export const userObserver = (callBack) => {
-  const authObserver = getAuth();
-  onAuthStateChanged(authObserver, callBack);
-};
-
-export const signWithEmailPassword = (email, password) => {
-
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-}
-

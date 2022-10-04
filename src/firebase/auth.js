@@ -4,7 +4,7 @@ import {
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { app } from './config.js';
 
-const auth = getAuth();
+const auth = getAuth(app);
 
 export const guardarUssuario = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
@@ -33,3 +33,14 @@ export const loginGoogle = () => {
     // ...
     });
 };
+
+
+
+// retorno implicito sin llaves {}
+
+// .then promesa .catch manejo de excepciones
+
+
+
+export const signWithEmailPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);
+

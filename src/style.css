@@ -7,7 +7,7 @@ html {
 
 body {
 
-    background-image: url("./image/tacos.jpg");
+    background-image: url("./image/products-from-mexico.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -28,7 +28,7 @@ body {
     /* gap: 20px; */
 }
 
-.header {
+.headerWelcome {
     grid-area: header;
     justify-self: center;
     align-self: end;
@@ -60,7 +60,7 @@ body {
     font-size: 18px;
     text-align: justify;
     font-family: 'Montserrat', sans-serif;
-    color: #6DFB8C;
+    color: #f3f4eb;
     font-weight: bold;
 }
 
@@ -126,25 +126,46 @@ body {
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 150px 776px;
+    grid-template-rows: 150px 650px 126px;
     grid-template-areas:
         "header"
-        "main";
+        "main"
+        "footer";
 }
+
+.headerRegister{
+    grid-area: header;
+    justify-self: center;
+    align-self: flex-end;
+
+}
+
 .mainRegister{
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr; /* sólo tendrá una columna*/
-    grid-template-rows: 220px 80px 90px 75px 230px;
+    grid-template-rows: 100px 100px 80px 90px 75px 130px;
     grid-template-areas:
         "main1"
         "main2"
         "main3"
         "main4"
-        "main5";
+        "main5"
+        "main6";
+}
+.errorMessageOfRegister{
+    grid-area: main1;
+    background-color: #eee706;
+    justify-self: center;
+    align-self: end;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:rgb(248, 6, 6);
+    font-weight: bold;
 }
 .createAnAccount{
-    grid-area: main1;
+    grid-area: main2;
     justify-self: center;
     align-self: center;
     font-size: 30px;
@@ -153,19 +174,8 @@ body {
     color:azure;
     font-weight: bold;
 }
+
 .email{
-    grid-area: main2;
-    background-color: #F2F0BD;
-    text-align: center;
-    font-size: 25px;
-    justify-self: center;
-    align-self: end;
-    width: 300px;
-    height: 49px;
-    border-radius: 5px;
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
-}
-.password{
     grid-area: main3;
     background-color: #F2F0BD;
     text-align: center;
@@ -177,8 +187,20 @@ body {
     border-radius: 5px;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
 }
-.buttonRegister1{
+.password{
     grid-area: main4;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.buttonReg{
+    grid-area: main5;
     justify-self: center;
     align-self: end;
     width: 180px;
@@ -192,9 +214,9 @@ body {
 
 }
 .buttonBack{
-    grid-area: main5;
-    justify-content: flex-start;
-    align-self:end;
+    grid-area: main6;
+    justify-self: start;
+    align-self: end;
     width: 180px;
     height: 50px;
     border-radius: 20px;
@@ -206,12 +228,13 @@ body {
 }
 .footer{
     justify-self:center;
-    align-self: end;
+    align-self: start;
     width: 400px;
-    font-size: 18px;
+    font-size: 20px;
     text-align: justify;
     font-family: 'Arial', sans-serif;
-    color: #F5EDA2;
-    font-weight: bold;
+    color: #FFFFFF;
+    /* font-weight: bold; */
+    background-color: rgba(146, 172, 184, 0.7);
 
 }

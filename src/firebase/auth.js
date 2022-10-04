@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import {
-  getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
+  getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
 import { app } from './config.js';
 
@@ -35,6 +35,7 @@ export const loginGoogle = () => {
 };
 
 
+
 // retorno implicito sin llaves {}
 
 // .then promesa .catch manejo de excepciones
@@ -42,3 +43,4 @@ export const loginGoogle = () => {
 
 
 export const signWithEmailPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);
+

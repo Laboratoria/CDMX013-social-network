@@ -2,17 +2,18 @@ import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/
 import { Welcome } from './components/Welcome.js';
 import { Login } from './components/Login.js';
 import { Register } from './components/Register.js';
+
 import { Wall } from './components/wall.js';
 
 
 const auth = getAuth();
+
 
 const root = document.getElementById('root');
 const routes = {
   '/': Welcome,
   '/login': Login,
   '/register': Register,
-  '/wall': Wall,
 };
 
 export const onNavigate = (pathname) => {
@@ -31,6 +32,7 @@ window.onpopstate = () => {
   root.removeChild(root.firstChild);
   root.append(component());
 };
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
     onNavigate('/wall');
@@ -38,4 +40,5 @@ onAuthStateChanged(auth, (user) => {
     onNavigate('/');
   }
 });
+
 root.appendChild(component());

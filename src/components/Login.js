@@ -2,7 +2,6 @@
 import { onNavigate } from '../main.js';
 import { signWithEmailPassword, loginGoogle } from '../firebase/auth.js';
 
-
 export const Login = () => {
   const div = document.createElement('div');
   const titlepost = document.createElement('h1');
@@ -17,7 +16,6 @@ export const Login = () => {
   const line = document.createElement('hr');
   const notienescuenta = document.createElement('p');
   const buttonnuevacuenta = document.createElement('button');
-  const imageGoogletwo = document.createElement('img');
 
   titlepost.textContent = 'Postalk';
   titlepost.classList = ('postalklog');
@@ -35,7 +33,8 @@ export const Login = () => {
   inputPassword.setAttribute('type', 'password');
   recuerdame.textContent = 'Recordarme';
   recuerdame.classList = ('recuerdame');
-
+  buttongoogle.textContent = '';
+  buttongoogle.classList = ('buttongoogle');
   forgotpassword.textContent = '¿Olvisdaste la constraseña?';
   forgotpassword.classList = ('forgotpassword');
   line.classList = ('line');
@@ -43,6 +42,7 @@ export const Login = () => {
   notienescuenta.classList = ('textcuenta');
   buttonnuevacuenta.textContent = 'Registrar';
   buttonnuevacuenta.classList = ('buttonnuevacuenta');
+
 
   imageGoogletwo.classList = ('buttongoogle');
   imageGoogletwo.setAttribute('src', 'https://i.postimg.cc/tJh7mK8T/google.png');
@@ -66,11 +66,12 @@ export const Login = () => {
   imageGoogletwo.addEventListener('click', () => {
     loginGoogle();
   });
+
   buttonBack.addEventListener('click', () => {
     onNavigate('/');
   });
 
-  div.append(titlepost, imageGoogletwo, recuerdame, notienescuenta, line, forgotpassword, title, inputEmail, inputPassword, button, buttonBack, buttonnuevacuenta);
+  div.append(titlepost, recuerdame, notienescuenta, line, forgotpassword, buttongoogle, title, inputEmail, inputPassword, button, buttonBack, buttonnuevacuenta);
 
   return div;
 };

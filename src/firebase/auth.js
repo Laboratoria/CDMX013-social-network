@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 import {
-  getAuth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
+  getAuth, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
+import { onNavigate } from '../main.js';
 import { app } from './config.js';
 
 const auth = getAuth(app);
@@ -34,13 +35,17 @@ export const loginGoogle = () => {
     });
 };
 
-
-
 // retorno implicito sin llaves {}
 
 // .then promesa .catch manejo de excepciones
 
-
-
 export const signWithEmailPassword = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
+export const logOut = () => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    onNavigate('/');
+  }).catch((error) => {
+  // An error happened.
+  });
+};

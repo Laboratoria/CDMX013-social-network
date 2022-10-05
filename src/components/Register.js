@@ -9,7 +9,6 @@ export const Register = () => {
   const inputEmail = document.createElement('input');
   const inputPass = document.createElement('input');
   const descriptionRegister = document.createElement('h3');
-  const inputConfirm = document.createElement('input');
 
   const liner = document.createElement('hr');
   const imageGoogle = document.createElement('img');
@@ -26,11 +25,10 @@ export const Register = () => {
   inputPass.textContent = ('input');
   inputPass.classList = ('inputPass');
   inputPass.setAttribute('type', 'password');
-  inputConfirm.textContent = ('input');
-  inputConfirm.classList = ('inputConfirm');
+
   inputEmail.placeholder = 'Email';
   inputPass.placeholder = 'Contraseña';
-  inputConfirm.placeholder = 'Confirmar contraseña';
+
   buttonNewRegister.textContent = 'Registrar';
   buttonNewRegister.classList = ('buttonr');
   liner.classList = ('liner');
@@ -65,7 +63,7 @@ export const Register = () => {
   });
 
   // eslint-disable-next-line max-len
-  div.append(title, liner, imageGoogle, descriptionRegister, buttonBack, inputEmail, inputPass, inputConfirm, buttonNewRegister, buttonBack);
+  div.append(title, liner, imageGoogle, descriptionRegister, buttonBack, inputEmail, inputPass, buttonNewRegister, buttonBack);
 
   return div;
 };

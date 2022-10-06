@@ -2,20 +2,16 @@ html {
     padding: 0;
     margin: 0;
     width: 100%;
-
 }
-
 body {
 
     background-image: url("./image/products-from-mexico.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
 }
-
-
-.sectionOfWelcome {
+/*welcome*/
+.sectionWelcome {
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -24,103 +20,71 @@ body {
     grid-template-areas:
         "header"
         "main";
-
-    /* gap: 20px; */
 }
-
 .headerWelcome {
     grid-area: header;
     justify-self: center;
     align-self: end;
-
 }
-
 .mainWelcome {
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 220px 80px 90px 75px 230px;
+    grid-template-rows: 250px 150px 120px 100px;
     grid-template-areas:
         "main1"
         "main2"
         "main3"
-        "main4"
-        "main5";
-    /* "main6"; */
-
+        "main4";
 }
-
-
 .description {
     grid-area: main1;
     justify-self: center;
     align-self: end;
     /* place-self: center; */
     width: 372px;
-    font-size: 18px;
+    font-size: 20px;
     text-align: justify;
     font-family: 'Montserrat', sans-serif;
     color: #f3f4eb;
-    font-weight: bold;
+    font-weight: 100;
 }
-
-.buttonSignWithGoogle{
-    grid-area: main2;
-    background-image: url(./image/google.png);
-    justify-self: center;
-    align-self: end;
-    width: 241px;
-    height: 53px;
-    border-radius: 5px;
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
-}
-
-.orSelect{
-    grid-area: main3;
-    justify-self: center;
-    align-self: end;
-
-
-}
-
 .buttonLogin{
-    grid-area: main4;
+    grid-area: main2;
     justify-self: center;
-    align-self: end;
-    width: 150px;
+    align-self: center;
+    width: 180px;
     height: 50px;
     border-radius: 20px;
     background-color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
-    color: #000000;
+    color: #170351;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
 }
-
 .ask {
-    grid-area: main5;
+    grid-area: main3;
     justify-self: center;
     align-self: center;
     font-family: 'Reem Kufi', sans-serif;
-    font-size: 36px;
+    font-size: 40px;
     font-weight: bold;
     color: #FFFFFF;
 }
-
-.buttonRegister {
-    grid-area: main5;
+.buttonRegisterOfWelcome {
+    grid-area: main4;
     justify-self: center;
-    align-self: end;
+    align-self: start;
     width: 150px;
     height: 50px;
     border-radius: 20px;
     background-color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     font-size: 22px;
-    color: #000000;
+    color: #170351;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
-
 }
+/*Register*/
 .sectionRegister {
     height: 100vh;
     width: 100vw;
@@ -132,26 +96,24 @@ body {
         "main"
         "footer";
 }
-
 .headerRegister{
     grid-area: header;
     justify-self: center;
     align-self: flex-end;
-
 }
-
 .mainRegister{
     grid-area: main;
     display: grid;
     grid-template-columns: 1fr; /* sólo tendrá una columna*/
-    grid-template-rows: 100px 100px 80px 90px 75px 130px;
+    grid-template-rows: 60px 80px 80px 80px 80px 70px 150px;
     grid-template-areas:
         "main1"
         "main2"
         "main3"
         "main4"
         "main5"
-        "main6";
+        "main6"
+        "main7";
 }
 .errorMessageOfRegister{
     grid-area: main1;
@@ -168,14 +130,13 @@ body {
     grid-area: main2;
     justify-self: center;
     align-self: center;
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     font-family: 'Reem Kufi', sans-serif;
     color:azure;
     font-weight: bold;
 }
-
-.email{
+.userName{
     grid-area: main3;
     background-color: #F2F0BD;
     text-align: center;
@@ -185,9 +146,9 @@ body {
     width: 300px;
     height: 49px;
     border-radius: 5px;
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);      
 }
-.password{
+.emailRegister{
     grid-area: main4;
     background-color: #F2F0BD;
     text-align: center;
@@ -199,8 +160,20 @@ body {
     border-radius: 5px;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
 }
-.buttonReg{
+.passwordRegister{
     grid-area: main5;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.buttonRegister{
+    grid-area: main6;
     justify-self: center;
     align-self: end;
     width: 180px;
@@ -209,32 +182,156 @@ body {
     background-color: #FFFFFF;
     font-family: 'Roboto', sans-serif;
     font-size: 25px;
-    color: #000000;
+    color: #170351;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
 
 }
-.buttonBack{
-    grid-area: main6;
+.buttonBackRegister{
+    grid-area: main7;
     justify-self: start;
     align-self: end;
-    width: 180px;
+    width: 150px;
     height: 50px;
     border-radius: 20px;
     background-color: azure;
     font-family: 'Roboto', sans-serif;
     font-size: 25px;
-    color: #000000;
+    color: #170351;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
 }
-.footer{
+.footerRegister{
     justify-self:center;
     align-self: start;
+    width: 400px;
+    font-size: 21px;
+    text-align: justify;
+    font-family: 'Arial', sans-serif;
+    color: #031158;
+    font-weight: bold;
+    background-color: rgba(251, 254, 255, 0.6);
+}
+/*** LOGIN **/
+.sectionLogin {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 650px 130px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+.headerLogin{
+    grid-area: header;
+    justify-self: center;
+    align-self: flex-end;
+}
+.mainLogin{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr; /* sólo tendrá una columna*/
+    grid-template-rows: 60px 80px 70px 80px 65px 65px 90px;
+    grid-template-areas:
+        "main1"
+        "main2"
+        "main3"
+        "main4"
+        "main5"
+        "main6"
+        "main7"
+        "main8";
+}
+.errorMessageOfLogin{
+    grid-area: main1;
+    background-color: #eee706;
+    justify-self: center;
+    align-self: end;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:rgb(248, 6, 6);
+    font-weight: bold;
+}
+.startSession{
+    grid-area: main2;
+    justify-self: center;
+    align-self: center;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:azure;
+    font-weight: bold;
+}
+.buttonGoogle {
+    grid-area: main3;
+    justify-self: center;
+    align-self: center;
+}
+.orSelect{
+    grid-area: main4;
+    justify-self: center;
+    align-self: end;
+}
+.emailLogin{
+    grid-area: main5;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.passwordLogin{
+    grid-area: main6;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.buttonStartSession{
+    grid-area: main7;
+    justify-self: center;
+    align-self: center;
+    width: 180px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: #170351;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.buttonBackLogin{
+    grid-area: main8;
+    justify-self: start;
+    align-self: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: azure;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: #170351;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.footerLogin{
+    justify-self:center;
+    align-self: center;
     width: 400px;
     font-size: 20px;
     text-align: justify;
     font-family: 'Arial', sans-serif;
-    color: #FFFFFF;
-    /* font-weight: bold; */
-    background-color: rgba(146, 172, 184, 0.7);
-
+    color: #031158;
+    font-weight: bold;
+    background-color: rgba(251, 254, 255, 0.6);
 }
+

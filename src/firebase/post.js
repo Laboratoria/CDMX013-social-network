@@ -3,9 +3,9 @@ import { app } from './config.js';
 
 const db = getFirestore(app);
 
-export const savePost = async () => {
+export const savePost = async (textPost) => {
   const docRef = await addDoc(collection(db, 'post'), {
-    mensaje: 'Hola hoy desayune quesadilla',
+    mensaje: textPost,
   });
   console.log('Document written with ID: ', docRef.id);
 };

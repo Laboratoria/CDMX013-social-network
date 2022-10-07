@@ -9,12 +9,14 @@ export const MakePost = () => {
   // ejercuart la funcion de guardar post
 
   buttonComent.classList = ('buttonComent');
-  savePost();
+  // savePost();
 
   buttonComent.addEventListener('click', () => {
-    savePost();
+    savePost(input.value);
   });
 
   div.append(input, buttonComent);
   return div;
 };
+
+//

@@ -1,4 +1,5 @@
 import { logOut } from '../firebase/auth.js';
+import { MakePost } from './MakePost.js';
 
 export const Wall = () => {
   const div = document.createElement('div');
@@ -10,7 +11,7 @@ export const Wall = () => {
   title.textContent = 'Wall';
   title.classList = ('postalkr');
   // eslint-disable-next-line max-len
-  div.append(title, exit);
+  div.append(title, exit, MakePost());
 
   exit.addEventListener('click', () => {
     logOut();

@@ -421,6 +421,15 @@ body {
 
 
 }
+.comentario{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+}
 
 .exit{
     width: 36px;
@@ -431,6 +440,10 @@ body {
     background-image:
         url('./imagen/exit.png');
     background-size: 105%;
+}
+
+.text{
+color: #FFFFFF;
 }
 
 .buttonnuevacuenta {

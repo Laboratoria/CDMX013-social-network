@@ -1,6 +1,6 @@
 import { logOut } from '../firebase/auth.js';
 import { MakePost } from './MakePost.js';
-import { getPost } from '../firebase/post.js';
+import { getPost, deletePost } from '../firebase/post.js';
 
 export const Wall = () => {
   const div = document.createElement('div');
@@ -32,9 +32,17 @@ export const Wall = () => {
       const contenidoPost = document.createElement('p');
       contenidoPost.textContent = post.mensaje;
       contenidoPost.classList = 'contenidoPost';
+      containerPosts.classList = 'cajadecontenido'; // div
+      post.classList = 'post';
       console.log(post);
 
-      containerPosts.append(contenidoPost);
+      const buttonDelete = document.createElement('button');
+      buttonDelete.textContent = 'Borrar';
+      buttonDelete.classList = 'buttonDelete';
+      buttonDelete.addEventListener('click', async () => {
+        await deletePost(doc.id);
+      });
+      containerPosts.append(contenidoPost, buttonDelete);
     });
   });
 

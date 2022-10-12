@@ -7,30 +7,35 @@ export const Wall = () => {
   const title = document.createElement('h2');
   const exit = document.createElement('button');
   const containerPosts = document.createElement('div');
+  const welcome = document.createElement('Bienvenido');
+
   div.classList.add('container-register');
   exit.classList = 'exit';
 
+  welcome.textContent = 'Bienvenido';
+  welcome.classList = 'welcome';
+
+  title.textContent = 'Postalk';
+  title.classList = ('postalkr');
+  // eslint-disable-next-line max-len
+  div.append(title, exit, MakePost(), containerPosts, welcome);
+
+  exit.addEventListener('click', () => {
+    logOut();
+  });
+
   getPost((recorre) => {
-    containerPosts.innerHTML = "";
+    containerPosts.innerHTML = '';
     recorre.forEach((doc) => {
       console.log(doc.id, '=>', doc.data());
       const post = doc.data();
       const contenidoPost = document.createElement('p');
       contenidoPost.textContent = post.mensaje;
-      contenidoPost.classList = 'text'
+      contenidoPost.classList = 'contenidoPost';
       console.log(post);
 
       containerPosts.append(contenidoPost);
     });
-  });
-
-  title.textContent = 'Wall';
-  title.classList = ('postalkr');
-  // eslint-disable-next-line max-len
-  div.append(title, exit, MakePost(), containerPosts);
-
-  exit.addEventListener('click', () => {
-    logOut();
   });
 
   // funcion que recibe el snapshot ( como argumento una funcion que s encargue de tomar snapshot y utilizarla )

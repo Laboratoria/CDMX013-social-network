@@ -2,8 +2,11 @@ import { savePost } from '../firebase/post.js';
 
 export const MakePost = () => {
   const div = document.createElement('div');
-  const input = document.createElement('input');
+  const boxtext = document.createElement('input');
   const buttonComent = document.createElement('button');
+
+  buttonComent.textContent = 'Comentar';
+  boxtext.classList = 'boxtext';
   // crear un boton
   // agregar un evento al boton
   // ejercuart la funcion de guardar post
@@ -12,11 +15,9 @@ export const MakePost = () => {
   // savePost();
 
   buttonComent.addEventListener('click', () => {
-    savePost(input.value);
+    savePost(boxtext.value);
   });
 
-  div.append(input, buttonComent);
+  div.append(boxtext, buttonComent);
   return div;
 };
-
-//

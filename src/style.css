@@ -506,31 +506,13 @@ border-radius: 8px;
 .contenidoPost{
     display: flex;
     background: #151419;
-    flex-direction: column;
+margin-top: 50px;
     margin: 15px;
     padding: 10px;
     border-radius: 15px;
     font-size: 20px;
     font-family: 'Poppins';
 color: #FFFFFF;
-}
-
-.cajadecontenido{
-    position: absolute;
-    margin-top:  220px;
-    margin-left: 15px;
-    width: 100%;
-    height: 100%;
-
-}
-
-.post{
-    display: flex;
-    padding: 23px;
-        width: 270px;
-        margin-top: 20px;
-        margin-left: 2px;
-
 }
 
 .welcome{

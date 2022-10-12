@@ -1,36 +1,43 @@
-html {
+
+body {
     padding: 0;
     margin: 0;
     width: 100%;
+    height: 100%;
+      /* background-image: url("./image/products-from-mexico.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
 }
-body {
-
+/*welcome*/
+.sectionWelcome {
     background-image: url("./image/products-from-mexico.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-/*welcome*/
-.sectionWelcome {
-    height: 100vh;
-    width: 100vw;
     display: grid;
+    place-items: center;
     grid-template-columns: 1fr;
-    grid-template-rows: 150px 776px;
+    grid-template-rows: 170px 756px;
     grid-template-areas:
         "header"
         "main";
 }
 .headerWelcome {
     grid-area: header;
-    justify-self: center;
+    justify-self: start;
     align-self: end;
+    padding-left: 3%;
+    width: 65%;
+    height: 65%;
 }
 .mainWelcome {
     grid-area: main;
+    /* height: 100vh; */
+    width: 100vw;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 250px 150px 120px 100px;
+    grid-template-rows: 256px 100px 130px 250px;
     grid-template-areas:
         "main1"
         "main2"
@@ -40,8 +47,7 @@ body {
 .description {
     grid-area: main1;
     justify-self: center;
-    align-self: end;
-    /* place-self: center; */
+    align-self: center;
     width: 372px;
     font-size: 20px;
     text-align: justify;
@@ -52,7 +58,7 @@ body {
 .buttonLogin{
     grid-area: main2;
     justify-self: center;
-    align-self: center;
+    align-self: start;
     width: 180px;
     height: 50px;
     border-radius: 20px;
@@ -86,8 +92,10 @@ body {
 }
 /*Register*/
 .sectionRegister {
-    height: 100vh;
-    width: 100vw;
+    background-image: url("./image/products-from-mexico.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 150px 650px 126px;
@@ -212,8 +220,12 @@ body {
 }
 /*** LOGIN **/
 .sectionLogin {
-    height: 100vh;
-    width: 100vw;
+    background-image: url("./image/products-from-mexico.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* height: 100vh;
+    width: 100vw; */
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 150px 650px 130px;
@@ -334,4 +346,182 @@ body {
     font-weight: bold;
     background-color: rgba(251, 254, 255, 0.6);
 }
-
+/* ** WALL * */
+.sectionWall {
+    background-image: url("./image/backgroundWall.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 706px 70px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+.headerWall {
+    grid-area: header;
+    justify-self: center;
+    align-self: end;
+}
+.mainWall {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr; /* sólo tendrá una columna*/
+    grid-template-rows: 70px 200px 200px 250px;
+    grid-template-areas:
+        "main1"
+        "main2"
+        "main3";
+}
+.welcomeToWall {
+    grid-area: main1;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFFFFF; 
+}
+.containerWritePost {
+    grid-area: main2;
+    display: grid;
+    grid-template-columns: 1fr; /* sólo tendrá una columna*/
+    grid-template-rows: 50px 110px 40px;
+    grid-template-areas:
+        "containerWritePost1"
+        "containerWritePost2"
+        "containerWritePost3";
+}
+.imageChef {
+    grid-area: containerWritePost1;
+    width: 10%;
+    justify-self: start;
+    align-self: center;
+    padding-left: 2%;
+}
+.askToPost{
+    grid-area: containerWritePost1;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding-left: 8%;    
+}
+.inputPost {
+    grid-area: containerWritePost2;
+    width: 90vw;
+    height: 80%;
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px;
+    border-color: #f76816;
+    border-width: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #170351;
+    font-size: 20px;
+    background-color: #cff9d4a5;
+}
+.buttonPost {
+    grid-area: containerWritePost3;
+    width: 8%;
+    justify-self: end;
+    align-self: center;
+    padding-right: 10%;
+}
+.errorMessagePost {
+    grid-area: containerWritePost3;
+    background-color: #eee706;
+    justify-self: start;
+    align-self: center;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:rgb(248, 6, 6);
+    font-weight: bold;
+    padding-left: 2%;
+}
+.containerOldPost { 
+    grid-area: main3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 110px 40px;
+    grid-template-areas:
+        "containerOldPost1"
+        "containerOldPost2"
+        "containerOldPost3";
+}
+.containerChefUserNamePost {
+    grid-area: containerOldPost1;
+    display: grid;
+    grid-template-columns: 70px 358px;
+    grid-template-rows: 50px;
+    grid-template-areas:
+        "containerChefUserNamePost1 containerChefUserNamePost2";
+}
+.imageChefOldPost {
+    grid-area: containerChefUserNamePost1;
+    width: 58%;
+    justify-self: center;
+    align-self: center;
+    padding-left: 2%;
+}
+.userNameOldPost{
+    grid-area: containerChefUserNamePost2;
+    justify-self: start;
+    align-self: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;   
+}
+.showOldPost {
+    grid-area: containerOldPost2;
+    width: 90vw;
+    height: 80%;
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px;
+    border-color: #f76816;
+    border-width: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #170351;
+    font-size: 20px;
+    background-color: #cff9d4a5;
+}
+.containerImageOldPost{
+    grid-area: containerOldPost3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: 40px;
+    grid-template-areas:
+        "containerImageOldPost1 containerImageOldPost2 containerImageOldPost3";
+}
+.buttonLikePost{
+    grid-area: containerImageOldPost1;
+    width: 35%;
+    justify-self: center;
+    align-self: center;
+}
+.buttonEditPost{
+    grid-area: containerImageOldPost2;
+    width: 25%;
+    justify-self: center;
+    align-self: center;  
+}
+.buttonDelatePost{
+    grid-area: containerImageOldPost3;
+    width: 25%;
+    justify-self: center;
+    align-self: center;
+} 
+.buttonBackWall {
+    grid-area: footer;
+    justify-self: center;
+    align-self: center; 
+    width: 20%;
+} 
+   

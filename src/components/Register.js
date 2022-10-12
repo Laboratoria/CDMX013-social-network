@@ -7,7 +7,7 @@ const headerRegister = document.createElement('header');
 const imageLogo = document.createElement('img');
 const mainRegister = document.createElement('main');
 const createAnAccount = document.createElement('p');
-const userName = document.createElement('input');
+export const userName = document.createElement('input');
 const emailRegister = document.createElement('input');
 const passwordRegister = document.createElement('input');
 const buttonRegister = document.createElement('button');
@@ -49,12 +49,12 @@ export const Register = () => {
         // Signed in
         const user = userCredential.user;
         // console.log(userCredential);
-        // console.log(user);
+        // console.log(userName.value);
         onNavigate('/wall');
         // ...
       })
       .catch((error) => {
-        console.log(error.code);
+        // console.log(error.code);
         // const errorCode = error.code;
         // const errorMessage = error.message;
         if (emailRegister.value === '' || passwordRegister.value === '') {
@@ -88,3 +88,4 @@ export const Register = () => {
 
   return sectionRegister;
 };
+

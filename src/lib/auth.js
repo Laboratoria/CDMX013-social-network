@@ -1,18 +1,19 @@
-// Import the functions you need from the SDKs you need
 // eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved
+// import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-firestore.js';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signOut,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.9.4/firebase-auth.js';
-import { firebaseApp } from './config.js';
 import { onNavigate } from '../main.js';
-
+import {app} from './config.js';
 // Initialize Firebase
-const auth = getAuth(firebaseApp);
+export const auth = getAuth();
 
 // eslint-disable-next-line max-len
 export const creatAnAccount = (email, password) => createUserWithEmailAndPassword(auth, email, password);
@@ -31,13 +32,12 @@ export const signWithGoogle = () => signInWithPopup(auth, provider)
     onNavigate('/wall');
     // ...
   }).catch((error) => {
-    console.log(error);
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
+    console.log('no inicié sesión', error);
     // ...
   });
+
+export const closed = () => (signOut(auth));
+
+
+
+

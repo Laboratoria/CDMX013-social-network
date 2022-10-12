@@ -40,3 +40,4 @@ export const Welcome = () => {
 
   return sectionWelcome;
 };
+

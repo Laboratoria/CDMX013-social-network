@@ -1,0 +1,537 @@
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+      /* background-image: url("./image/products-from-mexico.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+}
+/*welcome*/
+.sectionWelcome {
+    background-image: url("./image/products-from-mexico.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 170px 756px;
+    grid-template-areas:
+        "header"
+        "main";
+}
+.headerWelcome {
+    grid-area: header;
+    justify-self: start;
+    align-self: end;
+    padding-left: 3%;
+    width: 65%;
+    height: 65%;
+}
+.mainWelcome {
+    grid-area: main;
+    /* height: 100vh; */
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 256px 100px 130px 250px;
+    grid-template-areas:
+        "main1"
+        "main2"
+        "main3"
+        "main4";
+}
+.description {
+    grid-area: main1;
+    justify-self: center;
+    align-self: center;
+    width: 372px;
+    font-size: 20px;
+    text-align: justify;
+    font-family: 'Montserrat', sans-serif;
+    color: #f3f4eb;
+    font-weight: 100;
+}
+.buttonLogin{
+    grid-area: main2;
+    justify-self: center;
+    align-self: start;
+    width: 180px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: #170351;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.ask {
+    grid-area: main3;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+.buttonRegisterOfWelcome {
+    grid-area: main4;
+    justify-self: center;
+    align-self: start;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    color: #170351;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+/*Register*/
+.sectionRegister {
+    background-image: url("./image/products-from-mexico.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 650px 126px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+.headerRegister{
+    grid-area: header;
+    justify-self: center;
+    align-self: flex-end;
+}
+.mainRegister{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr; /* sólo tendrá una columna*/
+    grid-template-rows: 60px 80px 80px 80px 80px 70px 150px;
+    grid-template-areas:
+        "main1"
+        "main2"
+        "main3"
+        "main4"
+        "main5"
+        "main6"
+        "main7";
+}
+.errorMessageOfRegister{
+    grid-area: main1;
+    background-color: #eee706;
+    justify-self: center;
+    align-self: end;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:rgb(248, 6, 6);
+    font-weight: bold;
+}
+.createAnAccount{
+    grid-area: main2;
+    justify-self: center;
+    align-self: center;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:azure;
+    font-weight: bold;
+}
+.userName{
+    grid-area: main3;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);      
+}
+.emailRegister{
+    grid-area: main4;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.passwordRegister{
+    grid-area: main5;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.buttonRegister{
+    grid-area: main6;
+    justify-self: center;
+    align-self: end;
+    width: 180px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: #170351;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+
+}
+.buttonBackRegister{
+    grid-area: main7;
+    justify-self: start;
+    align-self: end;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: azure;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: #170351;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.footerRegister{
+    justify-self:center;
+    align-self: start;
+    width: 400px;
+    font-size: 21px;
+    text-align: justify;
+    font-family: 'Arial', sans-serif;
+    color: #031158;
+    font-weight: bold;
+    background-color: rgba(251, 254, 255, 0.6);
+}
+/*** LOGIN **/
+.sectionLogin {
+    background-image: url("./image/products-from-mexico.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* height: 100vh;
+    width: 100vw; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 650px 130px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+.headerLogin{
+    grid-area: header;
+    justify-self: center;
+    align-self: flex-end;
+}
+.mainLogin{
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr; /* sólo tendrá una columna*/
+    grid-template-rows: 60px 80px 70px 80px 65px 65px 90px;
+    grid-template-areas:
+        "main1"
+        "main2"
+        "main3"
+        "main4"
+        "main5"
+        "main6"
+        "main7"
+        "main8";
+}
+.errorMessageOfLogin{
+    grid-area: main1;
+    background-color: #eee706;
+    justify-self: center;
+    align-self: end;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:rgb(248, 6, 6);
+    font-weight: bold;
+}
+.startSession{
+    grid-area: main2;
+    justify-self: center;
+    align-self: center;
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:azure;
+    font-weight: bold;
+}
+.buttonGoogle {
+    grid-area: main3;
+    justify-self: center;
+    align-self: center;
+}
+.orSelect{
+    grid-area: main4;
+    justify-self: center;
+    align-self: end;
+}
+.emailLogin{
+    grid-area: main5;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.passwordLogin{
+    grid-area: main6;
+    background-color: #F2F0BD;
+    text-align: center;
+    font-size: 25px;
+    justify-self: center;
+    align-self: end;
+    width: 300px;
+    height: 49px;
+    border-radius: 5px;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.buttonStartSession{
+    grid-area: main7;
+    justify-self: center;
+    align-self: center;
+    width: 180px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: #170351;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.buttonBackLogin{
+    grid-area: main8;
+    justify-self: start;
+    align-self: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: azure;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: #170351;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
+}
+.footerLogin{
+    justify-self:center;
+    align-self: center;
+    width: 400px;
+    font-size: 20px;
+    text-align: justify;
+    font-family: 'Arial', sans-serif;
+    color: #031158;
+    font-weight: bold;
+    background-color: rgba(251, 254, 255, 0.6);
+}
+/* ** WALL * */
+.sectionWall {
+    background-image: url("./image/backgroundWall.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px 706px 70px;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+.headerWall {
+    grid-area: header;
+    justify-self: center;
+    align-self: end;
+}
+.mainWall {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 1fr; /* sólo tendrá una columna*/
+    grid-template-rows: 70px 200px 200px 250px;
+    grid-template-areas:
+        "main1"
+        "main2"
+        "main3";
+}
+.welcomeToWall {
+    grid-area: main1;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFFFFF; 
+}
+.containerWritePost {
+    grid-area: main2;
+    display: grid;
+    grid-template-columns: 1fr; /* sólo tendrá una columna*/
+    grid-template-rows: 50px 110px 40px;
+    grid-template-areas:
+        "containerWritePost1"
+        "containerWritePost2"
+        "containerWritePost3";
+}
+.imageChef {
+    grid-area: containerWritePost1;
+    width: 10%;
+    justify-self: start;
+    align-self: center;
+    padding-left: 2%;
+}
+.askToPost{
+    grid-area: containerWritePost1;
+    justify-self: center;
+    align-self: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    padding-left: 8%;    
+}
+.inputPost {
+    grid-area: containerWritePost2;
+    width: 90vw;
+    height: 80%;
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px;
+    border-color: #f76816;
+    border-width: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #170351;
+    font-size: 20px;
+    background-color: #cff9d4a5;
+}
+.buttonPost {
+    grid-area: containerWritePost3;
+    width: 8%;
+    justify-self: end;
+    align-self: center;
+    padding-right: 10%;
+}
+.errorMessagePost {
+    grid-area: containerWritePost3;
+    background-color: #eee706;
+    justify-self: start;
+    align-self: center;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Reem Kufi', sans-serif;
+    color:rgb(248, 6, 6);
+    font-weight: bold;
+    padding-left: 2%;
+}
+/* .containerOldPost { 
+    grid-area: main3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 110px 40px;
+    grid-template-areas:
+        "containerOldPost1"
+        "containerOldPost2"
+        "containerOldPost3";
+} */
+.postContainer { 
+    grid-area: main3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 110px 40px;
+    grid-template-areas:
+        "containerOldPost1"
+        "containerOldPost2"
+        "containerOldPost3";
+}
+.containerChefUserNamePost {
+    grid-area: containerOldPost1;
+    display: grid;
+    grid-template-columns: 70px 358px;
+    grid-template-rows: 50px;
+    grid-template-areas:
+        "containerChefUserNamePost1 containerChefUserNamePost2";
+}
+.imageChefOldPost {
+    grid-area: containerChefUserNamePost1;
+    width: 58%;
+    justify-self: center;
+    align-self: center;
+    padding-left: 2%;
+}
+.userNameOldPost{
+    grid-area: containerChefUserNamePost2;
+    justify-self: start;
+    align-self: center;
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #FFFFFF;   
+}
+.showOldPost {
+    grid-area: containerOldPost2;
+    width: 90vw;
+    height: 80%;
+    align-self: center;
+    justify-self: center;
+    border-radius: 20px;
+    border-color: #f76816;
+    border-width: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #170351;
+    font-size: 20px;
+    background-color: #cff9d4a5;
+}
+.containerImageOldPost{
+    grid-area: containerOldPost3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: 40px;
+    grid-template-areas:
+        "containerImageOldPost1 containerImageOldPost2 containerImageOldPost3";
+}
+.buttonLikePost{
+    grid-area: containerImageOldPost1;
+    width: 35%;
+    justify-self: center;
+    align-self: center;
+}
+.buttonEditPost{
+    grid-area: containerImageOldPost2;
+    width: 25%;
+    justify-self: center;
+    align-self: center;  
+}
+.buttonDeletePost{
+    grid-area: containerImageOldPost3;
+    width: 25%;
+    justify-self: center;
+    align-self: center;
+} 
+.buttonBackWall {
+    grid-area: footer;
+    justify-self: center;
+    align-self: center; 
+    width: 30%;
+} 
+   
